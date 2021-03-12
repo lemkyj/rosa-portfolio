@@ -1,55 +1,71 @@
 <template>
-  <div class="">
-    <nuxt />
+  <div>
+    <header
+      id="header"
+      class="grid w-full"
+      style="grid-template-columns: 10% 1fr 1fr 10%; min-height: 10vh"
+    >
+      <section class="col-start-2 col-end-3 my-8">
+        <nuxt-link exact to="/" class="inline-flex"
+          ><Logo id="logo"
+        /></nuxt-link>
+      </section>
+      <section class="custom-navanim my-8 justify-self-end items-center">
+        <nav class="hidden md:flex md:space-x-8 items-center text-lg font-bold">
+          <nuxt-link to="/portfolio" class="anim-stagger px-10 py-3"
+            >Portfolio</nuxt-link
+          >
+          <button
+            class="anim-stagger px-10 py-3 rounded-full bg-brand-pink text-lg font-bold"
+          >
+            Contact
+          </button>
+        </nav>
+        <nuxt-link
+          to="/contact"
+          type="button"
+          aria-label="Menu"
+          aria-controls="navigation"
+          id="hamburger"
+          class="md:hidden h-8 w-8 justify-center flex items-end"
+        >
+          <svg
+            class=""
+            viewBox="0 0 18 14"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <g id="">
+              <rect id="line-top" width="18" height="2" rx="1" fill="#4A4A48" />
+              <rect
+                id="line-mid"
+                y="6"
+                width="18"
+                height="2"
+                rx="1"
+                fill="#4A4A48"
+              />
+              <rect
+                id="line-bottom"
+                y="12"
+                width="18"
+                height="2"
+                rx="1"
+                fill="#4A4A48"
+              />
+            </g>
+          </svg>
+        </nuxt-link>
+      </section>
+    </header>
+    <main class="">
+      <Nuxt />
+    </main>
   </div>
 </template>
 
-<style>
-html {
-  font-family: "Source Sans Pro", -apple-system, BlinkMacSystemFont, "Segoe UI",
-    Roboto, "Helvetica Neue", Arial, sans-serif;
-  font-size: 16px;
-  word-spacing: 1px;
-  -ms-text-size-adjust: 100%;
-  -webkit-text-size-adjust: 100%;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-font-smoothing: antialiased;
-  box-sizing: border-box;
-}
-
-*,
-*:before,
-*:after {
-  box-sizing: border-box;
-  margin: 0;
-}
-
-.button--green {
-  display: inline-block;
-  border-radius: 4px;
-  border: 1px solid #3b8070;
-  color: #3b8070;
-  text-decoration: none;
-  padding: 10px 30px;
-}
-
-.button--green:hover {
-  color: #fff;
-  background-color: #3b8070;
-}
-
-.button--grey {
-  display: inline-block;
-  border-radius: 4px;
-  border: 1px solid #35495e;
-  color: #35495e;
-  text-decoration: none;
-  padding: 10px 30px;
-  margin-left: 15px;
-}
-
-.button--grey:hover {
-  color: #fff;
-  background-color: #35495e;
+<style lang="scss">
+body {
+  overflow: hidden;
 }
 </style>

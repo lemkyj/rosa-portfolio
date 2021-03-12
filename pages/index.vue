@@ -2,6 +2,7 @@
   <div class="container">
     <div class="div">
       <Logo />
+      <nuxt-link to="/portfolio">GO TO PORTFOLIO</nuxt-link>
       <h1 class="text-brand-pink">ROSA LEE</h1>
       <p class="text-brand-pink">
         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iste illo
