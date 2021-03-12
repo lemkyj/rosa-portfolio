@@ -4,12 +4,12 @@
       <div class="anim img w-full h-full">
         <div class="hero-title font-display -space-y-1">
           <div class="anim custom-headline-box inline-flex px-8 py-1">
-            <h1 class="custom-headline text-display text-brand-black ">
+            <h1 class="custom-headline text-display text-brand-black">
               Rosa Lee
             </h1>
           </div>
           <div class="anim custom-subtitle-box flex ml-20 px-8 py-2">
-            <p class="custom-subtitle text-subtitle text-brand-black ">
+            <p class="custom-subtitle text-subtitle text-brand-black">
               DESIGN / ILLUSTRATION / PHOTOGRAPHY
             </p>
           </div>
@@ -21,11 +21,33 @@
 </template>
 
 <script>
-import Logo from "~/components/Logo.vue";
-
 export default {
-  components: {
-    Logo,
+  components: {},
+  transition: {
+    mode: "out-in",
+    css: false,
+    enter(el, done) {
+      const tl = gsap.timeline();
+      tl.fromTo(
+        ".custom-hero",
+        1,
+        { height: "0%" },
+        { height: "80%", ease: Power2.easeInOut }
+      )
+        .fromTo(
+          ".custom-hero",
+          1.2,
+          { width: "100%" },
+          { width: "80%", ease: Power2.easeInOut }
+        )
+        .fromTo(
+          ".slider",
+          1.2,
+          { x: "-100%" },
+          { x: "0%", ease: Power2.easeInOut },
+          "-=1.2"
+        );
+    },
   },
 };
 </script>
@@ -46,7 +68,7 @@ section {
 
   .custom-hero {
     position: relative;
-    height: 100%;
+    height: 0%;
     width: 80%;
     @media (min-width: 640px) {
       height: 80%;

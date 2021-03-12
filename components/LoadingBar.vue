@@ -1,9 +1,9 @@
 <template>
   <div
     v-if="loading"
-    class="absolute inset-0 flex justify-center items-center z-50"
+    class="loading-page absolute inset-0 flex justify-center items-center z-50"
   >
-    <div>
+    <div class="inline-block">
       <svg
         version="1.1"
         id="L9"
@@ -48,7 +48,7 @@
                 repeatCount="indefinite"
               />
             </rect>
-            <rect x="4" y="-10%" width="4" height="10" fill="#424242">
+            <rect x="5" y="-10%" width="4" height="10" fill="#424242">
               <animateTransform
                 attributeType="xml"
                 attributeName="transform"
@@ -88,15 +88,6 @@ export default {
 </script>
 
 <style scoped lang="scss">
-.page-enter-active,
-.page-leave-active {
-  transition: opacity 1s;
-}
-.page-enter,
-.page-leave-active {
-  opacity: 0;
-}
-
 #L9 {
   margin: 0 auto;
 }

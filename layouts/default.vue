@@ -10,14 +10,14 @@
           ><Logo id="logo"
         /></nuxt-link>
       </section>
-      <section class="custom-navanim my-8 justify-self-end items-center">
+      <section class="my-8 justify-self-end items-center">
         <nav class="hidden md:flex md:space-x-8 items-center text-lg font-bold">
-          <nuxt-link to="/portfolio" class="anim-stagger px-10 py-3"
+          <nuxt-link to="/portfolio" class="anim-nav px-10 py-3"
             >Portfolio</nuxt-link
           >
           <nuxt-link
             to="/contact"
-            class="anim-stagger px-10 py-3 rounded-full bg-brand-pink text-lg font-bold"
+            class="anim-nav px-10 py-3 rounded-full bg-brand-pink text-lg font-bold"
             >Contact</nuxt-link
           >
         </nav>
@@ -27,7 +27,7 @@
           aria-label="Menu"
           aria-controls="navigation"
           id="hamburger"
-          class="md:hidden h-8 w-8 justify-center flex items-end"
+          class="animDefault md:hidden h-8 w-8 justify-center flex items-end"
         >
           <svg
             class=""
@@ -61,12 +61,13 @@
     <main class="">
       <Nuxt />
     </main>
+    <!-- <div
+      class="anim-slider fixed inset-0 w-full h-screen bg-brand-pink z-10"
+    ></div> -->
   </div>
 </template>
 
 <style lang="scss">
-// @import "../assets/main.scss";
-
 /* 
 NOTE Concentric CSS Approach
   - CSS Class Orders -
@@ -84,11 +85,20 @@ NOTE Concentric CSS Approach
 body {
   overflow: hidden;
 }
+
+.layout-enter-active,
+.layout-leave-active {
+  transition: opacity 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+.layout-enter,
+.layout-leave-to {
+  opacity: 0;
+  transition: opacity 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
 </style>
 
 <script>
 import Logo from "@/components/Logo.vue";
-import LoadingBar from "../components/LoadingBar.vue";
 // import { gsap } from "gsap";
 // import { ScrollTrigger } from "gsap/ScrollTrigger";
 // import { ExpoScaleEase, RoughEase, SlowMo } from "gsap/EasePack";
@@ -97,22 +107,33 @@ import LoadingBar from "../components/LoadingBar.vue";
 export default {
   components: {
     Logo,
-    LoadingBar,
   },
   mounted() {
     this.animInit();
+    this.$nextTick(() => {
+      this.$nuxt.$loading.start();
+      setTimeout(() => {
+        this.$nuxt.$loading.finish();
+      }, 1500);
+    });
   },
   methods: {
     animInit() {
       const tl = gsap.timeline();
-      tl.set(document.body, { overflow: "hidden" })
-        .from("#logo", {
+      tl.set("#header", { opacity: 0, yPercent: -10 })
+        // .to(".anim-slider", {
+        //   duration: 1,
+        //   yPercent: 101,
+        //   ease: "power4.in",
+        // })
+        .to("#header", {
           duration: 1,
-          opacity: 0,
-          yPercent: -50,
-          ease: "back.out",
-        })
-        .set(document.body, { overflow: "auto" });
+          delay: 3,
+          stagger: 0.5,
+          yPercent: 0,
+          opacity: 1,
+          ease: "slowmo.out",
+        });
     },
   },
 };

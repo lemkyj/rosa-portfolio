@@ -1,6 +1,5 @@
 export default {
   mode: "spa",
-  components: true,
   /*
    ** Headers of the page
    */
@@ -34,10 +33,10 @@ export default {
   /*
    ** Customize the progress-bar color
    */
-  loading: "~/components/LoadingBar.vue",
+  // loading: "~/components/LoadingBar.vue",
   loadingIndicator: {
     name: "pulse",
-    color: "#3B8070",
+    color: "#fbe3e8",
     background: "white",
   },
   /*
