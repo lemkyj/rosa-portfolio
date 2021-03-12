@@ -1,16 +1,25 @@
 <template>
-  <div class="container">
-    <div class="div">
-      <Logo />
-      <nuxt-link to="/portfolio">GO TO PORTFOLIO</nuxt-link>
-      <h1 class="text-brand-pink">ROSA LEE</h1>
-      <p class="text-brand-pink">
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iste illo
-        tempora deleniti odit dolore inventore deserunt corporis sapiente, iusto
-        sed, sit dolores vitae nisi voluptas temporibus iure, nam et laborum!
-      </p>
+  <section class="custom-section">
+    <div class="custom-hero">
+      <div class="anim img w-full h-full">
+        <div class="hero-title font-display -space-y-1">
+          <div
+            class="anim custom-headline-box inline-flex px-8 py-1 bg-brand-pink"
+          >
+            <h1 class="custom-headline text-display">Rosa Lee</h1>
+          </div>
+          <div
+            class="anim custom-subtitle-box flex ml-20 px-8 py-2 bg-brand-pink"
+          >
+            <p class="custom-subtitle text-subtitle">
+              DESIGN / ILLUSTRATION / PHOTOGRAPHY
+            </p>
+          </div>
+        </div>
+      </div>
     </div>
-  </div>
+    <div class="slider"></div>
+  </section>
 </template>
 
 <script>
@@ -23,35 +32,63 @@ export default {
 };
 </script>
 
-<style>
+
+<style scoped lang="scss">
+/* Sample `apply` at-rules with Tailwind CSS
 .container {
-  margin: 0 auto;
-  min-height: 100vh;
+@apply min-h-screen flex justify-center items-center text-center mx-auto;
+}
+*/
+
+section {
   display: flex;
+  height: 80vh;
   justify-content: center;
   align-items: center;
-  text-align: center;
+
+  .custom-hero {
+    position: relative;
+    height: 100%;
+    width: 80%;
+    @media (min-width: 640px) {
+      height: 80%;
+      margin-top: -3rem;
+    }
+    &:after {
+      content: "";
+      background: black;
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      left: 0;
+      top: 0;
+      opacity: 0;
+    }
+    .img {
+      background: url("~@/assets/mountain.jpg");
+      background-size: cover;
+      width: 100%;
+      height: 100%;
+    }
+    .hero-title {
+      position: absolute;
+      top: 95%;
+      left: 3%;
+      font-size: 100px;
+      transform: translate(-20%, -70%);
+      color: white;
+      z-index: 3;
+    }
+  }
 }
 
-.title {
-  font-family: "Quicksand", "Source Sans Pro", -apple-system, BlinkMacSystemFont,
-    "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-  display: block;
-  font-weight: 300;
-  font-size: 100px;
-  color: #35495e;
-  letter-spacing: 1px;
-}
-
-.subtitle {
-  font-weight: 300;
-  font-size: 42px;
-  color: #526488;
-  word-spacing: 5px;
-  padding-bottom: 15px;
-}
-
-.links {
-  padding-top: 15px;
+.slider {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: #ebf6f5;
+  z-index: -1;
 }
 </style>

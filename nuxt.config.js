@@ -37,11 +37,13 @@ export default {
   /*
    ** Global CSS
    */
-  css: ["~/assets/css/main.scss"],
+  css: ["@/assets/css/main.scss"],
+
   /*
    ** Plugins to load before mounting the App
    */
   plugins: [],
+  buildModules: ["@nuxtjs/tailwindcss", "@nuxtjs/style-resources"],
   /*
    ** Nuxt.js modules
    */
@@ -55,8 +57,7 @@ export default {
      */
     extend(config, ctx) {},
   },
-  buildModules: ["@nuxtjs/style-resources"],
   styleResources: {
-    scss: ["./assets/css/variable/*.scss"],
+    scss: ["./assets/css/variables.scss"],
   },
 };

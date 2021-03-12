@@ -15,11 +15,11 @@
           <nuxt-link to="/portfolio" class="anim-stagger px-10 py-3"
             >Portfolio</nuxt-link
           >
-          <button
+          <nuxt-link
+            to="/contact"
             class="anim-stagger px-10 py-3 rounded-full bg-brand-pink text-lg font-bold"
+            >Contact</nuxt-link
           >
-            Contact
-          </button>
         </nav>
         <nuxt-link
           to="/contact"
@@ -65,7 +65,33 @@
 </template>
 
 <style lang="scss">
+// @import "../assets/main.scss";
+
+/* 
+NOTE Concentric CSS Approach
+  - CSS Class Orders -
+    1. Custom class with 'custom-'prefix
+    2. positioning/visibility 
+    3. box model 
+    4. borders 
+    5. background 
+    6. typography 
+    7. others 
+
+  ex) <div id="box" class="custom-box flex mx-4 border bg-red-200 text-bold"></div>
+*/
+
 body {
-  overflow: hidden;
+  overflow: initial;
 }
 </style>
+
+<script>
+import Logo from "@/components/Logo.vue";
+
+export default {
+  components: {
+    Logo,
+  },
+};
+</script>
