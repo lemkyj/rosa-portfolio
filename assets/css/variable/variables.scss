@@ -1,0 +1,56 @@
+/* NOTE Color Variables */
+
+$brand-pink-color: #fbe3e8;
+$brand-darkpink-color: #c79f9d;
+$brand-green-color: #5cbdb9;
+$brand-lightgreen-color: #ebf6f5;
+$brand-black-color: #424242;
+$brand-pink-textcolor: #A9817F;
+$brand-green-textcolor: #1F423E;
+s
+/* NOTE Background Color */
+.bg-brand-pink {
+    background-color: $brand-pink-color;
+}
+
+.bg-brand-darkpink {
+    background-color: $brand-darkpink-color;
+}
+
+.bg-brand-green {
+    background-color: $brand-green-color;
+}
+
+.bg-brand-lightgreen {
+    background-color: $brand-lightgreen-color;
+}
+
+.bg-brand-black {
+    background-color: $brand-black-color;
+}
+
+/* NOTE Border Color */
+.border-brand-pink {
+    border-color: $brand-darkpink-color;
+}
+
+/* NOTE Text Color */
+.text-brand-pink {
+    color: $brand-pink-textcolor;
+}
+
+.text-brand-darkpink {
+    color: $brand-darkpink-color;
+}
+
+.text-brand-green {
+    color: $brand-green-textcolor;
+}
+
+.text-brand-lightgreen {
+    color: $brand-lightgreen-color;
+}
+
+.text-brand-black {
+    color: $brand-black-color;
+}

@@ -1,79 +1,40 @@
+
 <template>
-  <div class="VueToNuxtLogo">
-    <div class="Triangle Triangle--two" />
-    <div class="Triangle Triangle--one" />
-    <div class="Triangle Triangle--three" />
-    <div class="Triangle Triangle--four" />
+  <div class="flex w-full items-center space-x-4">
+    <svg viewBox="0 0 46 45" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <g class="rosa-logo" clip-path="url(#clip0)">
+        <path
+          id="circle-shape"
+          d="M21.5284 44.7052C20.5626 44.5634 19.5925 44.4491 18.6333 44.2777C9.78474 42.7096 2.40881 35.8296 0.575157 27.2609C-1.13234 19.2721 0.962334 12.2652 6.85482 6.44972C10.5939 2.76109 15.2161 0.706217 20.5278 0.134829C31.0686 -1.0016 41.27 5.14188 44.6263 14.9359C47.5106 23.3522 45.8444 31.0173 39.7083 37.62C36.1302 41.4694 31.5689 43.6619 26.3028 44.4618C25.6612 44.5592 25.0151 44.6226 24.3713 44.7031C23.4229 44.7052 22.4767 44.7052 21.5284 44.7052ZM23.001 3.41502C12.6146 3.34518 3.57686 11.4927 3.50291 22.2348C3.43113 32.7441 12.2035 41.3022 22.927 41.3065C33.6875 41.3107 42.4359 32.8267 42.4403 22.383C42.4425 11.8864 33.7614 3.41502 23.001 3.41502Z"
+          fill="#4A4A48"
+        />
+        <path
+          id="r-shape"
+          d="M24.6299 25.7223C25.4434 25.407 26.2221 2578 26.9377 24.8165C29.7219 23.4452 31.5534 20.292 31.2358 17.4985C30.8399 14.0342 28.5256 11.2408 25.3825 10.4345C20.8908 9.28113 16.2403 12.0513 15.4159 16.3685C14.5241 21.0411 17.2692 25.1784 22.0458 26.3402C23.8773 26.7846 25.7501 27.0936 27.5468 27.6417C30.2701 28.4734 32.5322 30.0077 34.2093 32.3017C34.7791 33.0805 35.0793 33.9545 35.2903 34.9301C35.1011 34.9661 34.9466 35.0211 34.7944 35.0211C33.5371 35.0274 32.2799 35.038 31.0227 35.0105C30.8508 35.0063 30.5528 34.8052 30.5398 34.6719C30.4071 33.4529 29.6219 32.6636 28.7148 31.9462C27.4967 30.9833 25.9937 30.7547 24.5407 30.3611C22.533 29.8193 20.5384 29.2226 18.5764 28.5432C17.9391 28.3232 17.4193 27.7793 16.8581 27.3666C16.373 27.009 15.9054 26.628 15.3224 26.173C15.2158 27.464 15.1223 28.5919 15.0309 29.7199C14.2196 27.7687 12.5382 27.3179 11.1353 28.6448C11.3245 27.7116 11.6247 26.7423 11.6943 25.7561C11.8096 24.1182 11.7813 22.4717 11.8052 20.8274C11.8291 19.0942 11.7051 17.3567 12.1054 15.6426C13.1625 11.1117 17.2453 7.61775 22.0088 7.17757C27.0682 6.712 31.8209 9.41233 33.7003 13.9284C35.2903 17.7461 34.6182 22.9415 30.7529 26.4566C29.946 27.191 29.3391 27.4153 28.2754 26.8651C27.2422 26.3296 26.0111 26.154 24.8692 25.8196C24.8017 25.8006 24.7408 25.7688 24.6299 25.7223Z"
+          fill="#4A4A48"
+        />
+        <path
+          id="heart-shape"
+          d="M10.9834 29.9356C11.4163 29.0849 11.8948 28.5431 12.7801 28.5389C13.9808 28.5326 14.7834 29.6457 14.4637 30.9028C14.1374 32.1958 13.2695 33.1587 12.3125 34.0306C11.5098 34.7628 11.7926 34.839 10.7289 34.2083C9.88499 33.7089 9.09541 33.0973 8.36891 32.4455C7.83817 31.9694 7.60543 31.2964 7.72724 30.5578C7.85122 29.8065 8.27537 29.3029 9.02363 29.0743C9.75013 28.8521 10.3396 29.1018 10.8334 29.6182C10.8943 29.6817 10.9117 29.779 10.9834 29.9356Z"
+          fill="#BC7572"
+        />
+      </g>
+      <defs>
+        <clipPath id="clip0">
+          <rect width="46" height="45" fill="white" />
+        </clipPath>
+      </defs>
+    </svg>
+    <div class="logo-text font-display text-2xl tracking-wider">
+      <span class="text-brand-darkpink">R</span>OSA LEE
+    </div>
   </div>
 </template>
 
-<style>
-.VueToNuxtLogo {
-  display: inline-block;
-  animation: turn 2s linear forwards 1s;
-  transform: rotateX(180deg);
-  position: relative;
-  overflow: hidden;
-  height: 180px;
-  width: 245px;
-}
 
-.Triangle {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 0;
-  height: 0;
-}
-
-.Triangle--one {
-  border-left: 105px solid transparent;
-  border-right: 105px solid transparent;
-  border-bottom: 180px solid #41b883;
-}
-
-.Triangle--two {
-  top: 30px;
-  left: 35px;
-  animation: goright 0.5s linear forwards 3.5s;
-  border-left: 87.5px solid transparent;
-  border-right: 87.5px solid transparent;
-  border-bottom: 150px solid #3b8070;
-}
-
-.Triangle--three {
-  top: 60px;
-  left: 35px;
-  animation: goright 0.5s linear forwards 3.5s;
-  border-left: 70px solid transparent;
-  border-right: 70px solid transparent;
-  border-bottom: 120px solid #35495e;
-}
-
-.Triangle--four {
-  top: 120px;
-  left: 70px;
-  animation: godown 0.5s linear forwards 3s;
-  border-left: 35px solid transparent;
-  border-right: 35px solid transparent;
-  border-bottom: 60px solid #fff;
-}
-
-@keyframes turn {
-  100% {
-    transform: rotateX(0deg);
-  }
-}
-
-@keyframes godown {
-  100% {
-    top: 180px;
-  }
-}
-
-@keyframes goright {
-  100% {
-    left: 70px;
-  }
+<style scoped lang="scss">
+svg {
+  width: 46px;
+  height: 46px;
 }
 </style>
