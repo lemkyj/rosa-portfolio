@@ -70,7 +70,7 @@
 /* 
 NOTE Concentric CSS Approach
   - CSS Class Orders -
-    1. Custom class with 'custom-'prefix
+    1. 'custom-'prefix classes
     2. positioning/visibility 
     3. box model 
     4. borders 
@@ -82,16 +82,38 @@ NOTE Concentric CSS Approach
 */
 
 body {
-  overflow: initial;
+  overflow: hidden;
 }
 </style>
 
 <script>
 import Logo from "@/components/Logo.vue";
+import LoadingBar from "../components/LoadingBar.vue";
+// import { gsap } from "gsap";
+// import { ScrollTrigger } from "gsap/ScrollTrigger";
+// import { ExpoScaleEase, RoughEase, SlowMo } from "gsap/EasePack";
+// gsap.registerPlugin(ScrollTrigger, ExpoScaleEase, RoughEase, SlowMo);
 
 export default {
   components: {
     Logo,
+    LoadingBar,
+  },
+  mounted() {
+    this.animInit();
+  },
+  methods: {
+    animInit() {
+      const tl = gsap.timeline();
+      tl.set(document.body, { overflow: "hidden" })
+        .from("#logo", {
+          duration: 1,
+          opacity: 0,
+          yPercent: -50,
+          ease: "back.out",
+        })
+        .set(document.body, { overflow: "auto" });
+    },
   },
 };
 </script>

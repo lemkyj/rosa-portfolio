@@ -1,5 +1,5 @@
 <template>
-  <div class="flex w-full items-center space-x-4 border">
+  <div class="flex w-full items-center space-x-4">
     <svg viewBox="0 0 46 45" fill="none" xmlns="http://www.w3.org/2000/svg">
       <g class="rosa-logo" clip-path="url(#clip0)">
         <path

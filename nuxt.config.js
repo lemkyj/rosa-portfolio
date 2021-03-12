@@ -1,16 +1,17 @@
 export default {
   mode: "spa",
+  components: true,
   /*
    ** Headers of the page
    */
   head: {
-    title: process.env.npm_package_name || "",
+    title: process.env.npm_package_name || "Rosa Lee",
     meta: [
       { charset: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       {
         hid: "description",
-        name: "description",
+        name: "Rosa Lee",
         content: process.env.npm_package_description || "",
       },
     ],
@@ -33,7 +34,12 @@ export default {
   /*
    ** Customize the progress-bar color
    */
-  loading: { color: "#fff" },
+  loading: "~/components/LoadingBar.vue",
+  loadingIndicator: {
+    name: "pulse",
+    color: "#3B8070",
+    background: "white",
+  },
   /*
    ** Global CSS
    */
@@ -43,7 +49,11 @@ export default {
    ** Plugins to load before mounting the App
    */
   plugins: [],
-  buildModules: ["@nuxtjs/tailwindcss", "@nuxtjs/style-resources"],
+  buildModules: [
+    "@nuxtjs/tailwindcss",
+    "@nuxtjs/style-resources",
+    "@aceforth/nuxt-optimized-images",
+  ],
   /*
    ** Nuxt.js modules
    */
@@ -59,5 +69,8 @@ export default {
   },
   styleResources: {
     scss: ["./assets/css/variables.scss"],
+  },
+  optimizedImages: {
+    optimizeImages: true,
   },
 };

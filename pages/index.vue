@@ -3,15 +3,13 @@
     <div class="custom-hero">
       <div class="anim img w-full h-full">
         <div class="hero-title font-display -space-y-1">
-          <div
-            class="anim custom-headline-box inline-flex px-8 py-1 bg-brand-pink"
-          >
-            <h1 class="custom-headline text-display">Rosa Lee</h1>
+          <div class="anim custom-headline-box inline-flex px-8 py-1">
+            <h1 class="custom-headline text-display text-brand-black ">
+              Rosa Lee
+            </h1>
           </div>
-          <div
-            class="anim custom-subtitle-box flex ml-20 px-8 py-2 bg-brand-pink"
-          >
-            <p class="custom-subtitle text-subtitle">
+          <div class="anim custom-subtitle-box flex ml-20 px-8 py-2">
+            <p class="custom-subtitle text-subtitle text-brand-black ">
               DESIGN / ILLUSTRATION / PHOTOGRAPHY
             </p>
           </div>
