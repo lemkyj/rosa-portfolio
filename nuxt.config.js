@@ -5,13 +5,19 @@ export default {
    */
   head: {
     title: process.env.npm_package_name || "Rosa Lee",
+    htmlAttrs: {
+      lang: "en",
+      amp: true,
+    },
     meta: [
       { charset: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       {
         hid: "description",
         name: "Rosa Lee",
-        content: process.env.npm_package_description || "",
+        content:
+          process.env.npm_package_description ||
+          "Rosa Lee - Designer Portfolio",
       },
     ],
     link: [
@@ -23,10 +29,16 @@ export default {
       },
     ],
     script: [
-      { src: "https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.0/gsap.min.js" },
+      {
+        src: "https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.0/gsap.min.js",
+        async: true,
+        defer: true,
+      },
       {
         src:
           "https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.0/ScrollTrigger.min.js",
+        async: true,
+        defer: true,
       },
     ],
   },

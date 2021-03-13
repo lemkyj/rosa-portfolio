@@ -25,7 +25,7 @@
       </defs>
     </svg>
     <div class="logo-text font-display text-2xl tracking-wider">
-      <span class="text-brand-darkpink">R</span>OSA LEE
+      <span class="text-brand-pink">R</span>OSA LEE
     </div>
   </div>
 </template>

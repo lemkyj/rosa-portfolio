@@ -68,8 +68,9 @@ section {
 
   .custom-hero {
     position: relative;
-    height: 0%;
+    height: 60%;
     width: 80%;
+    margin-top: -6rem;
     @media (min-width: 640px) {
       height: 80%;
       margin-top: -3rem;

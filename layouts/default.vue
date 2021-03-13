@@ -11,13 +11,15 @@
         /></nuxt-link>
       </section>
       <section class="my-8 justify-self-end items-center">
-        <nav class="hidden md:flex md:space-x-8 items-center text-lg font-bold">
+        <nav
+          class="anim-stagger hidden md:flex md:space-x-8 items-center text-lg font-bold"
+        >
           <nuxt-link to="/portfolio" class="anim-nav px-10 py-3"
             >Portfolio</nuxt-link
           >
           <nuxt-link
             to="/contact"
-            class="anim-nav px-10 py-3 rounded-full bg-brand-pink text-lg font-bold"
+            class="anim-stagger px-10 py-3 rounded-full bg-brand-pink text-lg font-bold"
             >Contact</nuxt-link
           >
         </nav>
@@ -83,18 +85,18 @@ NOTE Concentric CSS Approach
 */
 
 body {
-  overflow: hidden;
+  // overflow: hidden;
 }
 
-.layout-enter-active,
-.layout-leave-active {
-  transition: opacity 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-}
-.layout-enter,
-.layout-leave-to {
-  opacity: 0;
-  transition: opacity 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-}
+// .layout-enter-active,
+// .layout-leave-active {
+//   transition: opacity 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+// }
+// .layout-enter,
+// .layout-leave-to {
+//   opacity: 0;
+//   transition: opacity 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+// }
 </style>
 
 <script>
@@ -114,26 +116,24 @@ export default {
       this.$nuxt.$loading.start();
       setTimeout(() => {
         this.$nuxt.$loading.finish();
-      }, 1500);
+      }, 2000);
     });
   },
   methods: {
     animInit() {
       const tl = gsap.timeline();
-      tl.set("#header", { opacity: 0, yPercent: -10 })
-        // .to(".anim-slider", {
-        //   duration: 1,
-        //   yPercent: 101,
-        //   ease: "power4.in",
-        // })
-        .to("#header", {
+      tl.fromTo(
+        "#header, .anim-stagger",
+        { opacity: 0, yPercent: -10 },
+        {
           duration: 1,
-          delay: 3,
-          stagger: 0.5,
+          delay: 1.6,
+          stagger: 0.3,
           yPercent: 0,
           opacity: 1,
           ease: "slowmo.out",
-        });
+        }
+      );
     },
   },
 };
