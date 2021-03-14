@@ -91,7 +91,8 @@ export default {
   data() {
     return {
       // 포트폴리오 진입 시의 기본 카테고리
-      category: 'all',
+      category: this.$route.query.category,
+      categoryList: ['package', 'illustration', 'drawing', 'photography', 'others'],
       modalVisible: false,
       modalData: null,
 
@@ -303,9 +304,7 @@ export default {
   },
   computed: {
     filteredLists: function() {
-      if (this.category === 'all') {
-        return this.lists;
-      } else {
+      if (this.categoryList.includes(this.category)){
         let categoryLists = [];
         
         // foreach안에서 this가 작동 안하기 때문에 중간변수 that 추가
@@ -316,6 +315,8 @@ export default {
           }
         });
         return categoryLists;
+      } else {
+        return this.lists;
       }
     }
   },
