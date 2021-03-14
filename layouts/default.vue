@@ -5,6 +5,7 @@
     <!-- <div
       class="anim-slider fixed inset-0 w-full h-screen bg-brand-pink z-10"
     ></div> -->
+    <div class="page-slider"></div>
   </div>
 </template>
 
@@ -26,6 +27,31 @@ NOTE Concentric CSS Approach
 body {
   // overflow: hidden;
 }
+
+/* ScrollBar */
+
+/* Works on Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: $brand-black-color $brand-pink-color;
+}
+
+/* Works on Chrome, Edge, and Safari */
+*::-webkit-scrollbar {
+  width: 5px;
+}
+
+*::-webkit-scrollbar-track {
+  background: $brand-pink-color;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: $brand-pink-color;
+  border-radius: 20px;
+  border: 3px solid $brand-black-color;
+}
+
+/* Scrollbar end */
 </style>
 
 <script>

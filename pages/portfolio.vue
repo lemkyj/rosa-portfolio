@@ -23,23 +23,18 @@
       >
         Drawing
       </button>
-      </button>
       <button
         class="text-lg border border-green-300 bg-green-500 hover:bg-green-300 rounded px-6 py-2 my-2 text-white"
       >
         Photography
-      </button>
       </button>
       <button
         class="text-lg border border-green-300 bg-green-500 hover:bg-green-300 focus:outline-none focus:ring focus:ring-pink-200 rounded px-6 py-2 my-2 text-white"
       >
         Others
       </button>
-      </button>
     </div>
-    <div
-      class="grid grid-cols-4 grid-rows-2 gap-2 border-2 border-gray-600"
-    >
+    <div class="grid grid-cols-4 grid-rows-2 gap-2 border-2 border-gray-600">
       <div class="">
         <img src="https://via.placeholder.com/350" alt="" />
       </div>

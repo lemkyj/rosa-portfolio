@@ -1,21 +1,25 @@
 <template>
-  <section class="custom-section">
-    <div class="custom-hero">
-      <div class="img w-full h-full">
-        <h1
-          class="custom-headline inline-flex px-4 py-2 sm:px-8 sm:py-4 font-display text-10xl"
-        >
-          Rosa Lee
-        </h1>
-        <p
-          class="custom-subtitle inline-flex px-4 py-2 md:px-2 sm:px-8 sm:py-4 text-2xl md:text-5xl font-display"
-        >
-          DESIGN / ILLUSTRATION / PHOTOGRAPHY
-        </p>
+  <main>
+    <section class="custom-section">
+      <div class="custom-hero">
+        <div class="img w-full h-full">
+          <h1
+            class="custom-headline inline-flex px-4 py-2 sm:px-8 sm:py-4 font-display text-10xl"
+          >
+            Rosa Lee
+          </h1>
+          <p
+            class="custom-subtitle inline-flex px-4 py-2 md:px-2 sm:px-8 sm:py-4 text-2xl md:text-5xl font-display"
+          >
+            DESIGN / ILLUSTRATION / PHOTOGRAPHY
+          </p>
+        </div>
+        <div class="scroller text-center">--- SCROLL ---</div>
       </div>
-    </div>
+    </section>
+    <section class="h-screen w-full border border-blue-200"></section>
     <div class="slider"></div>
-  </section>
+  </main>
 </template>
 
 <script>
@@ -77,7 +81,7 @@ export default {
 }
 */
 
-section {
+.custom-section {
   display: flex;
   height: 80vh;
   justify-content: center;
