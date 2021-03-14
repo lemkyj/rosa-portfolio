@@ -45,8 +45,18 @@
       v-if="filteredLists.length"
     >
       <div v-for="item in filteredLists" v-bind:key="item.id">
-        <img :src="item.src" alt="" />
+        <img 
+        :src="item.src" 
+        @click="openModal(item)"
+        alt="" 
+        />
       </div>
+      <portfolio-modal 
+          v-if="modalVisible" 
+          @close="modalVisible = false" 
+          :data="modalData"
+      />
+      
       <!-- <div class="">
         <img src="https://via.placeholder.com/350" alt="" />
       </div> -->
@@ -55,7 +65,13 @@
 </template>
 
 <script>
+import PortfolioModal from '../components/PortfolioModal.vue';
+
+
 export default {
+  components: {
+    PortfolioModal,
+  },
   transition: {
     mode: "out-in",
     css: false,
@@ -76,6 +92,8 @@ export default {
     return {
       // 포트폴리오 진입 시의 기본 카테고리
       category: 'all',
+      modalVisible: false,
+      modalData: null,
 
       // 그림의 리스트. 대충 1개당 1오브젝트 집어넣으면 됨. id는 unique 값으로 넣어야 좋을 거 같음
       // 현재 존재하는 카테고리: package, illustration, drawing, photography, others
@@ -283,7 +301,6 @@ export default {
       ]
     }
   },
-  
   computed: {
     filteredLists: function() {
       if (this.category === 'all') {
@@ -300,6 +317,12 @@ export default {
         });
         return categoryLists;
       }
+    }
+  },
+  methods: {
+    openModal(data) {
+      this.modalData = data;
+      this.modalVisible = true
     }
   }
 };
