@@ -1,7 +1,7 @@
 <template>
   <section class="custom-section">
     <div class="custom-hero">
-      <div class="anim img w-full h-full">
+      <div class="img w-full h-full">
         <div class="hero-title font-display -space-y-1">
           <div class="anim custom-headline-box inline-flex px-8 py-1">
             <h1 class="custom-headline text-display text-brand-black">
@@ -26,27 +26,44 @@ export default {
   transition: {
     mode: "out-in",
     css: false,
-    enter(el, done) {
+    enter(el) {
       const tl = gsap.timeline();
       tl.fromTo(
         ".custom-hero",
-        1,
         { height: "0%" },
-        { height: "80%", ease: Power2.easeInOut }
+        { duration: 1.2, height: "80%", ease: Power2.easeInOut }
       )
         .fromTo(
           ".custom-hero",
-          1.2,
           { width: "100%" },
-          { width: "80%", ease: Power2.easeInOut }
+          { duration: 1.2, width: "80%", ease: Power2.easeInOut }
         )
         .fromTo(
           ".slider",
           1.2,
           { x: "-100%" },
-          { x: "0%", ease: Power2.easeInOut },
+          { duration: 1.2, x: "0%", ease: Power2.easeInOut },
           "-=1.2"
         );
+    },
+    leave(el, done) {
+      const tl = gsap.timeline();
+      // tl.to(".anim, #header", {
+      //   duration: 0.8,
+      //   stagger: 0.05,
+      //   opacity: 0.3,
+      //   ease: "slowmo.out",
+      // })
+      tl.to(
+        ".custom-hero",
+        { duration: 0.8, height: "0%", ease: "power4.in" },
+        "-=0.8"
+      ).to(".slider", {
+        duration: 0.8,
+        x: "-100%",
+        ease: "power4.in",
+        onComplete: () => done(),
+      });
     },
   },
 };
