@@ -2,18 +2,16 @@
   <section class="custom-section">
     <div class="custom-hero">
       <div class="img w-full h-full">
-        <!-- <div class="hero-title font-display -space-y-1"> -->
         <h1
           class="custom-headline inline-flex px-4 py-2 sm:px-8 sm:py-4 font-display text-10xl"
         >
           Rosa Lee
         </h1>
         <p
-          class="custom-subtitle inline-flex px-4 py-2 sm:px-8 sm:py-4 text-2xl md:text-5xl font-display"
+          class="custom-subtitle inline-flex px-4 py-2 md:px-2 sm:px-8 sm:py-4 text-2xl md:text-5xl font-display"
         >
           DESIGN / ILLUSTRATION / PHOTOGRAPHY
         </p>
-        <!-- </div> -->
       </div>
     </div>
     <div class="slider"></div>
@@ -51,7 +49,6 @@ export default {
       tl.to(".anim, #header", {
         duration: 0.8,
         stagger: 0.05,
-        opacity: 0.3,
         ease: "slowmo.out",
       });
       tl.to(
@@ -62,7 +59,10 @@ export default {
         duration: 0.8,
         x: "-100%",
         ease: "power4.in",
-        onComplete: () => done(),
+        onComplete: () =>
+          setInterval(function () {
+            done();
+          }, 500),
       });
     },
   },

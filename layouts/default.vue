@@ -26,16 +26,6 @@ NOTE Concentric CSS Approach
 body {
   // overflow: hidden;
 }
-
-// .layout-enter-active,
-// .layout-leave-active {
-//   transition: opacity 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-// }
-// .layout-enter,
-// .layout-leave-to {
-//   opacity: 0;
-//   transition: opacity 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-// }
 </style>
 
 <script>
@@ -62,13 +52,13 @@ export default {
     animInit() {
       const tl = gsap.timeline();
       tl.fromTo(
-        "#header, .anim-stagger",
-        { opacity: 0, yPercent: -10 },
+        "#header, .anim-nav",
+        { opacity: 0, x: -10 },
         {
           duration: 1,
           delay: 1.6,
           stagger: 0.3,
-          yPercent: 0,
+          x: 0,
           opacity: 1,
           ease: "slowmo.out",
         }

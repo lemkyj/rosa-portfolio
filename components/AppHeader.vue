@@ -8,25 +8,22 @@
       <nuxt-link exact to="/" class="inline-flex"><Logo id="logo" /></nuxt-link>
     </section>
     <section class="my-8 justify-self-end items-center">
-      <nav
-        class="anim-stagger hidden md:flex md:space-x-8 items-center text-lg font-bold"
-      >
+      <nav class="hidden md:flex md:space-x-8 items-center text-lg font-bold">
         <nuxt-link to="/portfolio" class="anim-nav px-10 py-3"
           >Portfolio</nuxt-link
         >
         <nuxt-link
           to="/contact"
-          class="anim-stagger px-10 py-3 rounded-full bg-brand-pink text-lg font-bold"
+          class="anim-nav px-10 py-3 rounded-full bg-brand-pink text-lg font-bold"
           >Contact</nuxt-link
         >
       </nav>
-      <nuxt-link
-        to="/contact"
+      <button
         type="button"
         aria-label="Menu"
         aria-controls="navigation"
         id="hamburger"
-        class="animDefault md:hidden h-8 w-8 justify-center flex items-end"
+        class="anim-nav md:hidden h-8 w-8 justify-center flex items-end"
       >
         <svg
           class=""
@@ -54,7 +51,7 @@
             />
           </g>
         </svg>
-      </nuxt-link>
+      </button>
     </section>
   </header>
 </template>
