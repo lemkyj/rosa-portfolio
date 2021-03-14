@@ -2,18 +2,18 @@
   <section class="custom-section">
     <div class="custom-hero">
       <div class="img w-full h-full">
-        <div class="hero-title font-display -space-y-1">
-          <div class="anim custom-headline-box inline-flex px-8 py-1">
-            <h1 class="custom-headline text-display text-brand-black">
-              Rosa Lee
-            </h1>
-          </div>
-          <div class="anim custom-subtitle-box flex ml-20 px-8 py-2">
-            <p class="custom-subtitle text-subtitle text-brand-black">
-              DESIGN / ILLUSTRATION / PHOTOGRAPHY
-            </p>
-          </div>
-        </div>
+        <!-- <div class="hero-title font-display -space-y-1"> -->
+        <h1
+          class="custom-headline inline-flex px-4 py-2 sm:px-8 sm:py-4 font-display text-10xl"
+        >
+          Rosa Lee
+        </h1>
+        <p
+          class="custom-subtitle inline-flex px-4 py-2 sm:px-8 sm:py-4 text-2xl md:text-5xl font-display"
+        >
+          DESIGN / ILLUSTRATION / PHOTOGRAPHY
+        </p>
+        <!-- </div> -->
       </div>
     </div>
     <div class="slider"></div>
@@ -48,12 +48,12 @@ export default {
     },
     leave(el, done) {
       const tl = gsap.timeline();
-      // tl.to(".anim, #header", {
-      //   duration: 0.8,
-      //   stagger: 0.05,
-      //   opacity: 0.3,
-      //   ease: "slowmo.out",
-      // })
+      tl.to(".anim, #header", {
+        duration: 0.8,
+        stagger: 0.05,
+        opacity: 0.3,
+        ease: "slowmo.out",
+      });
       tl.to(
         ".custom-hero",
         { duration: 0.8, height: "0%", ease: "power4.in" },
@@ -107,15 +107,40 @@ section {
       background-size: cover;
       width: 100%;
       height: 100%;
-    }
-    .hero-title {
-      position: absolute;
-      top: 95%;
-      left: 3%;
-      font-size: 100px;
-      transform: translate(-20%, -70%);
-      color: white;
-      z-index: 3;
+
+      .custom-headline,
+      .custom-subtitle {
+        position: absolute;
+        color: black;
+        mix-blend-mode: screen;
+        background-color: #fbe3e8;
+        &:after {
+          content: "";
+          background: black;
+          position: absolute;
+          left: 0;
+          top: 50;
+        }
+      }
+      .custom-headline {
+        top: 64%;
+        left: -4.5%;
+        @apply text-8xl;
+        font-family: "Bebas Neue", cursive;
+        @screen sm {
+          top: 54.5%;
+          left: -2.3%;
+          font-size: 8.6rem;
+        }
+      }
+      .custom-subtitle {
+        top: 82.9%;
+        left: 0%;
+
+        @screen sm {
+          top: 83%;
+        }
+      }
     }
   }
 }
