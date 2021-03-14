@@ -3,12 +3,12 @@
     <div
       class="flex sticky top-0 shadow-lg justify-center col-start-2 col-end-3 border bg-white p-4 space-x-4"
     >
-      <div
+      <button
         class="text-lg border border-green-300 bg-green-500 hover:bg-green-300 rounded px-6 py-2 my-2 text-white"
         @click.prevent="category = 'all'"
       >
         ALL
-      </div>
+      </button>
       <button
         class="text-lg border border-green-300 bg-green-500 hover:bg-green-300 rounded px-6 py-2 my-2 text-white"
         @click.prevent="category = 'package'"
@@ -51,12 +51,12 @@
         alt="" 
         />
       </div>
+      
       <portfolio-modal 
           v-if="modalVisible" 
           @close="modalVisible = false" 
           :data="modalData"
       />
-      
       <!-- <div class="">
         <img src="https://via.placeholder.com/350" alt="" />
       </div> -->
@@ -65,7 +65,7 @@
 </template>
 
 <script>
-import PortfolioModal from '../components/PortfolioModal.vue';
+import PortfolioModal from '@/components/PortfolioModal.vue';
 
 
 export default {
