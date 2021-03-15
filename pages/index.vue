@@ -25,202 +25,58 @@
     <!-- Spacer end -->
     <section class="h-screen w-full bg-white">
       <div class="h-screen grid grid-cols-12 grid-rows-6 grid-flow-col">
-        <button class="col-span-5 w-full h-full text-6xl font-display border-2">
-          <div
-            class="flex justify-end items-center w-full h-full bg-brand-lightgreen"
-          >
-            <div class="mx-4 flex justify-end items-center">
-              <h2 class="">PACKAGE DESIGN</h2>
-              <svg
-                class="ml-8"
-                width="46"
-                height="46"
-                viewBox="0 0 46 46"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M32.5833 15.3334L40.25 23M40.25 23L32.5833 30.6667M40.25 23H5.75"
-                  stroke="#ebf6f5"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                />
-              </svg>
+        <button v-for="category in categoryInfos" class="col-span-5 w-full h-full text-6xl font-display border-2" :key="category.id">
+            <div
+              class="flex justify-end items-center w-full h-full bg-brand-lightgreen"
+              :class="{ active: checkActive(category.id) }" @click="toggleActive(category)"
+            >
+              <div class="mx-4 flex justify-end items-center">
+                <h2 class="">{{category.name}}</h2>
+                <svg
+                  class="ml-8"
+                  width="46"
+                  height="46"
+                  viewBox="0 0 46 46"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M32.5833 15.3334L40.25 23M40.25 23L32.5833 30.6667M40.25 23H5.75"
+                    stroke="#ebf6f5"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </div>
             </div>
-          </div>
-        </button>
-
-        <button class="col-span-5 w-full h-full text-6xl font-display border-2">
-          <div
-            class="flex justify-end items-center w-full h-full bg-brand-lightgreen"
-          >
-            <div class="mx-4 flex justify-end items-center">
-              <h2 class="">PRINT DESIGN</h2>
-              <svg
-                id="arrow-right"
-                class="ml-8"
-                width="46"
-                height="46"
-                viewBox="0 0 46 46"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M32.5833 15.3334L40.25 23M40.25 23L32.5833 30.6667M40.25 23H5.75"
-                  stroke="#ebf6f5"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                />
-              </svg>
-            </div>
-          </div>
-        </button>
-
-        <button class="col-span-5 w-full h-full text-6xl font-display border-2">
-          <div
-            class="flex justify-end items-center w-full h-full bg-brand-lightgreen"
-          >
-            <div class="mx-4 flex justify-end items-center">
-              <h2 class="">ILLUSTRATION</h2>
-              <svg
-                id="arrow-right"
-                class="ml-8"
-                width="46"
-                height="46"
-                viewBox="0 0 46 46"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M32.5833 15.3334L40.25 23M40.25 23L32.5833 30.6667M40.25 23H5.75"
-                  stroke="#ebf6f5"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                />
-              </svg>
-            </div>
-          </div>
-        </button>
-
-        <button class="col-span-5 w-full h-full text-6xl font-display border-2">
-          <div
-            class="flex justify-end items-center w-full h-full bg-brand-lightgreen"
-          >
-            <div class="mx-4 flex justify-end items-center">
-              <h2 class="">PHOTOGRAPHY</h2>
-              <svg
-                id="arrow-right"
-                class="ml-8"
-                width="46"
-                height="46"
-                viewBox="0 0 46 46"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M32.5833 15.3334L40.25 23M40.25 23L32.5833 30.6667M40.25 23H5.75"
-                  stroke="#ebf6f5"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                />
-              </svg>
-            </div>
-          </div>
-        </button>
-
-        <button class="col-span-5 w-full h-full text-6xl font-display border-2">
-          <div
-            class="flex justify-end items-center w-full h-full bg-brand-lightgreen"
-          >
-            <div class="mx-4 flex justify-end items-center">
-              <h2 class="">LOGO DESIGN</h2>
-              <svg
-                id="arrow-right"
-                class="ml-8"
-                width="46"
-                height="46"
-                viewBox="0 0 46 46"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M32.5833 15.3334L40.25 23M40.25 23L32.5833 30.6667M40.25 23H5.75"
-                  stroke="#ebf6f5"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                />
-              </svg>
-            </div>
-          </div>
-        </button>
-
-        <button class="col-span-5 w-full h-full text-6xl font-display border-2">
-          <div
-            class="flex justify-end items-center w-full h-full bg-brand-lightgreen"
-          >
-            <div class="mx-4 flex justify-end items-center">
-              <h2 class="">OTHERS</h2>
-              <svg
-                id="arrow-right"
-                class="ml-8"
-                width="46"
-                height="46"
-                viewBox="0 0 46 46"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M32.5833 15.3334L40.25 23M40.25 23L32.5833 30.6667M40.25 23H5.75"
-                  stroke="#ebf6f5"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                />
-              </svg>
-            </div>
-          </div>
         </button>
         <div
           class="hidden md:grid md:col-span-1 md:row-start-1 md:row-end-7"
         ></div>
         <div
-          v-if="currentCategory === 'package'"
           class="col-span-7 md:col-span-5 row-start-1 row-end-7"
         >
           <div class="grid grid-flow-row m-10">
-            <h3 class="font-display text-4xl mb-4">PACKAGE DESIGN</h3>
+            <h3 class="font-display text-4xl mb-4">{{ currentObj.name }}</h3>
             <ul
               class="inline-flex truncate overflow-clip md:overflow-hidden mb-4 space-x-4 font-bold"
             >
-              <li class="px-3 py-2 bg-brand-lightgreen rounded-full text-sm">
-                # Icomoclast Coffee
-              </li>
-              <li class="px-3 py-2 bg-brand-lightgreen rounded-full text-sm">
-                # Cannibis Gummies
-              </li>
-              <li class="px-3 py-2 bg-brand-lightgreen rounded-full text-sm">
-                # Cateaurora Wine
+              <li 
+                class="px-3 py-2 bg-brand-lightgreen rounded-full text-sm"
+                v-for="tag in currentObj.tag" :key="tag"
+              >
+                {{  '# ' + tag }}
               </li>
             </ul>
             <p class="md:hidden truncate text-lg max-w-prose">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam
-              amet autem eius obcaecati illo, tempora quam natus architecto
-              sequi qui earum facere cumque, excepturi totam ipsum voluptatem ex
-              dicta est?
+              {{ currentObj.contents }}
             </p>
             <p class="hidden md:block text-lg max-w-prose">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam
-              amet autem eius obcaecati illo, tempora quam natus architecto
-              sequi qui earum facere cumque, excepturi totam ipsum voluptatem ex
-              dicta est?
+              {{ currentObj.contents }}
             </p>
             <nuxt-link
-              to="/portfolio?category=package"
+              :to="'/portfolio?category=' + currentCategory"
               class="my-4 py-2 font-bold text-lg text-brand-green flex items-center transform translate-x-2 hover:translate-x-4 duration-75 ease-out"
               >VIEW PROJECTS
               <svg
@@ -243,8 +99,7 @@
             <div class="relative border-2 border-green-300">
               <img
                 class="custom-category-img"
-                src="../assets/img/img-index/main-package.png"
-                alt="package img"
+                :src="require(`~/assets/img/${currentObj.img}`)"
               />
             </div>
           </div>
@@ -266,6 +121,76 @@ export default {
   data() {
     return {
       currentCategory: "package",
+      currentObj: { 
+            id: "",
+            name: "",
+            tag: [],
+            contents: ``,
+            img: "img-index/main-logo2.jpg",
+          },
+      isActive: false,
+      categoryInfos: {
+        package: { 
+            id: "package",
+            name: "PACKAGE DESIGN",
+            tag: ["Icomoclast Coffee", "Cannibis Gummies", "Cateaurora Wine"],
+            contents: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam
+              amet autem eius obcaecati illo, tempora quam natus architecto
+              sequi qui earum facere cumque, excepturi totam ipsum voluptatem ex
+              dicta est?`,
+            img: "img-index/main-package.png",
+          }, 
+        print: {
+            id: "print",
+            name: "PRINT DESIGN",
+            tag: ['1'],
+            contents: `prints Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam
+              amet autem eius obcaecati illo, tempora quam natus architecto
+              sequi qui earum facere cumque, excepturi totam ipsum voluptatem ex
+              dicta est?`,
+            img: "img-index/main-print.png",
+         }, 
+        illustration: {
+            id: "illustration",
+            name: "ILLUSTRATION",
+            tag: [4,5,6],
+            contents: `illusts Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam
+              amet autem eius obcaecati illo, tempora quam natus architecto
+              sequi qui earum facere cumque, excepturi totam ipsum voluptatem ex
+              dicta est?`,
+            img: "img-index/main-illustration.png",
+         }, 
+        photography: {
+            id: "photography",
+            name: "PHOTOGRAPHY",
+            tag: [7,8,9,10],
+            contents: `photos Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam
+              amet autem eius obcaecati illo, tempora quam natus architecto
+              sequi qui earum facere cumque, excepturi totam ipsum voluptatem ex
+              dicta est?`,
+            img: "img-index/main-photo1.png",
+         }, 
+        logo: {
+            id: "logo",
+            name: "LOGO DESIGN",
+            tag: [11,12,13,14,15],
+            contents: `logos Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam
+              amet autem eius obcaecati illo, tempora quam natus architecto
+              sequi qui earum facere cumque, excepturi totam ipsum voluptatem ex
+              dicta est?`,
+            img: "img-index/main-logo1.jpg",
+         }, 
+        others: {
+            id: "others",
+            name: "OTHERS",
+            tag: [16,17,18,19,20],
+            contents: `others Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam
+              amet autem eius obcaecati illo, tempora quam natus architecto
+              sequi qui earum facere cumque, excepturi totam ipsum voluptatem ex
+              dicta est?`,
+            img: "img-index/main-other1.jpg",
+          },
+      },
     };
   },
   transition: {
@@ -343,6 +268,23 @@ export default {
         });
     },
   },
+  methods: {
+    toggleActive(target) {
+      this.currentCategory = target.id;
+      this.currentObj = target;
+    },
+    checkActive(id) {
+      if (this.currentCategory === id) {
+        return true;
+      } else {
+        return false;
+      }
+    }
+  },
+  mounted() {
+    this.toggleActive(this.categoryInfos.package);
+    this.checkActive(this.currentCategory);
+  }
 };
 </script>
 
@@ -434,5 +376,10 @@ export default {
   height: 100vh;
   background: #ebf6f5;
   z-index: -1;
+}
+
+.active {
+  background: black;
+  color: red;
 }
 </style>
