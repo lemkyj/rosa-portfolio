@@ -67,7 +67,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-body {
-  z-index: 0;
+#header {
+  z-index: 9999;
 }
 </style>

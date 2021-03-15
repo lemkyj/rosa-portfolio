@@ -1,10 +1,7 @@
 <template>
-  <div
-    class="anim-stagger grid w-full"
-    style="grid-template-columns: 10% 1fr 1fr 10%"
-  >
+  <div class="grid w-full" style="grid-template-columns: 10% 1fr 1fr 10%">
     <div
-      class="flex sticky top-0 overflow-x-scroll lg:overflow-hidden shadow-lg justify-start lg:justify-center col-span-full lg:col-start-1 lg:col-end-5 border bg-white p-4 space-x-4"
+      class="anim-fade-y z-50 flex sticky top-0 overflow-x-scroll lg:overflow-hidden shadow-lg justify-start lg:justify-center col-span-full lg:col-start-1 lg:col-end-5 border bg-white p-4 space-x-4"
     >
       <button
         class="custom-button--filter text-sm md:text-lg border rounded px-2 md:px-6 py-1 md:py-2 my-1 md:my-2 text-white"
@@ -59,7 +56,7 @@
 
     <div class="col-start-2 col-end-4">
       <div
-        class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 my-12 auto-rows-auto gap-4 place-content-center"
+        class="anim-fade-y grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 my-12 auto-rows-auto gap-4 place-content-center"
         style=""
         v-if="filteredLists.length"
       >
@@ -86,6 +83,7 @@
       </div> -->
       </div>
     </div>
+    <div class="slider"></div>
   </div>
 </template>
 
@@ -101,15 +99,50 @@ export default {
     css: false,
     enter(el, done) {
       const tl = gsap.timeline();
-      tl.set(document.body, {
-        opacity: 0,
-        x: -10,
-      }).to(document.body, {
-        duration: 1.5,
-        opacity: 1,
-        x: 0,
-        ease: "slowmo.out",
-      });
+      // tl.fromTo(
+      //   ".slider",
+      //   { y: -100 },
+      //   {
+      //     duration: 1,
+      //     y: 0,
+      //     ease: "power2.out",
+      //   }
+      // )
+      tl.fromTo(
+        ".slider",
+        { yPercent: -101 },
+        {
+          duration: 0.5,
+          yPercent: 101,
+          ease: "power2.out",
+        }
+      )
+        .fromTo(
+          "#header, .anim-nav",
+          { opacity: 0, x: -10 },
+          {
+            duration: 1,
+            stagger: 0.2,
+            x: 0,
+            opacity: 1,
+            ease: "power2.out",
+          }
+        )
+        .fromTo(
+          ".anim-fade-y",
+          {
+            opacity: 0,
+            y: -5,
+          },
+          {
+            duration: 1.2,
+            stagger: 0.5,
+            y: 0,
+            opacity: 1,
+            ease: "slowmo.out",
+          },
+          "-=1"
+        );
     },
   },
   data() {
@@ -878,5 +911,14 @@ export default {
     background: $brand-lightgreen-color;
     @apply ring-inset ring-1 ring-offset-gray-200;
   }
+}
+.slider {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 200vh;
+  background: $brand-pink-color;
+  z-index: 1;
 }
 </style>

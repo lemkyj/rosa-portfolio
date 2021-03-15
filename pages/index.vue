@@ -23,13 +23,16 @@
       <!-- <scroll-indicator /> -->
     </section>
     <!-- Spacer -->
-    <div class="bg-brand-lightgreen my-12" style="height: 30vh"></div>
+    <div
+      class="anim-fade-y bg-brand-lightgreen my-12"
+      style="height: 30vh"
+    ></div>
     <!-- Spacer end -->
     <section class="h-screen w-full bg-white">
       <div class="h-screen grid grid-cols-12 grid-rows-6 grid-flow-col">
         <button
           v-for="category in categoryInfos"
-          class="custom-button--category col-span-5 w-full h-full text-right text-2xl sm:text-4xl md:text-6xl font-display"
+          class="custom-button--category anim-fade-y col-span-5 w-full h-full text-right text-2xl sm:text-4xl md:text-6xl font-display"
           :key="category.id"
         >
           <div
@@ -37,7 +40,7 @@
             :class="{ active: checkActive(category.id) }"
             @click="toggleActive(category)"
           >
-            <div class="mx-4 flex justify-end items-center">
+            <div class="anim-fade-y mx-4 flex justify-end items-center">
               <h2 class="">{{ category.name }}</h2>
               <svg
                 class="hidden sm:flex ml-3 lg:mx-8 h-8 w-8 md:h-12 md:w-12"
@@ -63,27 +66,29 @@
         ></div>
         <div class="col-span-7 md:col-span-5 row-start-1 row-end-7">
           <div class="grid grid-flow-row m-10">
-            <h3 class="font-display text-4xl mb-4">{{ currentObj.name }}</h3>
+            <h3 class="anim-fade-y font-display text-4xl mb-4">
+              {{ currentObj.name }}
+            </h3>
             <ul
               class="inline-flex truncate overflow-clip md:overflow-hidden mb-4 space-x-4 font-bold"
             >
               <li
-                class="px-3 py-2 bg-brand-lightgreen rounded-full text-sm"
+                class="anim-fade-y px-3 py-2 bg-brand-lightgreen rounded-full text-sm"
                 v-for="tag in currentObj.tag"
                 :key="tag"
               >
                 {{ "# " + tag }}
               </li>
             </ul>
-            <p class="md:hidden truncate text-lg max-w-prose">
+            <p class="anim-fade-y md:hidden truncate text-lg max-w-prose">
               {{ currentObj.contents }}
             </p>
-            <p class="hidden md:block text-lg max-w-prose">
+            <p class="anim-fade-y hidden md:block text-lg max-w-prose">
               {{ currentObj.contents }}
             </p>
             <nuxt-link
               :to="'/portfolio?category=' + currentCategory"
-              class="my-4 py-2 font-bold text-lg text-brand-green flex items-center transform translate-x-2 hover:translate-x-4 duration-75 ease-out"
+              class="anim-fade-y my-4 py-2 font-bold text-lg text-brand-green flex items-center transform translate-x-2 hover:translate-x-4 duration-75 ease-out"
               >VIEW PROJECTS
               <svg
                 class="ml-2 h-5 w-5"
@@ -102,7 +107,7 @@
                 />
               </svg>
             </nuxt-link>
-            <div class="relative border-2 border-green-300">
+            <div class="anim-fade-y relative border-2 border-green-300">
               <img
                 class="custom-category-img"
                 :src="require(`~/assets/img/${currentObj.img}`)"
@@ -221,18 +226,34 @@ export default {
           { duration: 1.2, x: "0%", ease: Power2.easeInOut },
           "-=1.2"
         )
-        .to(".custom-wrapper-headline, .custom-wrapper-subtitle", {
-          duration: 1,
-          opacity: 1,
-          ease: "power2.in",
-        })
+        .fromTo(
+          "#header, .anim-nav",
+          { opacity: 0, x: -10 },
+          {
+            duration: 1,
+            stagger: 0.2,
+            x: 0,
+            opacity: 1,
+            ease: "power2.out",
+          },
+          "-=0.5"
+        )
+        .to(
+          ".custom-wrapper-headline, .custom-wrapper-subtitle",
+          {
+            duration: 0.8,
+            opacity: 1,
+            ease: "power2.in",
+          },
+          "-=0.8"
+        )
         .fromTo(
           ".custom-subtitle, .custom-headline",
           {
             xPercent: -5,
           },
           {
-            duration: 2,
+            duration: 1.2,
             stagger: 0.5,
             xPercent: 0,
             opacity: 1,
@@ -243,35 +264,37 @@ export default {
     },
     leave(el, done) {
       const tl = gsap.timeline();
-      // tl.to(".anim, #header", {
-      //   duration: 0.5,
-      //   stagger: 0.05,
-      //   ease: "slowmo.out",
-      // });
-      tl.to(
-        ".custom-hero",
-        { duration: 0.5, height: "0%", ease: "power4.in" },
-        "-=0.8"
-      )
+      tl.to(".custom-headline, .custom-subtitle", {
+        stagger: 0.1,
+        duration: 0.3,
+        opacity: 0,
+        ease: "power4.in",
+      })
         .to(
           ".custom-wrapper-headline, .custom-wrapper-subtitle",
-          { duration: 0.5, opacity: 0, ease: "slowmo.in" },
-          "-=1.5"
+          { duration: 0.5, x: -20, opacity: 0, ease: "power4.in" },
+          "-=0.5"
         )
+        .to(".custom-hero", { duration: 0.5, height: "0%", ease: "power4.in" })
+        .to("#header", {
+          opacity: 0,
+          duration: 0.5,
+          stagger: 0.05,
+          ease: "slowmo.out",
+        })
         .to(
-          ".custom-headline, .custom-subtitle",
-          { stagger: 0.3, duration: 0.5, opacity: 1, ease: "slowmo.in" },
-          "-=1.5"
-        )
-        .to(".slider", {
-          duration: 0.8,
-          x: "-100%",
-          ease: "power4.in",
-          onComplete: () =>
-            setInterval(function () {
-              done();
-            }, 500),
-        });
+          ".slider",
+          {
+            duration: 0.8,
+            y: "-100%",
+            ease: "power4.in",
+            onComplete: () =>
+              setInterval(function () {
+                done();
+              }, 1000),
+          },
+          "-=0.5"
+        );
     },
   },
   methods: {
@@ -393,7 +416,7 @@ export default {
   top: 0;
   left: 0;
   width: 100%;
-  height: 100vh;
+  height: 100%;
   background: #ebf6f5;
   z-index: -1;
 }
