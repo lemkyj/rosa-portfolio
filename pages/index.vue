@@ -187,7 +187,7 @@
 
         <div v-show="categoryActive" class="row-start-1 row-end-7">
           <div class="grid grid-flow-row m-10">
-            <h3 class="font-display text-4xl mb-4">Hello World</h3>
+            <h3 class="font-display text-4xl mb-4">PACKAGE DESIGN</h3>
             <ul class="inline-flex mb-4 space-x-4 font-bold">
               <li class="px-3 py-2 bg-brand-lightgreen rounded-full text-sm">
                 # Photoshop
@@ -210,7 +210,7 @@
               class="my-4 font-bold text-lg text-brand-green flex items-center"
               >VIEW PROJECTS
               <svg
-                class="ml-2 h-4 w-4"
+                class="ml-2 h-5 w-5"
                 width="46"
                 height="46"
                 viewBox="0 0 46 46"
