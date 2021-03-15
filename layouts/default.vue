@@ -5,6 +5,7 @@
     <!-- <div
       class="anim-slider fixed inset-0 w-full h-screen bg-brand-pink z-10"
     ></div> -->
+    <div class="page-slider"></div>
   </div>
 </template>
 
@@ -27,15 +28,30 @@ body {
   // overflow: hidden;
 }
 
-// .layout-enter-active,
-// .layout-leave-active {
-//   transition: opacity 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-// }
-// .layout-enter,
-// .layout-leave-to {
-//   opacity: 0;
-//   transition: opacity 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-// }
+/* ScrollBar */
+
+/* Works on Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: $brand-black-color $brand-pink-color;
+}
+
+/* Works on Chrome, Edge, and Safari */
+*::-webkit-scrollbar {
+  width: 5px;
+}
+
+*::-webkit-scrollbar-track {
+  background: $brand-pink-color;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: $brand-pink-color;
+  border-radius: 20px;
+  border: 3px solid $brand-black-color;
+}
+
+/* Scrollbar end */
 </style>
 
 <script>
@@ -62,13 +78,13 @@ export default {
     animInit() {
       const tl = gsap.timeline();
       tl.fromTo(
-        "#header, .anim-stagger",
-        { opacity: 0, yPercent: -10 },
+        "#header, .anim-nav",
+        { opacity: 0, x: -10 },
         {
           duration: 1,
           delay: 1.6,
           stagger: 0.3,
-          yPercent: 0,
+          x: 0,
           opacity: 1,
           ease: "slowmo.out",
         }
