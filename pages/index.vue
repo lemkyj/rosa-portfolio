@@ -221,7 +221,7 @@
             </p>
             <nuxt-link
               to="/portfolio"
-              class="my-4 py-2 font-bold text-lg text-brand-green flex items-center"
+              class="my-4 py-2 font-bold text-lg text-brand-green flex items-center transform translate-x-2 hover:translate-x-4 duration-75 ease-out"
               >VIEW PROJECTS
               <svg
                 class="ml-2 h-5 w-5"
@@ -240,8 +240,16 @@
                 />
               </svg>
             </nuxt-link>
+            <div class="relative border-2 border-green-300">
+              <img
+                class="custom-category-img"
+                src="../assets/img/img-index/main-package.png"
+                alt="package img"
+              />
+            </div>
           </div>
         </div>
+
         <div
           class="hidden md:grid md:col-span-1 md:row-start-1 md:row-end-7"
         ></div>
