@@ -16,10 +16,9 @@
             </p>
           </div>
         </div>
-        <div class="flex justify-center w-8">
-          <scroll-indicator />
-        </div>
       </div>
+      <!-- NOTE 스크롤다운 인디케이터 나중에 추가  -->
+      <!-- <scroll-indicator /> -->
     </section>
     <!-- Spacer -->
     <div class="bg-brand-lightgreen my-12" style="height: 30vh"></div>

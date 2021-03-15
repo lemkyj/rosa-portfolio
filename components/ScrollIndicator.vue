@@ -1,7 +1,6 @@
 <template>
-  <div class="wrapper-mouse">
-    <div class="mouse"></div>
-    <p>Scroll</p>
+  <div class="">
+    <div class="mouse mouse-position"></div>
   </div>
 </template>
 
@@ -10,9 +9,9 @@ export default {};
 </script>
 
 <style lang="scss" scoped>
-$colorBg: #222a30;
-$colorOutline: #ffffff;
-$colorOutlineFade: #4e5559;
+$colorBg: $brand-lightgreen-color;
+$colorOutline: $brand-black-color;
+$colorOutlineFade: darken($brand-lightgreen-color, 30%);
 
 $widthMouse: 52px;
 $heightMouse: 88px;
@@ -272,6 +271,13 @@ p {
 }
 
 .wrapper-mouse {
-  transform: scale(0.2, 0.2);
+}
+.mouse-position {
+  margin: auto;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  top: 80%;
 }
 </style>
