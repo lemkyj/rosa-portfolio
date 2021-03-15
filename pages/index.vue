@@ -2,22 +2,83 @@
   <main>
     <section class="custom-section">
       <div class="custom-hero">
-        <div class="img w-full h-full">
-          <h1
-            class="custom-headline inline-flex px-4 py-2 sm:px-8 sm:py-4 font-display text-10xl"
-          >
-            Rosa Lee
-          </h1>
-          <p
-            class="custom-subtitle inline-flex px-4 py-2 md:px-2 sm:px-8 sm:py-4 text-2xl md:text-5xl font-display"
-          >
-            DESIGN / ILLUSTRATION / PHOTOGRAPHY
-          </p>
+        <div class="custom-hero-img w-full h-full">
+          <div class="custom-titles opacity-0">
+            <h1
+              class="custom-headline relative flex px-4 py-2 sm:px-8 sm:py-4 font-display text-10xl"
+            >
+              Rosa Lee
+            </h1>
+            <p
+              class="custom-subtitle relative flex px-4 py-2 md:px-2 sm:px-8 sm:py-4 text-2xl md:text-5xl font-display"
+            >
+              DESIGN / ILLUSTRATION / PHOTOGRAPHY
+            </p>
+          </div>
         </div>
         <div class="scroller text-center">--- SCROLL ---</div>
       </div>
     </section>
-    <section class="h-screen w-full border border-blue-200"></section>
+    <!-- Spacer -->
+    <div
+      class="border border-gray-500 bg-brand-lightgreen"
+      style="height: 15vh"
+    ></div>
+    <!-- Spacer end -->
+    <section class="h-screen w-full border-4 border-blue-600 bg-white">
+      <div class="h-screen grid grid-cols-2 grid-rows-6 grid-flow-col">
+        <div class="border border-red-500">
+          <button class="w-full h-full text-6xl font-display border-2">
+            <div
+              class="flex justify-end items-center w-full h-full bg-brand-lightgreen"
+            >
+              <h2 class="">PACKAGE DESIGN</h2>
+              <img
+                class="ml-4"
+                src="~/assets/arrow-right.svg"
+                alt="right-icon"
+              />
+            </div>
+          </button>
+        </div>
+        <div class="border border-red-500">
+          <div
+            class="w-full h-full bg-brand-lightgreen flex justify-end items-center"
+          >
+            <h2 class="text-6xl font-display mr-8">ILLUSTRATION</h2>
+          </div>
+        </div>
+        <div class="border border-red-500">
+          <div
+            class="w-full h-full bg-brand-lightgreen flex justify-end items-center"
+          >
+            <h2 class="text-6xl font-display mr-8">DRAWING</h2>
+          </div>
+        </div>
+        <div class="border border-red-500">
+          <div
+            class="w-full h-full bg-brand-lightgreen flex justify-end items-center"
+          >
+            <h2 class="text-6xl font-display mr-8">PHOTOGRAPHY</h2>
+          </div>
+        </div>
+        <div class="border border-red-500">
+          <div
+            class="w-full h-full bg-brand-lightgreen flex justify-end items-center"
+          >
+            <h2 class="text-6xl font-display mr-8">LOGO DESIGN</h2>
+          </div>
+        </div>
+        <div class="border border-red-500">
+          <div
+            class="w-full h-full bg-brand-lightgreen flex justify-end items-center"
+          >
+            <h2 class="text-6xl font-display mr-8">OTHERS</h2>
+          </div>
+        </div>
+        <div class="border-2 border-red-600 row-start-1 row-end-7">dsa</div>
+      </div>
+    </section>
     <div class="slider"></div>
   </main>
 </template>
@@ -46,6 +107,25 @@ export default {
           { x: "-100%" },
           { duration: 1.2, x: "0%", ease: Power2.easeInOut },
           "-=1.2"
+        )
+        .to(".custom-titles", {
+          duration: 1,
+          opacity: 1,
+          ease: "power2.in",
+        })
+        .fromTo(
+          ".custom-subtitle, .custom-headline",
+          {
+            xPercent: -5,
+          },
+          {
+            duration: 2,
+            stagger: 0.5,
+            xPercent: 0,
+            opacity: 1,
+            ease: "slowmo.in",
+          },
+          "-=1"
         );
     },
     leave(el, done) {
@@ -59,15 +139,21 @@ export default {
         ".custom-hero",
         { duration: 0.8, height: "0%", ease: "power4.in" },
         "-=0.8"
-      ).to(".slider", {
-        duration: 0.8,
-        x: "-100%",
-        ease: "power4.in",
-        onComplete: () =>
-          setInterval(function () {
-            done();
-          }, 500),
-      });
+      )
+        .to(
+          ".custom-headline, .custom-subtitle",
+          { stagger: 0.3, duration: 0.5, opacity: 1, ease: "slowmo.in" },
+          "-=1.5"
+        )
+        .to(".slider", {
+          duration: 0.8,
+          x: "-100%",
+          ease: "power4.in",
+          onComplete: () =>
+            setInterval(function () {
+              done();
+            }, 500),
+        });
     },
   },
 };
@@ -106,14 +192,16 @@ export default {
       top: 0;
       opacity: 0;
     }
-    .img {
+    .custom-hero-img {
       background: url("~@/assets/mountain.jpg");
       background-size: cover;
       width: 100%;
       height: 100%;
 
-      .custom-headline,
-      .custom-subtitle {
+      .custom-titles {
+        // top: 64%;
+        bottom: 0;
+        left: 0%;
         position: absolute;
         color: black;
         mix-blend-mode: screen;
@@ -123,26 +211,24 @@ export default {
           background: black;
           position: absolute;
           left: 0;
-          top: 50;
+          top: 0;
         }
       }
       .custom-headline {
-        top: 64%;
-        left: -4.5%;
         @apply text-8xl;
         font-family: "Bebas Neue", cursive;
         @screen sm {
-          top: 54.5%;
-          left: -2.3%;
+          // top: 54.5%;
+          // left: -2.3%;
           font-size: 8.6rem;
         }
       }
       .custom-subtitle {
-        top: 82.9%;
-        left: 0%;
+        // top: 82.9%;
+        // left: 0%;
 
         @screen sm {
-          top: 83%;
+          // top: 83%;
         }
       }
     }
