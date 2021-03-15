@@ -20,63 +20,216 @@
       </div>
     </section>
     <!-- Spacer -->
-    <div
-      class="border border-gray-500 bg-brand-lightgreen"
-      style="height: 15vh"
-    ></div>
+    <div class="bg-brand-lightgreen my-12" style="height: 30vh"></div>
     <!-- Spacer end -->
-    <section class="h-screen w-full border-4 border-blue-600 bg-white">
+    <section class="h-screen w-full bg-white">
       <div class="h-screen grid grid-cols-2 grid-rows-6 grid-flow-col">
-        <div class="border border-red-500">
-          <button class="w-full h-full text-6xl font-display border-2">
-            <div
-              class="flex justify-end items-center w-full h-full bg-brand-lightgreen"
-            >
+        <button class="w-full h-full text-6xl font-display border-2">
+          <div
+            class="flex justify-end items-center w-full h-full bg-brand-lightgreen"
+          >
+            <div class="mx-4 flex justify-end items-center">
               <h2 class="">PACKAGE DESIGN</h2>
-              <img
-                class="ml-4"
-                src="~/assets/arrow-right.svg"
-                alt="right-icon"
-              />
+              <svg
+                id="arrow-right"
+                class="ml-8"
+                width="46"
+                height="46"
+                viewBox="0 0 46 46"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M32.5833 15.3334L40.25 23M40.25 23L32.5833 30.6667M40.25 23H5.75"
+                  stroke="#ebf6f5"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
             </div>
-          </button>
-        </div>
-        <div class="border border-red-500">
+          </div>
+        </button>
+
+        <button class="w-full h-full text-6xl font-display border-2">
           <div
-            class="w-full h-full bg-brand-lightgreen flex justify-end items-center"
+            class="flex justify-end items-center w-full h-full bg-brand-lightgreen"
           >
-            <h2 class="text-6xl font-display mr-8">ILLUSTRATION</h2>
+            <div class="mx-4 flex justify-end items-center">
+              <h2 class="">ILLUSTRATION</h2>
+              <svg
+                id="arrow-right"
+                class="ml-8"
+                width="46"
+                height="46"
+                viewBox="0 0 46 46"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M32.5833 15.3334L40.25 23M40.25 23L32.5833 30.6667M40.25 23H5.75"
+                  stroke="#ebf6f5"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </div>
+          </div>
+        </button>
+
+        <button class="w-full h-full text-6xl font-display border-2">
+          <div
+            class="flex justify-end items-center w-full h-full bg-brand-lightgreen"
+          >
+            <div class="mx-4 flex justify-end items-center">
+              <h2 class="">DRAWING</h2>
+              <svg
+                id="arrow-right"
+                class="ml-8"
+                width="46"
+                height="46"
+                viewBox="0 0 46 46"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M32.5833 15.3334L40.25 23M40.25 23L32.5833 30.6667M40.25 23H5.75"
+                  stroke="#ebf6f5"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </div>
+          </div>
+        </button>
+
+        <button class="w-full h-full text-6xl font-display border-2">
+          <div
+            class="flex justify-end items-center w-full h-full bg-brand-lightgreen"
+          >
+            <div class="mx-4 flex justify-end items-center">
+              <h2 class="">PHOTOGRAPHY</h2>
+              <svg
+                id="arrow-right"
+                class="ml-8"
+                width="46"
+                height="46"
+                viewBox="0 0 46 46"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M32.5833 15.3334L40.25 23M40.25 23L32.5833 30.6667M40.25 23H5.75"
+                  stroke="#ebf6f5"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </div>
+          </div>
+        </button>
+
+        <button class="w-full h-full text-6xl font-display border-2">
+          <div
+            class="flex justify-end items-center w-full h-full bg-brand-lightgreen"
+          >
+            <div class="mx-4 flex justify-end items-center">
+              <h2 class="">LOGO DESIGN</h2>
+              <svg
+                id="arrow-right"
+                class="ml-8"
+                width="46"
+                height="46"
+                viewBox="0 0 46 46"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M32.5833 15.3334L40.25 23M40.25 23L32.5833 30.6667M40.25 23H5.75"
+                  stroke="#ebf6f5"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </div>
+          </div>
+        </button>
+
+        <button class="w-full h-full text-6xl font-display border-2">
+          <div
+            class="flex justify-end items-center w-full h-full bg-brand-lightgreen"
+          >
+            <div class="mx-4 flex justify-end items-center">
+              <h2 class="">OTHERS</h2>
+              <svg
+                id="arrow-right"
+                class="ml-8"
+                width="46"
+                height="46"
+                viewBox="0 0 46 46"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M32.5833 15.3334L40.25 23M40.25 23L32.5833 30.6667M40.25 23H5.75"
+                  stroke="#ebf6f5"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </div>
+          </div>
+        </button>
+
+        <div v-show="categoryActive" class="row-start-1 row-end-7">
+          <div class="grid grid-flow-row m-10">
+            <h3 class="font-display text-4xl mb-4">Hello World</h3>
+            <ul class="inline-flex mb-4 space-x-4 font-bold">
+              <li class="px-3 py-2 bg-brand-lightgreen rounded-full text-sm">
+                # Photoshop
+              </li>
+              <li class="px-3 py-2 bg-brand-lightgreen rounded-full text-sm">
+                # Illustrator
+              </li>
+              <li class="px-3 py-2 bg-brand-lightgreen rounded-full text-sm">
+                # Indesign
+              </li>
+            </ul>
+            <p class="text-lg max-w-prose">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam
+              amet autem eius obcaecati illo, tempora quam natus architecto
+              sequi qui earum facere cumque, excepturi totam ipsum voluptatem ex
+              dicta est?
+            </p>
+            <nuxt-link
+              to="/portfolio"
+              class="my-4 text-lg text-brand-green flex items-center"
+              >VIEW PROJECTS
+              <svg
+                id="arrow-right"
+                class="ml-2 h-4 w-4"
+                width="46"
+                height="46"
+                viewBox="0 0 46 46"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M32.5833 15.3334L40.25 23M40.25 23L32.5833 30.6667M40.25 23H5.75"
+                  stroke="#1f423e"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </nuxt-link>
           </div>
         </div>
-        <div class="border border-red-500">
-          <div
-            class="w-full h-full bg-brand-lightgreen flex justify-end items-center"
-          >
-            <h2 class="text-6xl font-display mr-8">DRAWING</h2>
-          </div>
-        </div>
-        <div class="border border-red-500">
-          <div
-            class="w-full h-full bg-brand-lightgreen flex justify-end items-center"
-          >
-            <h2 class="text-6xl font-display mr-8">PHOTOGRAPHY</h2>
-          </div>
-        </div>
-        <div class="border border-red-500">
-          <div
-            class="w-full h-full bg-brand-lightgreen flex justify-end items-center"
-          >
-            <h2 class="text-6xl font-display mr-8">LOGO DESIGN</h2>
-          </div>
-        </div>
-        <div class="border border-red-500">
-          <div
-            class="w-full h-full bg-brand-lightgreen flex justify-end items-center"
-          >
-            <h2 class="text-6xl font-display mr-8">OTHERS</h2>
-          </div>
-        </div>
-        <div class="border-2 border-red-600 row-start-1 row-end-7">dsa</div>
       </div>
     </section>
     <div class="slider"></div>
@@ -86,6 +239,11 @@
 <script>
 export default {
   components: {},
+  data() {
+    return {
+      categoryActive: true,
+    };
+  },
   transition: {
     mode: "out-in",
     css: false,
@@ -141,6 +299,11 @@ export default {
         "-=0.8"
       )
         .to(
+          ".custom-titles",
+          { duration: 0.5, opacity: 0, ease: "slowmo.in" },
+          "-=1.5"
+        )
+        .to(
           ".custom-headline, .custom-subtitle",
           { stagger: 0.3, duration: 0.5, opacity: 1, ease: "slowmo.in" },
           "-=1.5"
@@ -194,9 +357,13 @@ export default {
     }
     .custom-hero-img {
       background: url("~@/assets/mountain.jpg");
-      background-size: cover;
       width: 100%;
       height: 100%;
+      // background-position: left bottom;
+      @screen sm {
+        background-size: 50% cover;
+        background-position: center;
+      }
 
       .custom-titles {
         // top: 64%;
