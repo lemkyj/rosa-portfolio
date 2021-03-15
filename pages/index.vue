@@ -31,7 +31,6 @@
             <div class="mx-4 flex justify-end items-center">
               <h2 class="">PACKAGE DESIGN</h2>
               <svg
-                id="arrow-right"
                 class="ml-8"
                 width="46"
                 height="46"
@@ -56,7 +55,7 @@
             class="flex justify-end items-center w-full h-full bg-brand-lightgreen"
           >
             <div class="mx-4 flex justify-end items-center">
-              <h2 class="">ILLUSTRATION</h2>
+              <h2 class="">PRINT DESIGN</h2>
               <svg
                 id="arrow-right"
                 class="ml-8"
@@ -83,7 +82,7 @@
             class="flex justify-end items-center w-full h-full bg-brand-lightgreen"
           >
             <div class="mx-4 flex justify-end items-center">
-              <h2 class="">DRAWING</h2>
+              <h2 class="">ILLUSTRATION</h2>
               <svg
                 id="arrow-right"
                 class="ml-8"
@@ -208,10 +207,9 @@
             </p>
             <nuxt-link
               to="/portfolio"
-              class="my-4 text-lg text-brand-green flex items-center"
+              class="my-4 font-bold text-lg text-brand-green flex items-center"
               >VIEW PROJECTS
               <svg
-                id="arrow-right"
                 class="ml-2 h-4 w-4"
                 width="46"
                 height="46"
