@@ -17,15 +17,15 @@
           </div>
         </div>
       </div>
-      <!-- NOTE 스크롤다운 인디케이터 나중에 추가  -->
+      <!-- 스크롤다운 인디케이터 -->
       <!-- <scroll-indicator /> -->
     </section>
     <!-- Spacer -->
     <div class="bg-brand-lightgreen my-12" style="height: 30vh"></div>
     <!-- Spacer end -->
     <section class="h-screen w-full bg-white">
-      <div class="h-screen grid grid-cols-2 grid-rows-6 grid-flow-col">
-        <button class="w-full h-full text-6xl font-display border-2">
+      <div class="h-screen grid grid-cols-12 grid-rows-6 grid-flow-col">
+        <button class="col-span-5 w-full h-full text-6xl font-display border-2">
           <div
             class="flex justify-end items-center w-full h-full bg-brand-lightgreen"
           >
@@ -51,7 +51,7 @@
           </div>
         </button>
 
-        <button class="w-full h-full text-6xl font-display border-2">
+        <button class="col-span-5 w-full h-full text-6xl font-display border-2">
           <div
             class="flex justify-end items-center w-full h-full bg-brand-lightgreen"
           >
@@ -78,7 +78,7 @@
           </div>
         </button>
 
-        <button class="w-full h-full text-6xl font-display border-2">
+        <button class="col-span-5 w-full h-full text-6xl font-display border-2">
           <div
             class="flex justify-end items-center w-full h-full bg-brand-lightgreen"
           >
@@ -105,7 +105,7 @@
           </div>
         </button>
 
-        <button class="w-full h-full text-6xl font-display border-2">
+        <button class="col-span-5 w-full h-full text-6xl font-display border-2">
           <div
             class="flex justify-end items-center w-full h-full bg-brand-lightgreen"
           >
@@ -132,7 +132,7 @@
           </div>
         </button>
 
-        <button class="w-full h-full text-6xl font-display border-2">
+        <button class="col-span-5 w-full h-full text-6xl font-display border-2">
           <div
             class="flex justify-end items-center w-full h-full bg-brand-lightgreen"
           >
@@ -159,7 +159,7 @@
           </div>
         </button>
 
-        <button class="w-full h-full text-6xl font-display border-2">
+        <button class="col-span-5 w-full h-full text-6xl font-display border-2">
           <div
             class="flex justify-end items-center w-full h-full bg-brand-lightgreen"
           >
@@ -185,11 +185,13 @@
             </div>
           </div>
         </button>
-
-        <div v-show="categoryActive" class="row-start-1 row-end-7">
+        <div class="col-span-1 row-start-1 row-end-7"></div>
+        <div v-show="categoryActive" class="col-span-6 row-start-1 row-end-7">
           <div class="grid grid-flow-row m-10">
             <h3 class="font-display text-4xl mb-4">PACKAGE DESIGN</h3>
-            <ul class="inline-flex mb-4 space-x-4 font-bold">
+            <ul
+              class="inline-flex flex-wrap mb-4 space-x-0 sm:space-x-4 space-y-2 sm:space-y-0 font-bold"
+            >
               <li class="px-3 py-2 bg-brand-lightgreen rounded-full text-sm">
                 # Photoshop
               </li>
