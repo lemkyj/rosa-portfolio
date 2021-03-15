@@ -220,7 +220,7 @@
               dicta est?
             </p>
             <nuxt-link
-              to="/portfolio"
+              to="/portfolio?category=package"
               class="my-4 py-2 font-bold text-lg text-brand-green flex items-center transform translate-x-2 hover:translate-x-4 duration-75 ease-out"
               >VIEW PROJECTS
               <svg
