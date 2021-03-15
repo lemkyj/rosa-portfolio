@@ -1,7 +1,7 @@
 <template>
     <div class="backdrop" @click="$emit('close')">
         <div id="popup-modal">
-            <img :src="data.src" alt="">
+            <img :src="require(`~/assets/img/${data.src}`)" alt="">
             <p>{{data.id}}</p>
         </div>
     </div>
