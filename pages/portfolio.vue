@@ -70,7 +70,7 @@
       >
         <div v-for="item in filteredLists" v-bind:key="item.id">
           <img
-            class="object-cover object-center mx-auto overscroll-auto rounded-md m-4 shadow-lg border bg-gray-100"
+            class="flex self-center object-cover object-center mx-auto overscroll-auto rounded-md m-4 shadow-lg border bg-gray-100"
             :src="require(`~/assets/img/${item.src}`)"
             @click="openModal(item)"
             alt=""

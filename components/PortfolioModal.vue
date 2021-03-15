@@ -1,8 +1,18 @@
 <template>
   <div class="backdrop" @click="$emit('close')">
-    <div id="popup-modal">
-      <img :src="require(`~/assets/img/${data.src}`)" alt="" />
-      <p>{{ data.id }}</p>
+    <div
+      id="popup-modal"
+      class="relative flex justify-center items-center bg-white"
+    >
+      <div class="img-wrapper">
+        <img
+          :src="require(`~/assets/img/${data.src}`)"
+          class="modal-img shadow-2xl rounded-lg object-cover object-center sm:max-w-sm md:max-w-md lg:max-w-screen-lg"
+          alt=""
+        />
+      </div>
+
+      <!-- <p>{{ data.id }}</p> -->
     </div>
   </div>
 </template>
@@ -14,7 +24,7 @@ export default {
 };
 </script>
 
-<style>
+<style lang="scss" scoped>
 .backdrop {
   position: absolute;
   top: 0;
@@ -31,18 +41,18 @@ export default {
 }
 
 #popup-modal {
-  position: sticky;
+  /* position: sticky;
   top: 30vh;
   width: 30rem;
   left: calc(50% - 15rem);
   margin: 0;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
-  border-radius: 12px;
-  padding: 1rem;
   background-color: white;
   z-index: 100;
-  border: none;
+  border: none; */
   animation: modal 0.3s ease-out forwards;
+  .modal-img {
+  }
 }
 
 @keyframes modal {
