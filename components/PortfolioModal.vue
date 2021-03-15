@@ -20,13 +20,13 @@ export default {
   top: 0;
   left: 0;
   width: 100%;
-  height: 100vh;
+  height: 100%;
   z-index: 10;
   background-color: rgba(0, 0, 0, 0.75);
 }
 
 #popup-modal {
-  position: fixed;
+  position: sticky;
   top: 30vh;
   width: 30rem;
   left: calc(50% - 15rem);
