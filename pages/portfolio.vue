@@ -909,7 +909,7 @@ export default {
   &:focus,
   &:active {
     background: $brand-lightgreen-color;
-    @apply ring-inset ring-1 ring-offset-gray-200;
+    color: $brand-green-textcolor;
   }
 }
 .slider {
