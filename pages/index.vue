@@ -185,24 +185,35 @@
             </div>
           </div>
         </button>
-        <div class="col-span-1 row-start-1 row-end-7"></div>
-        <div v-show="categoryActive" class="col-span-6 row-start-1 row-end-7">
+        <div
+          class="hidden md:grid md:col-span-1 md:row-start-1 md:row-end-7"
+        ></div>
+        <div
+          v-if="currentCategory === 'package'"
+          class="col-span-7 md:col-span-5 row-start-1 row-end-7"
+        >
           <div class="grid grid-flow-row m-10">
             <h3 class="font-display text-4xl mb-4">PACKAGE DESIGN</h3>
             <ul
-              class="inline-flex flex-wrap mb-4 space-x-0 sm:space-x-4 space-y-2 sm:space-y-0 font-bold"
+              class="inline-flex truncate overflow-clip md:overflow-hidden mb-4 space-x-4 font-bold"
             >
               <li class="px-3 py-2 bg-brand-lightgreen rounded-full text-sm">
-                # Photoshop
+                # Icomoclast Coffee
               </li>
               <li class="px-3 py-2 bg-brand-lightgreen rounded-full text-sm">
-                # Illustrator
+                # Cannibis Gummies
               </li>
               <li class="px-3 py-2 bg-brand-lightgreen rounded-full text-sm">
-                # Indesign
+                # Cateaurora Wine
               </li>
             </ul>
-            <p class="text-lg max-w-prose">
+            <p class="md:hidden truncate text-lg max-w-prose">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam
+              amet autem eius obcaecati illo, tempora quam natus architecto
+              sequi qui earum facere cumque, excepturi totam ipsum voluptatem ex
+              dicta est?
+            </p>
+            <p class="hidden md:block text-lg max-w-prose">
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam
               amet autem eius obcaecati illo, tempora quam natus architecto
               sequi qui earum facere cumque, excepturi totam ipsum voluptatem ex
@@ -210,7 +221,7 @@
             </p>
             <nuxt-link
               to="/portfolio"
-              class="my-4 font-bold text-lg text-brand-green flex items-center"
+              class="my-4 py-2 font-bold text-lg text-brand-green flex items-center"
               >VIEW PROJECTS
               <svg
                 class="ml-2 h-5 w-5"
@@ -231,6 +242,9 @@
             </nuxt-link>
           </div>
         </div>
+        <div
+          class="hidden md:grid md:col-span-1 md:row-start-1 md:row-end-7"
+        ></div>
       </div>
     </section>
     <div class="slider"></div>
@@ -243,7 +257,7 @@ export default {
   components: { ScrollIndicator },
   data() {
     return {
-      categoryActive: true,
+      currentCategory: "package",
     };
   },
   transition: {
