@@ -16,7 +16,9 @@
             </p>
           </div>
         </div>
-        <div class="scroller text-center">--- SCROLL ---</div>
+        <div class="flex justify-center w-8">
+          <scroll-indicator />
+        </div>
       </div>
     </section>
     <!-- Spacer -->
@@ -235,8 +237,9 @@
 </template>
 
 <script>
+import ScrollIndicator from "../components/ScrollIndicator.vue";
 export default {
-  components: {},
+  components: { ScrollIndicator },
   data() {
     return {
       categoryActive: true,
