@@ -3,69 +3,74 @@
     class="anim-stagger grid w-full"
     style="grid-template-columns: 10% 1fr 1fr 10%"
   >
-    <div class="sticky top-0 shadow-lg bg-red-300">
-      <div class="col-start-1 col-end-2">첫째 컬럼</div>
-      <div class="col-start-2 col-end-4 bg-white p-4 space-x-4" style="">
-        <button
-          class="text-lg border border-green-300 bg-green-500 hover:bg-green-300 rounded px-6 py-2 my-2 text-white"
-          @click.prevent="category = 'all'"
+    <div class="sticky top-0 shadow-lg bg-white col-span-full">
+      <div class="grid w-full" style="grid-template-columns: 10% 1fr 1fr 10%">
+        <div class="col-auto"></div>
+        <div
+          class="col-start-2 col-end-4 flex flex-wrap justify-start lg:justify-between py-1 md:py-4 space-x-2"
+          style=""
         >
-          ALL
-        </button>
-        <button
-          class="text-lg border border-green-300 bg-green-500 hover:bg-green-300 rounded px-6 py-2 my-2 text-white"
-          @click.prevent="category = 'package'"
-        >
-          Package
-        </button>
-        <button
-          class="text-lg border border-green-300 bg-green-500 hover:bg-green-300 rounded px-6 py-2 my-2 text-white"
-          @click.prevent="category = 'print'"
-        >
-          Print
-        </button>
-        <button
-          class="text-lg border border-green-300 bg-green-500 hover:bg-green-300 rounded px-6 py-2 my-2 text-white"
-          @click.prevent="category = 'illustration'"
-        >
-          Illustration
-        </button>
-        <button
-          class="text-lg border border-green-300 bg-green-500 hover:bg-green-300 rounded px-6 py-2 my-2 text-white"
-          @click.prevent="category = 'drawing'"
-        >
-          Drawing
-        </button>
-        <button
-          class="text-lg border border-green-300 bg-green-500 hover:bg-green-300 rounded px-6 py-2 my-2 text-white"
-          @click.prevent="category = 'photography'"
-        >
-          Photography
-        </button>
-        <button
-          class="text-lg border border-green-300 bg-green-500 hover:bg-green-300 rounded px-6 py-2 my-2 text-white"
-          @click.prevent="category = 'logo'"
-        >
-          Logo
-        </button>
-        <button
-          class="text-lg border border-green-300 bg-green-500 hover:bg-green-300 focus:outline-none focus:ring focus:ring-pink-200 rounded px-6 py-2 my-2 text-white"
-          @click.prevent="category = 'others'"
-        >
-          Others
-        </button>
+          <button
+            class="custom-button--filter text-lg border rounded px-2 md:px-6 py-1 md:py-2 my-1 md:my-2 text-white"
+            @click.prevent="category = 'all'"
+          >
+            ALL
+          </button>
+          <button
+            class="custom-button--filter text-lg border rounded px-2 md:px-6 py-1 md:py-2 my-1 md:my-2 text-white"
+            @click.prevent="category = 'package'"
+          >
+            Package
+          </button>
+          <button
+            class="custom-button--filter text-lg border rounded px-2 md:px-6 py-1 md:py-2 my-1 md:my-2 text-white"
+            @click.prevent="category = 'print'"
+          >
+            Print
+          </button>
+          <button
+            class="custom-button--filter text-lg border rounded px-2 md:px-6 py-1 md:py-2 my-1 md:my-2 text-white"
+            @click.prevent="category = 'illustration'"
+          >
+            Illustration
+          </button>
+          <button
+            class="custom-button--filter text-lg border rounded px-2 md:px-6 py-1 md:py-2 my-1 md:my-2 text-white"
+            @click.prevent="category = 'drawing'"
+          >
+            Drawing
+          </button>
+          <button
+            class="custom-button--filter text-lg border rounded px-2 md:px-6 py-1 md:py-2 my-1 md:my-2 text-white"
+            @click.prevent="category = 'photography'"
+          >
+            Photography
+          </button>
+          <button
+            class="custom-button--filter text-lg border rounded px-2 md:px-6 py-1 md:py-2 my-1 md:my-2 text-white"
+            @click.prevent="category = 'logo'"
+          >
+            Logo
+          </button>
+          <button
+            class="custom-button--filter text-lg border rounded px-2 md:px-6 py-1 md:py-2 my-1 md:my-2 text-white"
+            @click.prevent="category = 'others'"
+          >
+            Others
+          </button>
+        </div>
+        <div class="col-auto"></div>
       </div>
-      <div class="col-start-4 col-end-5">왜안돼?</div>
     </div>
-
+    <div class="col-auto"></div>
     <div class="col-start-2 col-end-4">
       <div
-        class="grid grid-cols-4 grid-rows-2 gap-2 border-2 border-gray-600"
+        class="grid grid-cols-1 md:grid-cols-4 auto-rows-auto gap-4 place-content-center"
         v-if="filteredLists.length"
       >
         <div v-for="item in filteredLists" v-bind:key="item.id">
           <img
-            class="object-cover object-center overscroll-auto max-h-64"
+            class="object-cover object-center mx-auto overscroll-auto rounded-md m-4 shadow-lg border bg-gray-100"
             :src="require(`~/assets/img/${item.src}`)"
             @click="openModal(item)"
             alt=""
@@ -82,6 +87,7 @@
       </div> -->
       </div>
     </div>
+    <div class="col-auto"></div>
   </div>
 </template>
 
@@ -91,6 +97,9 @@ import PortfolioModal from "@/components/PortfolioModal.vue";
 export default {
   components: {
     PortfolioModal,
+  },
+  mounted() {
+    this.initTrigger();
   },
   transition: {
     mode: "out-in",
@@ -859,9 +868,20 @@ export default {
       this.modalData = data;
       this.modalVisible = true;
     },
+    initTrigger() {},
   },
 };
 </script>
 
 <style lang="scss" scoped>
+.custom-button--filter {
+  @apply outline-none;
+  color: $brand-black-color;
+  background: white;
+  font-weight: bold;
+  &:focus,
+  &:active {
+    background: $brand-lightgreen-color;
+  }
+}
 </style>
