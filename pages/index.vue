@@ -359,7 +359,7 @@ export default {
       height: 100%;
       // background-position: left bottom;
       @screen sm {
-        background-size: 50% cover;
+        background-size: cover;
         background-position: center;
       }
 
