@@ -34,6 +34,12 @@
         Photography
       </button>
       <button
+        class="text-lg border border-green-300 bg-green-500 hover:bg-green-300 rounded px-6 py-2 my-2 text-white"
+        @click.prevent="category = 'print'"
+      >
+        Print
+      </button>
+      <button
         class="text-lg border border-green-300 bg-green-500 hover:bg-green-300 focus:outline-none focus:ring focus:ring-pink-200 rounded px-6 py-2 my-2 text-white"
         @click.prevent="category = 'others'"
       >
@@ -46,7 +52,7 @@
     >
       <div v-for="item in filteredLists" v-bind:key="item.id">
         <img 
-        :src="item.src" 
+        :src="require(`~/assets/img/${item.src}`)"
         @click="openModal(item)"
         alt="" 
         />
@@ -92,213 +98,75 @@ export default {
     return {
       // 포트폴리오 진입 시의 기본 카테고리
       category: this.$route.query.category,
-      categoryList: ['package', 'illustration', 'drawing', 'photography', 'others'],
+      categoryList: ['package', 'illustration', 'drawing', 'photography', 'print', 'others'],
       modalVisible: false,
       modalData: null,
 
       // 그림의 리스트. 대충 1개당 1오브젝트 집어넣으면 됨. id는 unique 값으로 넣어야 좋을 거 같음
-      // 현재 존재하는 카테고리: package, illustration, drawing, photography, others
+      // 현재 존재하는 카테고리: package, illustration, drawing, photography, others  ** draw는 illustration, web은 others, info는 print
       lists: [
-        {
-          id: 'package_1',
-          src: 'https://via.placeholder.com/350',
-          category: 'package',
-        },
-        {
-          id: 'package_2',
-          src: 'https://via.placeholder.com/350',
-          category: 'package',
-        },
-        {
-          id: 'package_3',
-          src: 'https://via.placeholder.com/350',
-          category: 'package',
-        },
-        {
-          id: 'package_4',
-          src: 'https://via.placeholder.com/350',
-          category: 'package',
-        },
-        {
-          id: 'package_5',
-          src: 'https://via.placeholder.com/350',
-          category: 'package',
-        },
-        {
-          id: 'package_6',
-          src: 'https://via.placeholder.com/350',
-          category: 'package',
-        },
-        {
-          id: 'package_7',
-          src: 'https://via.placeholder.com/350',
-          category: 'package',
-        },
-        {
-          id: 'package_8',
-          src: 'https://via.placeholder.com/350',
-          category: 'package',
-        },
-        {
-          id: 'illustration_1',
-          src: 'https://via.placeholder.com/350',
-          category: 'illustration',
-        },
-        {
-          id: 'illustration_2',
-          src: 'https://via.placeholder.com/350',
-          category: 'illustration',
-        },
-        {
-          id: 'illustration_3',
-          src: 'https://via.placeholder.com/350',
-          category: 'illustration',
-        },
-        {
-          id: 'illustration_4',
-          src: 'https://via.placeholder.com/350',
-          category: 'illustration',
-        },
-        {
-          id: 'illustration_5',
-          src: 'https://via.placeholder.com/350',
-          category: 'illustration',
-        },
-        {
-          id: 'illustration_6',
-          src: 'https://via.placeholder.com/350',
-          category: 'illustration',
-        },
-        {
-          id: 'illustration_7',
-          src: 'https://via.placeholder.com/350',
-          category: 'illustration',
-        },
-        {
-          id: 'illustration_8',
-          src: 'https://via.placeholder.com/350',
-          category: 'illustration',
-        },
-        {
-          id: 'drawing_1',
-          src: 'https://via.placeholder.com/350',
-          category: 'drawing',
-        },
-        {
-          id: 'drawing_2',
-          src: 'https://via.placeholder.com/350',
-          category: 'drawing',
-        },
-        {
-          id: 'drawing_3',
-          src: 'https://via.placeholder.com/350',
-          category: 'drawing',
-        },
-        {
-          id: 'drawing_4',
-          src: 'https://via.placeholder.com/350',
-          category: 'drawing',
-        },
-        {
-          id: 'drawing_5',
-          src: 'https://via.placeholder.com/350',
-          category: 'drawing',
-        },
-        {
-          id: 'drawing_6',
-          src: 'https://via.placeholder.com/350',
-          category: 'drawing',
-        },
-        {
-          id: 'drawing_7',
-          src: 'https://via.placeholder.com/350',
-          category: 'drawing',
-        },
-        {
-          id: 'drawing_8',
-          src: 'https://via.placeholder.com/350',
-          category: 'drawing',
-        },
-        {
-          id: 'photography_1',
-          src: 'https://via.placeholder.com/350',
-          category: 'photography',
-        },
-        {
-          id: 'photography_2',
-          src: 'https://via.placeholder.com/350',
-          category: 'photography',
-        },
-        {
-          id: 'photography_3',
-          src: 'https://via.placeholder.com/350',
-          category: 'photography',
-        },
-        {
-          id: 'photography_4',
-          src: 'https://via.placeholder.com/350',
-          category: 'photography',
-        },
-        {
-          id: 'photography_5',
-          src: 'https://via.placeholder.com/350',
-          category: 'photography',
-        },
-        {
-          id: 'photography_6',
-          src: 'https://via.placeholder.com/350',
-          category: 'photography',
-        },
-        {
-          id: 'photography_7',
-          src: 'https://via.placeholder.com/350',
-          category: 'photography',
-        },
-        {
-          id: 'photography_8',
-          src: 'https://via.placeholder.com/350',
-          category: 'photography',
-        },
-        {
-          id: 'others_1',
-          src: 'https://via.placeholder.com/350',
-          category: 'others',
-        },
-        {
-          id: 'others_2',
-          src: 'https://via.placeholder.com/350',
-          category: 'others',
-        },
-        {
-          id: 'others_3',
-          src: 'https://via.placeholder.com/350',
-          category: 'others',
-        },
-        {
-          id: 'others_4',
-          src: 'https://via.placeholder.com/350',
-          category: 'others',
-        },
-        {
-          id: 'others_5',
-          src: 'https://via.placeholder.com/350',
-          category: 'others',
-        },
-        {
-          id: 'others_6',
-          src: 'https://via.placeholder.com/350',
-          category: 'others',
-        },
-        {
-          id: 'others_7',
-          src: 'https://via.placeholder.com/350',
-          category: 'others',
-        },
-        {
-          id: 'others_8',
-          src: 'https://via.placeholder.com/350',
-          category: 'others',
-        },
+        { id: 'package_001', src: 'img-package/boxdesign.png', category: 'package' },
+        { id: 'package_002', src: 'img-package/cafe_menu_mockup.JPG', category: 'package' },
+        { id: 'package_003', src: 'img-package/cafesign.jpg', category: 'package' },
+        { id: 'package_004', src: 'img-package/CannibisGummies_back.png', category: 'package' },
+        { id: 'package_005', src: 'img-package/CannibisGummies_dieline.jpg', category: 'package' },
+        { id: 'package_006', src: 'img-package/CannibisGummies_front.png', category: 'package' },
+        { id: 'package_007', src: 'img-package/CannibisGummies_mockup.jpg', category: 'package' },
+        { id: 'package_008', src: 'img-package/coffbag.jpg', category: 'package' },
+        { id: 'package_009', src: 'img-package/coffee_MockUp.jpg', category: 'package' },
+        { id: 'package_010', src: 'img-package/giftbox_mockup.png', category: 'package' },
+        { id: 'package_011', src: 'img-package/giftbox1.jpg', category: 'package' },
+        { id: 'package_012', src: 'img-package/giftbox2.jpg', category: 'package' },
+        { id: 'package_013', src: 'img-package/giftbox3.jpg', category: 'package' },
+        { id: 'package_014', src: 'img-package/hotsauce_label1.jpg', category: 'package' },
+        { id: 'package_015', src: 'img-package/hotsauce_label2.jpg', category: 'package' },
+        { id: 'package_016', src: 'img-package/hotsauce_mockup.png', category: 'package' },
+        { id: 'package_017', src: 'img-package/hotsaucebottle2.png', category: 'package' },
+        { id: 'package_018', src: 'img-package/hotsaucebox-01.png', category: 'package' },
+        { id: 'package_019', src: 'img-package/hotsaucebox-02.png', category: 'package' },
+        { id: 'package_020', src: 'img-package/hotsaucebox-03.png', category: 'package' },
+        { id: 'package_021', src: 'img-package/menu1.jpg', category: 'package' },
+        { id: 'package_022', src: 'img-package/menu1-1.jpg', category: 'package' },
+        { id: 'package_023', src: 'img-package/menu1-2.jpg', category: 'package' },
+        { id: 'package_024', src: 'img-package/menu1-3.jpg', category: 'package' },
+        { id: 'package_025', src: 'img-package/menu1-4.jpg', category: 'package' },
+        { id: 'package_026', src: 'img-package/menu2-01.jpg', category: 'package' },
+        { id: 'package_027', src: 'img-package/menu2-02.jpg', category: 'package' },
+        { id: 'package_028', src: 'img-package/winebottle_box_blk.png', category: 'package' },
+        { id: 'package_029', src: 'img-package/winebottle_mockup.jpg', category: 'package' },
+        { id: 'package_030', src: 'img-package/winebox1.jpg', category: 'package' },
+        { id: 'package_031', src: 'img-package/winebox3.jpg', category: 'package' },
+        { id: 'package_032', src: 'img-package/winebox4.jpg', category: 'package' },
+        { id: 'package_033', src: 'img-package/winemockup.jpg', category: 'package' },
+        { id: 'package_034', src: 'img-package/wineset.jpg', category: 'package' },
+        { id: 'illustration_001', src: 'img-illust/bear1.png', category: 'illustration' },
+        { id: 'illustration_002', src: 'img-illust/buffalo1.png', category: 'illustration' },
+        { id: 'illustration_003', src: 'img-illust/cow_2021.png', category: 'illustration' },
+        { id: 'illustration_004', src: 'img-illust/deer.png', category: 'illustration' },
+        { id: 'illustration_005', src: 'img-illust/eagle.png', category: 'illustration' },
+        { id: 'illustration_006', src: 'img-illust/eagle2.png', category: 'illustration' },
+        { id: 'illustration_007', src: 'img-illust/golila1.png', category: 'illustration' },
+        { id: 'illustration_008', src: 'img-illust/indian6.png', category: 'illustration' },
+        { id: 'illustration_009', src: 'img-illust/retro_poster2.jpg', category: 'illustration' },
+        { id: 'illustration_010', src: 'img-illust/self_card.png', category: 'illustration' },
+        { id: 'illustration_011', src: 'img-illust/snowboard.png', category: 'illustration' },
+        { id: 'draw_001', src: 'img-draw/20170321_004527.jpg', category: 'illustration' },
+        { id: 'draw_001', src: 'img-draw/20170327_211538.jpg', category: 'illustration' },
+        { id: 'draw_001', src: 'img-draw/20170329_115306.jpg', category: 'illustration' },
+        { id: 'draw_001', src: 'img-draw/20170329_124532.jpg', category: 'illustration' },
+        { id: 'draw_001', src: 'img-draw/20171005_030816.jpg', category: 'illustration' },
+        { id: 'draw_001', src: 'img-draw/20180114_122748.jpg', category: 'illustration' },
+        { id: 'draw_001', src: 'img-draw/20180213_181123.jpg', category: 'illustration' },
+        { id: 'draw_001', src: 'img-draw/20180220_215840.jpg', category: 'illustration' },
+        { id: 'draw_001', src: 'img-draw/bg.JPG', category: 'illustration' },
+        { id: 'draw_001', src: 'img-draw/bg3.JPG', category: 'illustration' },
+        { id: 'draw_001', src: 'img-draw/cactus.JPG', category: 'illustration' },
+        { id: 'draw_001', src: 'img-draw/colour_pencil_drawing.JPG', category: 'illustration' },
+        { id: 'draw_001', src: 'img-draw/girl_pencil.JPG', category: 'illustration' },
+        { id: 'draw_001', src: 'img-draw/labyrinth_colour_pencil.JPG', category: 'illustration' },
+        { id: 'draw_001', src: 'img-draw/pencil_drawing.JPG', category: 'illustration' },
+        { id: 'draw_001', src: 'img-draw/rosaself.jpg', category: 'illustration' },
+        { id: 'draw_001', src: 'img-draw/self_potrait.jpg', category: 'illustration' },
       ]
     }
   },
