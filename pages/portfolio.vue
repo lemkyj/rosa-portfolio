@@ -1,7 +1,7 @@
 <template>
   <div class="grid w-full" style="grid-template-columns: 10% 1fr 1fr 10%">
     <div
-      class="anim-fade-y z-50 flex sticky top-0 overflow-x-scroll lg:overflow-hidden shadow-lg justify-start lg:justify-center col-span-full lg:col-start-1 lg:col-end-5 border bg-white p-4 space-x-4"
+      class="anim-fade-y z-10 flex sticky top-0 overflow-x-scroll lg:overflow-hidden shadow-lg justify-start lg:justify-center col-span-full lg:col-start-1 lg:col-end-5 border bg-white p-4 space-x-4"
     >
       <button
         class="custom-button--filter text-sm md:text-lg border rounded px-2 md:px-6 py-1 md:py-2 my-1 md:my-2 text-white"
