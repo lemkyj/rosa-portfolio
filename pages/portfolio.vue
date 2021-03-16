@@ -1,93 +1,89 @@
 <template>
-  <div
-    class="anim-stagger grid w-full"
-    style="grid-template-columns: 10% 1fr 1fr 10%"
-  >
-    <div class="sticky top-0 shadow-lg bg-white col-span-full">
-      <div class="grid w-full" style="grid-template-columns: 10% 1fr 1fr 10%">
-        <div class="col-auto"></div>
-        <div
-          class="col-start-2 col-end-4 flex flex-wrap justify-start lg:justify-between py-1 md:py-4 space-x-2"
-          style=""
-        >
-          <button
-            class="custom-button--filter text-lg border rounded px-2 md:px-6 py-1 md:py-2 my-1 md:my-2 text-white"
-            @click.prevent="category = 'all'"
-          >
-            ALL
-          </button>
-          <button
-            class="custom-button--filter text-lg border rounded px-2 md:px-6 py-1 md:py-2 my-1 md:my-2 text-white"
-            @click.prevent="category = 'package'"
-          >
-            Package
-          </button>
-          <button
-            class="custom-button--filter text-lg border rounded px-2 md:px-6 py-1 md:py-2 my-1 md:my-2 text-white"
-            @click.prevent="category = 'print'"
-          >
-            Print
-          </button>
-          <button
-            class="custom-button--filter text-lg border rounded px-2 md:px-6 py-1 md:py-2 my-1 md:my-2 text-white"
-            @click.prevent="category = 'illustration'"
-          >
-            Illustration
-          </button>
-          <button
-            class="custom-button--filter text-lg border rounded px-2 md:px-6 py-1 md:py-2 my-1 md:my-2 text-white"
-            @click.prevent="category = 'drawing'"
-          >
-            Drawing
-          </button>
-          <button
-            class="custom-button--filter text-lg border rounded px-2 md:px-6 py-1 md:py-2 my-1 md:my-2 text-white"
-            @click.prevent="category = 'photography'"
-          >
-            Photography
-          </button>
-          <button
-            class="custom-button--filter text-lg border rounded px-2 md:px-6 py-1 md:py-2 my-1 md:my-2 text-white"
-            @click.prevent="category = 'logo'"
-          >
-            Logo
-          </button>
-          <button
-            class="custom-button--filter text-lg border rounded px-2 md:px-6 py-1 md:py-2 my-1 md:my-2 text-white"
-            @click.prevent="category = 'others'"
-          >
-            Others
-          </button>
-        </div>
-        <div class="col-auto"></div>
-      </div>
+  <div class="grid w-full" style="grid-template-columns: 10% 1fr 1fr 10%">
+    <div
+      class="anim-fade-y z-50 flex sticky top-0 overflow-x-scroll lg:overflow-hidden shadow-lg justify-start lg:justify-center col-span-full lg:col-start-1 lg:col-end-5 border bg-white p-4 space-x-4"
+    >
+      <button
+        class="custom-button--filter text-sm md:text-lg border rounded px-2 md:px-6 py-1 md:py-2 my-1 md:my-2 text-white"
+        @click.prevent="category = 'all'"
+      >
+        ALL
+      </button>
+      <button
+        class="custom-button--filter text-sm md:text-lg border rounded px-2 md:px-6 py-1 md:py-2 my-1 md:my-2 text-white"
+        @click.prevent="category = 'package'"
+      >
+        Package
+      </button>
+      <button
+        class="custom-button--filter text-sm md:text-lg border rounded px-2 md:px-6 py-1 md:py-2 my-1 md:my-2 text-white"
+        @click.prevent="category = 'print'"
+      >
+        Print
+      </button>
+      <button
+        class="custom-button--filter text-sm md:text-lg border rounded px-2 md:px-6 py-1 md:py-2 my-1 md:my-2 text-white"
+        @click.prevent="category = 'illustration'"
+      >
+        Illustration
+      </button>
+      <button
+        class="custom-button--filter text-sm md:text-lg border rounded px-2 md:px-6 py-1 md:py-2 my-1 md:my-2 text-white"
+        @click.prevent="category = 'drawing'"
+      >
+        Drawing
+      </button>
+      <button
+        class="custom-button--filter text-sm md:text-lg border rounded px-2 md:px-6 py-1 md:py-2 my-1 md:my-2 text-white"
+        @click.prevent="category = 'photography'"
+      >
+        Photography
+      </button>
+      <button
+        class="custom-button--filter text-sm md:text-lg border rounded px-2 md:px-6 py-1 md:py-2 my-1 md:my-2 text-white"
+        @click.prevent="category = 'logo'"
+      >
+        Logo
+      </button>
+
+      <button
+        class="custom-button--filter text-sm md:text-lg border rounded px-2 md:px-6 py-1 md:py-2 my-1 md:my-2 text-white"
+        @click.prevent="category = 'others'"
+      >
+        Others
+      </button>
     </div>
-    <div class="col-auto"></div>
+
     <div class="col-start-2 col-end-4">
       <div
-        class="grid grid-cols-1 md:grid-cols-4 auto-rows-auto gap-4 place-content-center"
+        class="anim-fade-y grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 my-12 auto-rows-auto gap-4 place-content-center"
+        style=""
         v-if="filteredLists.length"
       >
-        <div v-for="item in filteredLists" v-bind:key="item.id">
+        <div
+          class="grid auto-cols-auto"
+          v-for="item in filteredLists"
+          v-bind:key="item.id"
+        >
           <img
-            class="flex self-center object-cover object-center mx-auto overscroll-auto rounded-md m-4 shadow-lg border bg-gray-100"
             :src="require(`~/assets/img/${item.src}`)"
             @click="openModal(item)"
-            alt=""
+            :alt="item.id"
+            class="cursor-pointer flex self-center object-cover object-center mx-auto overscroll-auto rounded-md m-4 shadow-lg border bg-gray-100"
           />
         </div>
 
-        <portfolio-modal
-          v-if="modalVisible"
-          @close="modalVisible = false"
-          :data="modalData"
-        />
         <!-- <div class="">
         <img src="https://via.placeholder.com/350" alt="" />
       </div> -->
       </div>
     </div>
-    <div class="col-auto"></div>
+    <div class="slider"></div>
+    <portfolio-modal
+      v-if="modalVisible"
+      @close="modalVisible = false"
+      :data="modalData"
+    />
   </div>
 </template>
 
@@ -98,23 +94,55 @@ export default {
   components: {
     PortfolioModal,
   },
-  mounted() {
-    this.initTrigger();
-  },
   transition: {
     mode: "out-in",
     css: false,
     enter(el, done) {
       const tl = gsap.timeline();
-      tl.set(document.body, {
-        opacity: 0,
-        x: -10,
-      }).to(document.body, {
-        duration: 1.5,
-        opacity: 1,
-        x: 0,
-        ease: "slowmo.out",
-      });
+      // tl.fromTo(
+      //   ".slider",
+      //   { y: -100 },
+      //   {
+      //     duration: 1,
+      //     y: 0,
+      //     ease: "power2.out",
+      //   }
+      // )
+      tl.fromTo(
+        ".slider",
+        { yPercent: -101 },
+        {
+          duration: 0.5,
+          yPercent: 101,
+          ease: "power2.out",
+        }
+      )
+        .fromTo(
+          "#header, .anim-nav",
+          { opacity: 0, x: -10 },
+          {
+            duration: 1,
+            stagger: 0.2,
+            x: 0,
+            opacity: 1,
+            ease: "power2.out",
+          }
+        )
+        .fromTo(
+          ".anim-fade-y",
+          {
+            opacity: 0,
+            y: -5,
+          },
+          {
+            duration: 1.2,
+            stagger: 0.5,
+            y: 0,
+            opacity: 1,
+            ease: "slowmo.out",
+          },
+          "-=1"
+        );
     },
   },
   data() {
@@ -868,7 +896,6 @@ export default {
       this.modalData = data;
       this.modalVisible = true;
     },
-    initTrigger() {},
   },
 };
 </script>
@@ -882,6 +909,16 @@ export default {
   &:focus,
   &:active {
     background: $brand-lightgreen-color;
+    color: $brand-green-textcolor;
   }
+}
+.slider {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 200vh;
+  background: $brand-pink-color;
+  z-index: 1;
 }
 </style>

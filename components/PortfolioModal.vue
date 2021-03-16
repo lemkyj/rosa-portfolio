@@ -1,18 +1,14 @@
 <template>
   <div class="backdrop" @click="$emit('close')">
-    <div
-      id="popup-modal"
-      class="relative flex justify-center items-center bg-white"
-    >
-      <div class="img-wrapper">
-        <img
-          :src="require(`~/assets/img/${data.src}`)"
-          class="modal-img shadow-2xl rounded-lg object-cover object-center sm:max-w-sm md:max-w-md lg:max-w-screen-lg"
-          alt=""
-        />
-      </div>
-
-      <!-- <p>{{ data.id }}</p> -->
+    <div id="popup-modal">
+      <img :src="require(`~/assets/img/${data.src}`)" :alt="data.src" />
+      <!-- <a
+        :href="require(`~/assets/img/${data.src}`)"
+        alt="download"
+        class="px-2 py-2 bg-brand-lightgreen text-black-color"
+        >Download</a
+      > -->
+      <p>{{ data.id }}</p>
     </div>
   </div>
 </template>
@@ -24,35 +20,30 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
+<style>
 .backdrop {
-  position: absolute;
+  position: fixed;
   top: 0;
-  bottom: 0;
   left: 0;
-  right: 0;
   width: 100%;
   height: 100%;
   z-index: 10;
   background-color: rgba(0, 0, 0, 0.75);
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
 #popup-modal {
-  /* position: sticky;
+  position: sticky;
   top: 30vh;
-  width: 30rem;
+  max-width: 30rem;
   left: calc(50% - 15rem);
   margin: 0;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+  border-radius: 12px;
+  padding: 1rem;
   background-color: white;
   z-index: 100;
-  border: none; */
+  border: none;
   animation: modal 0.3s ease-out forwards;
-  .modal-img {
-  }
 }
 
 @keyframes modal {

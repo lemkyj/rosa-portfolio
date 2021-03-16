@@ -1,6 +1,6 @@
 <template>
   <div>
-    <app-header />
+    <app-header class="opacity-0" />
     <Nuxt />
     <!-- <div
       class="anim-slider fixed inset-0 w-full h-screen bg-brand-pink z-10"
@@ -77,18 +77,18 @@ export default {
   methods: {
     animInit() {
       const tl = gsap.timeline();
-      tl.fromTo(
-        "#header, .anim-nav",
-        { opacity: 0, x: -10 },
-        {
-          duration: 1,
-          delay: 1.6,
-          stagger: 0.3,
-          x: 0,
-          opacity: 1,
-          ease: "slowmo.out",
-        }
-      );
+      // tl.fromTo(
+      //   "#header, .anim-nav",
+      //   { opacity: 0, x: -10 },
+      //   {
+      //     duration: 1,
+      //     delay: 1.6,
+      //     stagger: 0.2,
+      //     x: 0,
+      //     opacity: 1,
+      //     ease: "power2.out",
+      //   }
+      // );
     },
   },
 };

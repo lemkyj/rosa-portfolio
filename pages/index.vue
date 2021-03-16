@@ -3,17 +3,19 @@
     <section class="custom-section">
       <div class="custom-hero">
         <div class="custom-hero-img w-full h-full">
-          <div class="custom-titles opacity-0">
+          <div class="custom-wrapper-headline opacity-0">
             <h1
-              class="custom-headline relative flex px-4 py-2 sm:px-8 sm:py-4 font-display text-10xl"
+              class="custom-headline absolute p-4 py-2 sm:px-8 sm:py-4 font-display text-5xl sm:text-7xl md:text-8xl lg:text-10xl"
             >
               Rosa Lee
             </h1>
-            <p
-              class="custom-subtitle relative flex px-4 py-2 md:px-2 sm:px-8 sm:py-4 text-2xl md:text-5xl font-display"
+          </div>
+          <div class="custom-wrapper-subtitle opacity-0">
+            <div
+              class="custom-subtitle abosolute px-4 py-2 md:px-2 sm:px-8 sm:py-4 text-md sm:text-2xl md:text-4xl lg:text-6xl font-display"
             >
               DESIGN / ILLUSTRATION / PHOTOGRAPHY
-            </p>
+            </div>
           </div>
         </div>
       </div>
@@ -21,153 +23,27 @@
       <!-- <scroll-indicator /> -->
     </section>
     <!-- Spacer -->
-    <div class="bg-brand-lightgreen my-12" style="height: 30vh"></div>
+    <div
+      class="anim-fade-y bg-brand-lightgreen my-12"
+      style="height: 30vh"
+    ></div>
     <!-- Spacer end -->
     <section class="h-screen w-full bg-white">
       <div class="h-screen grid grid-cols-12 grid-rows-6 grid-flow-col">
-        <button class="col-span-5 w-full h-full text-6xl font-display border-2">
+        <button
+          v-for="category in categoryInfos"
+          class="custom-button--category anim-fade-y col-span-5 w-full h-full text-right text-2xl sm:text-4xl md:text-6xl font-display"
+          :key="category.id"
+        >
           <div
             class="flex justify-end items-center w-full h-full bg-brand-lightgreen"
+            :class="{ active: checkActive(category.id) }"
+            @click="toggleActive(category)"
           >
-            <div class="mx-4 flex justify-end items-center">
-              <h2 class="">PACKAGE DESIGN</h2>
+            <div class="anim-fade-y mx-4 flex justify-end items-center">
+              <h2 class="">{{ category.name }}</h2>
               <svg
-                class="ml-8"
-                width="46"
-                height="46"
-                viewBox="0 0 46 46"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M32.5833 15.3334L40.25 23M40.25 23L32.5833 30.6667M40.25 23H5.75"
-                  stroke="#ebf6f5"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                />
-              </svg>
-            </div>
-          </div>
-        </button>
-
-        <button class="col-span-5 w-full h-full text-6xl font-display border-2">
-          <div
-            class="flex justify-end items-center w-full h-full bg-brand-lightgreen"
-          >
-            <div class="mx-4 flex justify-end items-center">
-              <h2 class="">PRINT DESIGN</h2>
-              <svg
-                id="arrow-right"
-                class="ml-8"
-                width="46"
-                height="46"
-                viewBox="0 0 46 46"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M32.5833 15.3334L40.25 23M40.25 23L32.5833 30.6667M40.25 23H5.75"
-                  stroke="#ebf6f5"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                />
-              </svg>
-            </div>
-          </div>
-        </button>
-
-        <button class="col-span-5 w-full h-full text-6xl font-display border-2">
-          <div
-            class="flex justify-end items-center w-full h-full bg-brand-lightgreen"
-          >
-            <div class="mx-4 flex justify-end items-center">
-              <h2 class="">ILLUSTRATION</h2>
-              <svg
-                id="arrow-right"
-                class="ml-8"
-                width="46"
-                height="46"
-                viewBox="0 0 46 46"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M32.5833 15.3334L40.25 23M40.25 23L32.5833 30.6667M40.25 23H5.75"
-                  stroke="#ebf6f5"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                />
-              </svg>
-            </div>
-          </div>
-        </button>
-
-        <button class="col-span-5 w-full h-full text-6xl font-display border-2">
-          <div
-            class="flex justify-end items-center w-full h-full bg-brand-lightgreen"
-          >
-            <div class="mx-4 flex justify-end items-center">
-              <h2 class="">PHOTOGRAPHY</h2>
-              <svg
-                id="arrow-right"
-                class="ml-8"
-                width="46"
-                height="46"
-                viewBox="0 0 46 46"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M32.5833 15.3334L40.25 23M40.25 23L32.5833 30.6667M40.25 23H5.75"
-                  stroke="#ebf6f5"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                />
-              </svg>
-            </div>
-          </div>
-        </button>
-
-        <button class="col-span-5 w-full h-full text-6xl font-display border-2">
-          <div
-            class="flex justify-end items-center w-full h-full bg-brand-lightgreen"
-          >
-            <div class="mx-4 flex justify-end items-center">
-              <h2 class="">LOGO DESIGN</h2>
-              <svg
-                id="arrow-right"
-                class="ml-8"
-                width="46"
-                height="46"
-                viewBox="0 0 46 46"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M32.5833 15.3334L40.25 23M40.25 23L32.5833 30.6667M40.25 23H5.75"
-                  stroke="#ebf6f5"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                />
-              </svg>
-            </div>
-          </div>
-        </button>
-
-        <button class="col-span-5 w-full h-full text-6xl font-display border-2">
-          <div
-            class="flex justify-end items-center w-full h-full bg-brand-lightgreen"
-          >
-            <div class="mx-4 flex justify-end items-center">
-              <h2 class="">OTHERS</h2>
-              <svg
-                id="arrow-right"
-                class="ml-8"
+                class="hidden sm:flex ml-3 lg:mx-8 h-8 w-8 md:h-12 md:w-12"
                 width="46"
                 height="46"
                 viewBox="0 0 46 46"
@@ -188,40 +64,31 @@
         <div
           class="hidden md:grid md:col-span-1 md:row-start-1 md:row-end-7"
         ></div>
-        <div
-          v-if="currentCategory === 'package'"
-          class="col-span-7 md:col-span-5 row-start-1 row-end-7"
-        >
+        <div class="col-span-7 md:col-span-5 row-start-1 row-end-7">
           <div class="grid grid-flow-row m-10">
-            <h3 class="font-display text-4xl mb-4">PACKAGE DESIGN</h3>
+            <h3 class="anim-fade-y font-display text-4xl mb-4">
+              {{ currentObj.name }}
+            </h3>
             <ul
               class="inline-flex truncate overflow-clip md:overflow-hidden mb-4 space-x-4 font-bold"
             >
-              <li class="px-3 py-2 bg-brand-lightgreen rounded-full text-sm">
-                # Icomoclast Coffee
-              </li>
-              <li class="px-3 py-2 bg-brand-lightgreen rounded-full text-sm">
-                # Cannibis Gummies
-              </li>
-              <li class="px-3 py-2 bg-brand-lightgreen rounded-full text-sm">
-                # Cateaurora Wine
+              <li
+                class="anim-fade-y px-3 py-2 bg-brand-lightgreen rounded-full text-sm"
+                v-for="tag in currentObj.tag"
+                :key="tag"
+              >
+                {{ "# " + tag }}
               </li>
             </ul>
-            <p class="md:hidden truncate text-lg max-w-prose">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam
-              amet autem eius obcaecati illo, tempora quam natus architecto
-              sequi qui earum facere cumque, excepturi totam ipsum voluptatem ex
-              dicta est?
+            <p class="anim-fade-y md:hidden truncate text-lg max-w-prose">
+              {{ currentObj.contents }}
             </p>
-            <p class="hidden md:block text-lg max-w-prose">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam
-              amet autem eius obcaecati illo, tempora quam natus architecto
-              sequi qui earum facere cumque, excepturi totam ipsum voluptatem ex
-              dicta est?
+            <p class="anim-fade-y hidden md:block text-lg max-w-prose">
+              {{ currentObj.contents }}
             </p>
             <nuxt-link
-              to="/portfolio?category=package"
-              class="my-4 py-2 font-bold text-lg text-brand-green flex items-center transform translate-x-2 hover:translate-x-4 duration-75 ease-out"
+              :to="'/portfolio?category=' + currentCategory"
+              class="anim-fade-y my-4 py-2 font-bold text-lg text-brand-green flex items-center transform translate-x-2 hover:translate-x-4 duration-75 ease-out"
               >VIEW PROJECTS
               <svg
                 class="ml-2 h-5 w-5"
@@ -240,11 +107,10 @@
                 />
               </svg>
             </nuxt-link>
-            <div class="relative border-2 border-green-300">
+            <div class="anim-fade-y relative border-2 border-green-300">
               <img
                 class="custom-category-img"
-                src="../assets/img/img-index/main-package.png"
-                alt="package img"
+                :src="require(`~/assets/img/${currentObj.img}`)"
               />
             </div>
           </div>
@@ -266,6 +132,76 @@ export default {
   data() {
     return {
       currentCategory: "package",
+      currentObj: {
+        id: "",
+        name: "",
+        tag: [],
+        contents: ``,
+        img: "img-index/main-logo2.jpg",
+      },
+      isActive: false,
+      categoryInfos: {
+        package: {
+          id: "package",
+          name: "PACKAGE DESIGN",
+          tag: ["Icomoclast Coffee", "Cannibis Gummies", "Cateaurora Wine"],
+          contents: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam
+              amet autem eius obcaecati illo, tempora quam natus architecto
+              sequi qui earum facere cumque, excepturi totam ipsum voluptatem ex
+              dicta est?`,
+          img: "img-index/main-package.png",
+        },
+        print: {
+          id: "print",
+          name: "PRINT DESIGN",
+          tag: ["1"],
+          contents: `prints Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam
+              amet autem eius obcaecati illo, tempora quam natus architecto
+              sequi qui earum facere cumque, excepturi totam ipsum voluptatem ex
+              dicta est?`,
+          img: "img-index/main-print.png",
+        },
+        illustration: {
+          id: "illustration",
+          name: "ILLUSTRATION",
+          tag: [4, 5, 6],
+          contents: `illusts Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam
+              amet autem eius obcaecati illo, tempora quam natus architecto
+              sequi qui earum facere cumque, excepturi totam ipsum voluptatem ex
+              dicta est?`,
+          img: "img-index/main-illustration.png",
+        },
+        photography: {
+          id: "photography",
+          name: "PHOTOGRAPHY",
+          tag: [7, 8, 9, 10],
+          contents: `photos Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam
+              amet autem eius obcaecati illo, tempora quam natus architecto
+              sequi qui earum facere cumque, excepturi totam ipsum voluptatem ex
+              dicta est?`,
+          img: "img-index/main-photo1.png",
+        },
+        logo: {
+          id: "logo",
+          name: "LOGO DESIGN",
+          tag: [11, 12, 13, 14, 15],
+          contents: `logos Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam
+              amet autem eius obcaecati illo, tempora quam natus architecto
+              sequi qui earum facere cumque, excepturi totam ipsum voluptatem ex
+              dicta est?`,
+          img: "img-index/main-logo1.jpg",
+        },
+        others: {
+          id: "others",
+          name: "OTHERS",
+          tag: [16, 17, 18, 19, 20],
+          contents: `others Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam
+              amet autem eius obcaecati illo, tempora quam natus architecto
+              sequi qui earum facere cumque, excepturi totam ipsum voluptatem ex
+              dicta est?`,
+          img: "img-index/main-other1.jpg",
+        },
+      },
     };
   },
   transition: {
@@ -290,18 +226,34 @@ export default {
           { duration: 1.2, x: "0%", ease: Power2.easeInOut },
           "-=1.2"
         )
-        .to(".custom-titles", {
-          duration: 1,
-          opacity: 1,
-          ease: "power2.in",
-        })
+        .fromTo(
+          "#header, .anim-nav",
+          { opacity: 0, x: -10 },
+          {
+            duration: 1,
+            stagger: 0.2,
+            x: 0,
+            opacity: 1,
+            ease: "power2.out",
+          },
+          "-=0.5"
+        )
+        .to(
+          ".custom-wrapper-headline, .custom-wrapper-subtitle",
+          {
+            duration: 0.8,
+            opacity: 1,
+            ease: "power2.in",
+          },
+          "-=0.8"
+        )
         .fromTo(
           ".custom-subtitle, .custom-headline",
           {
             xPercent: -5,
           },
           {
-            duration: 2,
+            duration: 1.2,
             stagger: 0.5,
             xPercent: 0,
             opacity: 1,
@@ -312,36 +264,55 @@ export default {
     },
     leave(el, done) {
       const tl = gsap.timeline();
-      tl.to(".anim, #header", {
-        duration: 0.8,
-        stagger: 0.05,
-        ease: "slowmo.out",
-      });
-      tl.to(
-        ".custom-hero",
-        { duration: 0.8, height: "0%", ease: "power4.in" },
-        "-=0.8"
-      )
+      tl.to(".custom-headline, .custom-subtitle", {
+        stagger: 0.1,
+        duration: 0.3,
+        opacity: 0,
+        ease: "power4.in",
+      })
         .to(
-          ".custom-titles",
-          { duration: 0.5, opacity: 0, ease: "slowmo.in" },
-          "-=1.5"
+          ".custom-wrapper-headline, .custom-wrapper-subtitle",
+          { duration: 0.5, x: -20, opacity: 0, ease: "power4.in" },
+          "-=0.5"
         )
+        .to(".custom-hero", { duration: 0.5, height: "0%", ease: "power4.in" })
+        .to("#header", {
+          opacity: 0,
+          duration: 0.5,
+          stagger: 0.05,
+          ease: "slowmo.out",
+        })
         .to(
-          ".custom-headline, .custom-subtitle",
-          { stagger: 0.3, duration: 0.5, opacity: 1, ease: "slowmo.in" },
-          "-=1.5"
-        )
-        .to(".slider", {
-          duration: 0.8,
-          x: "-100%",
-          ease: "power4.in",
-          onComplete: () =>
-            setInterval(function () {
-              done();
-            }, 500),
-        });
+          ".slider",
+          {
+            duration: 0.8,
+            y: "-100%",
+            ease: "power4.in",
+            onComplete: () =>
+              setInterval(function () {
+                done();
+              }, 1000),
+          },
+          "-=0.5"
+        );
     },
+  },
+  methods: {
+    toggleActive(target) {
+      this.currentCategory = target.id;
+      this.currentObj = target;
+    },
+    checkActive(id) {
+      if (this.currentCategory === id) {
+        return true;
+      } else {
+        return false;
+      }
+    },
+  },
+  mounted() {
+    this.toggleActive(this.categoryInfos.package);
+    this.checkActive(this.currentCategory);
   },
 };
 </script>
@@ -383,43 +354,57 @@ export default {
       background: url("~@/assets/mountain.jpg");
       width: 100%;
       height: 100%;
+      position: static;
       // background-position: left bottom;
       @screen sm {
         background-size: cover;
         background-position: center;
       }
 
-      .custom-titles {
-        // top: 64%;
-        bottom: 0;
+      .custom-wrapper-headline {
+        bottom: 22%;
         left: 0%;
         position: absolute;
         color: black;
         mix-blend-mode: screen;
         background-color: #fbe3e8;
-        &:after {
-          content: "";
-          background: black;
-          position: absolute;
-          left: 0;
-          top: 0;
+        @screen sm {
+          @apply px-2;
+        }
+        @screen md {
+          @apply px-2;
+        }
+        @screen lg {
+          left: 0%;
+          @apply px-8;
+        }
+        .custom-headline {
+          position: relative;
+          bottom: 0%;
+          font-family: "Bebas Neue", cursive;
         }
       }
-      .custom-headline {
-        @apply text-8xl;
-        font-family: "Bebas Neue", cursive;
+      .custom-wrapper-subtitle {
+        bottom: 13%;
+        left: 4%;
+        position: absolute;
+        color: black;
+        mix-blend-mode: screen;
+        background-color: #fbe3e8;
         @screen sm {
-          // top: 54.5%;
-          // left: -2.3%;
-          font-size: 8.6rem;
+          bottom: 9.5%;
         }
-      }
-      .custom-subtitle {
-        // top: 82.9%;
-        // left: 0%;
-
-        @screen sm {
-          // top: 83%;
+        @screen md {
+          bottom: 8%;
+        }
+        @screen lg {
+          bottom: 4%;
+          left: 4%;
+          @apply px-2;
+        }
+        .custom-subtitle {
+          position: relative;
+          bottom: 0%;
         }
       }
     }
@@ -431,8 +416,17 @@ export default {
   top: 0;
   left: 0;
   width: 100%;
-  height: 100vh;
+  height: 100%;
   background: #ebf6f5;
   z-index: -1;
+}
+
+.active {
+  background: $brand-green-color;
+  color: $brand-black-color;
+}
+
+.custom-button--category {
+  @apply focus:outline-none;
 }
 </style>
