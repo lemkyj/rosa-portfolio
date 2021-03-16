@@ -73,17 +73,17 @@
           />
         </div>
 
-        <portfolio-modal
-          v-if="modalVisible"
-          @close="modalVisible = false"
-          :data="modalData"
-        />
         <!-- <div class="">
         <img src="https://via.placeholder.com/350" alt="" />
       </div> -->
       </div>
     </div>
     <div class="slider"></div>
+    <portfolio-modal
+      v-if="modalVisible"
+      @close="modalVisible = false"
+      :data="modalData"
+    />
   </div>
 </template>
 
