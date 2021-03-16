@@ -362,7 +362,7 @@ export default {
       }
 
       .custom-wrapper-headline {
-        bottom: 22%;
+        bottom: 10vh;
         left: 0%;
         position: absolute;
         color: black;
