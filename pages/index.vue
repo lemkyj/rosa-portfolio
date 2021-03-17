@@ -29,96 +29,104 @@
     ></div>
     <!-- Spacer end -->
     <section class="h-screen w-full bg-white">
-      <div class="h-screen grid grid-cols-12 grid-rows-6 grid-flow-col">
-        <button
-          v-for="category in categoryInfos"
-          class="custom-button--category anim-fade-y col-span-5 w-full h-full text-right text-2xl sm:text-4xl md:text-6xl font-display"
-          :key="category.id"
-        >
-          <div
-            class="flex justify-end items-center w-full h-full bg-brand-lightgreen"
-            :class="{ active: checkActive(category.id) }"
-            @click="toggleActive(category)"
+      <div
+        class="h-screen grid grid-cols-1 md:grid-cols-12 grid-rows-12 md:grid-rows-6 grid-flow-col"
+      >
+        <div class="md:col-span-5">
+          <button
+            v-for="category in categoryInfos"
+            class="custom-button--category row-span-1 anim-fade-y w-full h-full text-right text-2xl sm:text-4xl md:text-6xl font-display"
+            :key="category.id"
           >
-            <div class="anim-fade-y mx-4 flex justify-end items-center">
-              <h2 class="">{{ category.name }}</h2>
-              <svg
-                class="hidden sm:flex ml-3 lg:mx-8 h-8 w-8 md:h-12 md:w-12"
-                width="46"
-                height="46"
-                viewBox="0 0 46 46"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M32.5833 15.3334L40.25 23M40.25 23L32.5833 30.6667M40.25 23H5.75"
-                  stroke="#ebf6f5"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                />
-              </svg>
-            </div>
-          </div>
-        </button>
-        <div
-          class="hidden md:grid md:col-span-1 md:row-start-1 md:row-end-7"
-        ></div>
-        <div class="col-span-7 md:col-span-5 row-start-1 row-end-7">
-          <div class="grid grid-flow-row m-10">
-            <h3 class="anim-fade-y font-display text-4xl mb-4">
-              {{ currentObj.name }}
-            </h3>
-            <ul
-              class="inline-flex truncate overflow-clip md:overflow-hidden mb-4 space-x-4 font-bold"
+            <div
+              class="flex justify-end items-center w-full h-full bg-brand-lightgreen"
+              :class="{ active: checkActive(category.id) }"
+              @click="toggleActive(category)"
             >
-              <li
-                class="anim-fade-y px-3 py-2 bg-brand-lightgreen rounded-full text-sm"
-                v-for="tag in currentObj.tag"
-                :key="tag"
+              <div class="anim-fade-y mx-4 flex justify-end items-center">
+                <h2 class="">{{ category.name }}</h2>
+                <svg
+                  class="hidden sm:flex ml-3 lg:mx-8 h-8 w-8 md:h-12 md:w-12"
+                  width="46"
+                  height="46"
+                  viewBox="0 0 46 46"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M32.5833 15.3334L40.25 23M40.25 23L32.5833 30.6667M40.25 23H5.75"
+                    stroke="#ebf6f5"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </div>
+            </div>
+          </button>
+        </div>
+        <!-- <div
+          class="hidden md:grid md:col-span-1 md:row-start-1 md:row-end-7"
+        ></div> -->
+        <div
+          class="col-span-7 row-span-full border-2 border-gray-900 overflow-hidden"
+        >
+          <div class="md:mx-12 md:mt-8 lg:mx-24 mt-12">
+            <div class="grid grid-rows-2 justify-start">
+              <div class="row-auto">
+                <h3 class="anim-fade-y font-display text-4xl mb-4">
+                  {{ currentObj.name }}
+                </h3>
+                <ul class="inline-flex mb-4 space-x-4 font-bold max-w-full">
+                  <li
+                    class="anim-fade-y truncate flex-1 px-2 py-2 bg-brand-lightgreen rounded-full text-sm overflow-hidden"
+                    v-for="tag in currentObj.tag"
+                    :key="tag"
+                  >
+                    {{ "# " + tag }}
+                  </li>
+                </ul>
+                <p
+                  class="anim-fade-y line-clamp-4 md:line-clamp-none text-lg max-w-prose"
+                >
+                  {{ currentObj.contents }}
+                </p>
+                <nuxt-link
+                  :to="'/portfolio?category=' + currentCategory"
+                  class="anim-fade-y my-4 font-bold text-base md:text-lg text-brand-green flex items-center transform translate-x-2 hover:translate-x-4 duration-75 ease-out"
+                  >VIEW PROJECTS
+                  <svg
+                    class="ml-2 h-5 w-5"
+                    width="46"
+                    height="46"
+                    viewBox="0 0 46 46"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M32.5833 15.3334L40.25 23M40.25 23L32.5833 30.6667M40.25 23H5.75"
+                      stroke="#1f423e"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                </nuxt-link>
+              </div>
+
+              <div
+                class="anim-fade-y row-start-6 row-end-7 border-2 border-green-300"
               >
-                {{ "# " + tag }}
-              </li>
-            </ul>
-            <p class="anim-fade-y md:hidden truncate text-lg max-w-prose">
-              {{ currentObj.contents }}
-            </p>
-            <p class="anim-fade-y hidden md:block text-lg max-w-prose">
-              {{ currentObj.contents }}
-            </p>
-            <nuxt-link
-              :to="'/portfolio?category=' + currentCategory"
-              class="anim-fade-y my-4 py-2 font-bold text-lg text-brand-green flex items-center transform translate-x-2 hover:translate-x-4 duration-75 ease-out"
-              >VIEW PROJECTS
-              <svg
-                class="ml-2 h-5 w-5"
-                width="46"
-                height="46"
-                viewBox="0 0 46 46"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M32.5833 15.3334L40.25 23M40.25 23L32.5833 30.6667M40.25 23H5.75"
-                  stroke="#1f423e"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                />
-              </svg>
-            </nuxt-link>
-            <div class="anim-fade-y relative border-2 border-green-300">
-              <img
-                class="custom-category-img"
-                :src="require(`~/assets/img/${currentObj.img}`)"
-              />
+                <div class="w-full border-2 border-red-300 overflow-hidden">
+                  <img
+                    class="custom-category-img max-w-full overflow-hidden"
+                    :src="require(`~/assets/img/${currentObj.img}`)"
+                  />
+                </div>
+              </div>
             </div>
           </div>
         </div>
-
-        <div
-          class="hidden md:grid md:col-span-1 md:row-start-1 md:row-end-7"
-        ></div>
       </div>
     </section>
     <div class="slider"></div>

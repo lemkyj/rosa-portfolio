@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@nuxtjs/tailwindcss": "^3.4.3",
+    "@tailwindcss/line-clamp": "^0.2.0",
     "autoprefixer": "9",
     "nuxt": "^2.0.0",
     "postcss-import": "^14.0.0"

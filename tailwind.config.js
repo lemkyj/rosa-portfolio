@@ -16,5 +16,6 @@ module.exports = {
     require("postcss-import"),
     require("tailwindcss"),
     require("autoprefixer"),
+    require("@tailwindcss/line-clamp"),
   ],
 };
