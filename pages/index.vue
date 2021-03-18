@@ -23,7 +23,7 @@
       <!-- <scroll-indicator /> -->
     </section>
     <!-- Spacer -->
-    <div class="anim-fade-y bg-brand-lightgreen" style="height: 100vh"></div>
+    <div class="anim-fade-y bg-transparent" style="height: 100vh"></div>
     <!-- Spacer end -->
     <section class="h-screen w-full bg-white">
       <div
@@ -68,7 +68,7 @@
         <div
           class="col-span-7 row-span-full border-2 border-gray-900 overflow-hidden"
         >
-          <div class="md:mx-12 md:mt-8 lg:mx-24 mt-12">
+          <div class="relative md:mx-12 md:mt-8 lg:mx-24 mt-12">
             <div class="grid grid-rows-2 justify-start">
               <div class="row-auto">
                 <h3 class="anim-fade-y font-display text-4xl mb-4">
@@ -112,11 +112,11 @@
               </div>
 
               <div
-                class="anim-fade-y row-start-6 row-end-7 border-2 border-green-300"
+                class="relative anim-fade-y row-start-6 row-end-7 border-2 border-yellow-800"
               >
-                <div class="w-full border-2 border-red-300 overflow-hidden">
+                <div class="w-full absolute top-0 left-96">
                   <img
-                    class="custom-category-img max-w-full overflow-hidden"
+                    class="custom-category-img max-w-max"
                     :src="require(`~/assets/img/${currentObj.img}`)"
                   />
                 </div>

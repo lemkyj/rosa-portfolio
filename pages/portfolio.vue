@@ -98,14 +98,14 @@ export default {
     css: false,
     enter(el, done) {
       const tl = gsap.timeline();
-      tl.to(".slider-lightgreen", {
+      tl.to(".slider", {
         duration: 0.3,
         yPercent: 100,
         delay: 1,
         ease: "power2.out",
       });
       tl.to(
-        ".slider-lightgreen",
+        ".slider",
         {
           duration: 0.3,
           yPercent: 100,
@@ -114,6 +114,7 @@ export default {
         },
         "-=0.2"
       )
+        .set(".slider")
         // .to()
         // tl.fromTo(
         //   ".slider",

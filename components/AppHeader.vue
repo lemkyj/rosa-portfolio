@@ -55,6 +55,14 @@
         </svg>
       </button>
     </section>
+    <div
+      class="custom-burger-open absolute inset-0 w-full h-full bg-brand-lightgreen"
+    >
+      <nuxt-link to="/">FACEBOOK</nuxt-link>
+      <nuxt-link to="/">TWITTER</nuxt-link>
+      <nuxt-link to="/">ELSE</nuxt-link>
+      <nuxt-link to="/"></nuxt-link>
+    </div>
   </header>
 </template>
 
@@ -70,6 +78,7 @@ export default {
 
 <style lang="scss" scoped>
 #header {
-  background: transparent;
+  z-index: 100;
+  background: black;
 }
 </style>

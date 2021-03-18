@@ -6,7 +6,7 @@
       class="anim-slider fixed inset-0 w-full h-full bg-brand-pink z-10"
     ></div> -->
     <div class="slider"></div>
-    <div class="scroll-top absolute z-10">
+    <div class="custom-scroll-top opacity-0 absolute z-10">
       <button
         @click="scrollTop()"
         class="rounded-full bg-brand-green fixed bottom-16 right-10 p-3"
@@ -79,12 +79,12 @@ export default {
       this.$nuxt.$loading.start();
       setTimeout(() => {
         this.$nuxt.$loading.finish();
-      }, 2000);
+      }, 500);
     });
   },
   methods: {
     animInit() {},
-    scrollTop(el) {
+    scrollTop() {
       window.scrollTo({
         top: 0,
         behavior: "smooth",
