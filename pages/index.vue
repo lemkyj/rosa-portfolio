@@ -114,7 +114,7 @@
               <div
                 class="relative anim-fade-y row-start-6 row-end-7 border-2 border-yellow-800"
               >
-                <div class="w-full absolute top-0 left-96">
+                <div class="w-full absolute top-0 -left-6">
                   <img
                     class="custom-category-img max-w-max"
                     :src="require(`~/assets/img/${currentObj.img}`)"
@@ -141,7 +141,7 @@ export default {
         name: "",
         tag: [],
         contents: ``,
-        img: "img-index/main-logo2.jpg",
+        img: "img-index/preview-package.svg",
       },
       isActive: false,
       categoryInfos: {
@@ -153,7 +153,7 @@ export default {
               amet autem eius obcaecati illo, tempora quam natus architecto
               sequi qui earum facere cumque, excepturi totam ipsum voluptatem ex
               dicta est?`,
-          img: "img-index/main-package.png",
+          img: "img-index/preview-package.svg",
         },
         print: {
           id: "print",
@@ -163,7 +163,7 @@ export default {
               amet autem eius obcaecati illo, tempora quam natus architecto
               sequi qui earum facere cumque, excepturi totam ipsum voluptatem ex
               dicta est?`,
-          img: "img-index/main-print.png",
+          img: "img-index/preview-print.svg",
         },
         illustration: {
           id: "illustration",
@@ -173,7 +173,7 @@ export default {
               amet autem eius obcaecati illo, tempora quam natus architecto
               sequi qui earum facere cumque, excepturi totam ipsum voluptatem ex
               dicta est?`,
-          img: "img-index/main-illustration.png",
+          img: "img-index/preview-illus.svg",
         },
         photography: {
           id: "photography",
@@ -183,7 +183,7 @@ export default {
               amet autem eius obcaecati illo, tempora quam natus architecto
               sequi qui earum facere cumque, excepturi totam ipsum voluptatem ex
               dicta est?`,
-          img: "img-index/main-photo1.png",
+          img: "img-index/preview-photo-1.svg",
         },
         logo: {
           id: "logo",
@@ -193,7 +193,7 @@ export default {
               amet autem eius obcaecati illo, tempora quam natus architecto
               sequi qui earum facere cumque, excepturi totam ipsum voluptatem ex
               dicta est?`,
-          img: "img-index/main-logo1.jpg",
+          img: "img-index/preview-logo.svg",
         },
         others: {
           id: "others",
@@ -203,7 +203,7 @@ export default {
               amet autem eius obcaecati illo, tempora quam natus architecto
               sequi qui earum facere cumque, excepturi totam ipsum voluptatem ex
               dicta est?`,
-          img: "img-index/main-other1.jpg",
+          img: "img-index/preview-others.svg",
         },
       },
     };
@@ -285,20 +285,20 @@ export default {
           duration: 0.5,
           stagger: 0.05,
           ease: "slowmo.out",
-        })
-        .to(
-          ".slider",
-          {
-            duration: 1,
-            y: "-100%",
-            ease: "power4.in",
-            onComplete: () =>
-              setInterval(function () {
-                done();
-              }, 500),
-          },
-          1
-        );
+          onComplete: () =>
+            setInterval(function () {
+              done();
+            }, 500),
+        });
+      // .to(
+      //   ".slider",
+      //   {
+      //     duration: 1,
+      //     y: "-100%",
+      //     ease: "power4.in",
+      //   },
+      //   1
+      // );
     },
   },
   methods: {

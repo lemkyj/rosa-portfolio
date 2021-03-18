@@ -103,18 +103,17 @@ export default {
         yPercent: 100,
         delay: 1,
         ease: "power2.out",
-      });
-      tl.to(
-        ".slider",
-        {
-          duration: 0.3,
-          yPercent: 100,
-          delay: 0.5,
-          ease: "power2.out",
-        },
-        "-=0.2"
-      )
-        .set(".slider")
+      })
+        .to(
+          ".slider",
+          {
+            duration: 0.3,
+            yPercent: 100,
+            delay: 0.5,
+            ease: "power2.out",
+          },
+          "-=0.2"
+        )
         // .to()
         // tl.fromTo(
         //   ".slider",
