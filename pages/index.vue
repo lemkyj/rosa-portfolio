@@ -23,10 +23,7 @@
       <!-- <scroll-indicator /> -->
     </section>
     <!-- Spacer -->
-    <div
-      class="anim-fade-y bg-brand-lightgreen my-12"
-      style="height: 30vh"
-    ></div>
+    <div class="anim-fade-y bg-brand-lightgreen" style="height: 100vh"></div>
     <!-- Spacer end -->
     <section class="h-screen w-full bg-white">
       <div
@@ -77,9 +74,9 @@
                 <h3 class="anim-fade-y font-display text-4xl mb-4">
                   {{ currentObj.name }}
                 </h3>
-                <ul class="inline-flex mb-4 space-x-4 font-bold max-w-full">
+                <ul class="inline-flex space-x-4 mb-4 font-bold">
                   <li
-                    class="anim-fade-y truncate flex-1 px-2 py-2 bg-brand-lightgreen rounded-full text-sm overflow-hidden"
+                    class="anim-fade-y px-4 py-2 rounded-full bg-brand-lightgreen text-sm whitespace-nowrap"
                     v-for="tag in currentObj.tag"
                     :key="tag"
                   >
@@ -129,7 +126,6 @@
         </div>
       </div>
     </section>
-    <div class="slider"></div>
   </main>
 </template>
 
@@ -253,7 +249,7 @@ export default {
             opacity: 1,
             ease: "power2.in",
           },
-          "-=0.8"
+          "-=1.8"
         )
         .fromTo(
           ".custom-subtitle, .custom-headline",
@@ -267,7 +263,7 @@ export default {
             opacity: 1,
             ease: "slowmo.in",
           },
-          "-=1"
+          "-=2"
         );
     },
     leave(el, done) {
@@ -293,15 +289,15 @@ export default {
         .to(
           ".slider",
           {
-            duration: 0.8,
+            duration: 1,
             y: "-100%",
             ease: "power4.in",
             onComplete: () =>
               setInterval(function () {
                 done();
-              }, 1000),
+              }, 500),
           },
-          "-=0.5"
+          1
         );
     },
   },
@@ -393,21 +389,21 @@ export default {
         }
       }
       .custom-wrapper-subtitle {
-        bottom: 13%;
-        left: 4%;
+        bottom: 0%;
+        left: 0%;
         position: absolute;
         color: black;
         mix-blend-mode: screen;
         background-color: #fbe3e8;
         @screen sm {
-          bottom: 9.5%;
+          // bottom: 9.5%;
         }
         @screen md {
-          bottom: 8%;
+          // bottom: 8%;
         }
         @screen lg {
-          bottom: 4%;
-          left: 4%;
+          bottom: 0%;
+          left: 0%;
           @apply px-2;
         }
         .custom-subtitle {
@@ -417,16 +413,6 @@ export default {
       }
     }
   }
-}
-
-.slider {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: #ebf6f5;
-  z-index: -1;
 }
 
 .active {

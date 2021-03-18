@@ -1,11 +1,34 @@
 <template>
   <div>
-    <app-header class="opacity-0" />
+    <app-header class="opacity-0 z-10" />
     <Nuxt />
     <!-- <div
-      class="anim-slider fixed inset-0 w-full h-screen bg-brand-pink z-10"
+      class="anim-slider fixed inset-0 w-full h-full bg-brand-pink z-10"
     ></div> -->
-    <div class="page-slider"></div>
+    <div class="slider"></div>
+    <div class="scroll-top absolute z-10">
+      <button
+        @click="scrollTop()"
+        class="rounded-full bg-brand-green fixed bottom-16 right-10 p-3"
+      >
+        <svg
+          class=""
+          width="32"
+          height="32"
+          viewBox="0 0 46 46"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M15.3334 13.4167L23 5.75M23 5.75L30.6667 13.4167M23 5.75L23 40.25"
+            stroke="white"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+        </svg>
+      </button>
+    </div>
   </div>
 </template>
 
@@ -36,21 +59,6 @@ body {
   scrollbar-color: $brand-black-color $brand-pink-color;
 }
 
-/* Works on Chrome, Edge, and Safari */
-*::-webkit-scrollbar {
-  width: 5px;
-}
-
-*::-webkit-scrollbar-track {
-  background: $brand-pink-color;
-}
-
-*::-webkit-scrollbar-thumb {
-  background-color: $brand-pink-color;
-  border-radius: 20px;
-  border: 3px solid $brand-black-color;
-}
-
 /* Scrollbar end */
 </style>
 
@@ -75,20 +83,12 @@ export default {
     });
   },
   methods: {
-    animInit() {
-      const tl = gsap.timeline();
-      // tl.fromTo(
-      //   "#header, .anim-nav",
-      //   { opacity: 0, x: -10 },
-      //   {
-      //     duration: 1,
-      //     delay: 1.6,
-      //     stagger: 0.2,
-      //     x: 0,
-      //     opacity: 1,
-      //     ease: "power2.out",
-      //   }
-      // );
+    animInit() {},
+    scrollTop(el) {
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth",
+      });
     },
   },
 };

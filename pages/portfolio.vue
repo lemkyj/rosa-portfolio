@@ -78,7 +78,6 @@
       </div> -->
       </div>
     </div>
-    <div class="slider"></div>
     <portfolio-modal
       v-if="modalVisible"
       @close="modalVisible = false"
@@ -99,24 +98,33 @@ export default {
     css: false,
     enter(el, done) {
       const tl = gsap.timeline();
-      // tl.fromTo(
-      //   ".slider",
-      //   { y: -100 },
-      //   {
-      //     duration: 1,
-      //     y: 0,
-      //     ease: "power2.out",
-      //   }
-      // )
-      tl.fromTo(
-        ".slider",
-        { yPercent: -101 },
+      tl.to(".slider-lightgreen", {
+        duration: 0.3,
+        yPercent: 100,
+        delay: 1,
+        ease: "power2.out",
+      });
+      tl.to(
+        ".slider-lightgreen",
         {
-          duration: 0.5,
-          yPercent: 101,
+          duration: 0.3,
+          yPercent: 100,
+          delay: 0.5,
           ease: "power2.out",
-        }
+        },
+        "-=0.2"
       )
+        // .to()
+        // tl.fromTo(
+        //   ".slider",
+        //   { yPercent: 0 },
+        //   {
+        //     duration: 1,
+        //     yPercent: 201,
+        //     ease: "power4.out",
+        //   },
+        //   1
+        // )
         .fromTo(
           "#header, .anim-nav",
           { opacity: 0, x: -10 },
@@ -919,6 +927,6 @@ export default {
   width: 100%;
   height: 200vh;
   background: $brand-pink-color;
-  z-index: 1;
+  z-index: -1;
 }
 </style>

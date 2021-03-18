@@ -8,7 +8,9 @@
       <nuxt-link exact to="/" class="inline-flex"><Logo id="logo" /></nuxt-link>
     </section>
     <section class="my-8 justify-self-end items-center">
-      <nav class="hidden md:flex md:space-x-8 items-center text-lg font-bold">
+      <nav
+        class="custom-logo--text hidden md:flex md:space-x-8 items-center text-lg font-bold"
+      >
         <nuxt-link to="/portfolio" class="anim-nav px-10 py-3"
           >Portfolio</nuxt-link
         >
@@ -68,6 +70,6 @@ export default {
 
 <style lang="scss" scoped>
 #header {
-  z-index: 9999;
+  background: transparent;
 }
 </style>
