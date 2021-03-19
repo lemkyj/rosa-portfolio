@@ -48,16 +48,10 @@ NOTE Concentric CSS Approach
 */
 
 body {
-  // overflow: hidden;
+  overflow: hidden;
 }
 
 /* ScrollBar */
-
-/* Works on Firefox */
-* {
-  scrollbar-width: thin;
-  scrollbar-color: $brand-black-color $brand-pink-color;
-}
 
 /* Scrollbar end */
 </style>

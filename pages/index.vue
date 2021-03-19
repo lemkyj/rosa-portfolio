@@ -68,9 +68,9 @@
         <div
           class="col-span-7 row-span-full border-2 border-gray-900 overflow-hidden"
         >
-          <div class="relative md:mx-12 md:mt-8 lg:mx-24 mt-12">
-            <div class="grid grid-rows-2 justify-start">
-              <div class="row-auto">
+          <div class="md:mx-12 md:mt-8 lg:mx-24 mt-12">
+            <div class="">
+              <div class="">
                 <h3 class="anim-fade-y font-display text-4xl mb-4">
                   {{ currentObj.name }}
                 </h3>
@@ -111,12 +111,10 @@
                 </nuxt-link>
               </div>
 
-              <div
-                class="relative anim-fade-y row-start-6 row-end-7 border-2 border-yellow-800"
-              >
-                <div class="w-full absolute top-0 -left-6">
+              <div class="relative anim-fade-y border-2 border-yellow-800">
+                <div class="img-preview absolute top-16 left-16">
                   <img
-                    class="custom-category-img max-w-max"
+                    class="custom-category-img min-w"
                     :src="require(`~/assets/img/${currentObj.img}`)"
                   />
                 </div>
@@ -141,7 +139,7 @@ export default {
         name: "",
         tag: [],
         contents: ``,
-        img: "img-index/preview-package.svg",
+        img: "img-index/preview-package.png",
       },
       isActive: false,
       categoryInfos: {
@@ -153,7 +151,7 @@ export default {
               amet autem eius obcaecati illo, tempora quam natus architecto
               sequi qui earum facere cumque, excepturi totam ipsum voluptatem ex
               dicta est?`,
-          img: "img-index/preview-package.svg",
+          img: "img-index/preview-package.png",
         },
         print: {
           id: "print",
@@ -163,7 +161,7 @@ export default {
               amet autem eius obcaecati illo, tempora quam natus architecto
               sequi qui earum facere cumque, excepturi totam ipsum voluptatem ex
               dicta est?`,
-          img: "img-index/preview-print.svg",
+          img: "img-index/preview-print.png",
         },
         illustration: {
           id: "illustration",
@@ -173,7 +171,7 @@ export default {
               amet autem eius obcaecati illo, tempora quam natus architecto
               sequi qui earum facere cumque, excepturi totam ipsum voluptatem ex
               dicta est?`,
-          img: "img-index/preview-illus.svg",
+          img: "img-index/preview-illust.png",
         },
         photography: {
           id: "photography",
@@ -183,7 +181,7 @@ export default {
               amet autem eius obcaecati illo, tempora quam natus architecto
               sequi qui earum facere cumque, excepturi totam ipsum voluptatem ex
               dicta est?`,
-          img: "img-index/preview-photo-1.svg",
+          img: "img-index/preview-photo-1.png",
         },
         logo: {
           id: "logo",
@@ -193,7 +191,7 @@ export default {
               amet autem eius obcaecati illo, tempora quam natus architecto
               sequi qui earum facere cumque, excepturi totam ipsum voluptatem ex
               dicta est?`,
-          img: "img-index/preview-logo.svg",
+          img: "img-index/preview-logo.png",
         },
         others: {
           id: "others",
@@ -203,7 +201,7 @@ export default {
               amet autem eius obcaecati illo, tempora quam natus architecto
               sequi qui earum facere cumque, excepturi totam ipsum voluptatem ex
               dicta est?`,
-          img: "img-index/preview-others.svg",
+          img: "img-index/preview-others.png",
         },
       },
     };
@@ -358,7 +356,7 @@ export default {
       background: url("~@/assets/mountain.jpg");
       width: 100%;
       height: 100%;
-      position: static;
+      position: relative;
       // background-position: left bottom;
       @screen sm {
         background-size: cover;
@@ -422,5 +420,8 @@ export default {
 
 .custom-button--category {
   @apply focus:outline-none;
+}
+
+.img-preview {
 }
 </style>

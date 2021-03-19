@@ -46,9 +46,12 @@ html {
     z-index: -1;
 }
 
-.overflow {
-    overflow: scroll;
+/* Works on Firefox */
+* {
+    scrollbar-width: thin;
+    scrollbar-color: $brand-black-color $brand-pink-color;
 }
+
 
 /* Works on Chrome, Edge, and Safari */
 *::-webkit-scrollbar {
