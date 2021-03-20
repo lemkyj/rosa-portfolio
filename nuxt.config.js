@@ -1,5 +1,6 @@
 export default {
   mode: "spa",
+  components: true,
   /*
    ** Headers of the page
    */
