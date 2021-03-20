@@ -70,10 +70,7 @@
           v-for="item in filteredLists"
           v-bind:key="item.id"
         >
-          <lazy-portfolio-list
-            :item="item"
-            @openModal="openModal(item)"
-          />
+          <lazy-portfolio-list :item="item" @openModal="openModal(item)" />
         </div>
       </div>
     </div>
