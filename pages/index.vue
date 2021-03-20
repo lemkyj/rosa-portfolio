@@ -68,7 +68,7 @@
         <div
           class="col-span-1 md:col-span-7 row-span-full border-2 border-gray-900 overflow-hidden"
         >
-          <div class="md:mx-12 md:mt-8 lg:mx-24 mt-12">
+          <div class="md:mt-8 md:ml-8 lg:ml-48 lg:mt-12">
             <div class="grid h-screen row-span-full">
               <div class="col-span-12 row-span-4">
                 <h3 class="anim-fade-y font-display text-4xl mb-4">
@@ -110,7 +110,8 @@
                   </svg>
                 </nuxt-link>
               </div>
-              <div class="col-span-12 row-span-8 anim-fade-y">
+
+              <div class="col-span-12 row-span-8">
                 <div class="relative img-preview">
                   <img
                     class="custom-category-img"
@@ -424,7 +425,5 @@ export default {
 .img-preview {
   transform: translate(45%, 0%);
   overflow: hidden;
-  img {
-  }
 }
 </style>

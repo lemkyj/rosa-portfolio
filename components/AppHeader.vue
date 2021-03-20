@@ -17,7 +17,7 @@
         <nuxt-link
           to="/contact"
           class="anim-nav px-10 py-3 rounded-full bg-brand-pink text-lg font-bold"
-          >Contact</nuxt-link
+          >Contacts</nuxt-link
         >
       </nav>
       <button

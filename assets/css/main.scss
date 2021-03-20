@@ -53,17 +53,18 @@ html {
 }
 
 
-/* Works on Chrome, Edge, and Safari */
-*::-webkit-scrollbar {
-    width: 5px;
-}
+// /* Works on Chrome, Edge, and Safari */
+// *::-webkit-scrollbar {
+//     width: 0;
+//     background: transparent;
+// }
 
-*::-webkit-scrollbar-track {
-    background: $brand-pink-color;
-}
+// *::-webkit-scrollbar-track {
+//     background: $brand-pink-color;
+// }
 
-*::-webkit-scrollbar-thumb {
-    // background-color: $brand-pink-color;
-    // border-radius: 20px;
-    // border: 3px solid $brand-black-color;
-}
+// *::-webkit-scrollbar-thumb {
+//     background-color: $brand-pink-color;
+//     // border-radius: 20px;
+//     // border: 3px solid $brand-black-color;
+// }
