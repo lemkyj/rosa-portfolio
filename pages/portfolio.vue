@@ -1,57 +1,62 @@
 <template>
   <div class="grid w-full" style="grid-template-columns: 10% 1fr 1fr 10%">
     <div
-      class="anim-fade-y z-10 flex sticky top-0 overflow-x-scroll lg:overflow-hidden shadow-lg justify-start lg:justify-center col-span-full lg:col-start-1 lg:col-end-5 border bg-white p-4 space-x-4"
+      class="anim-fade-y custom-filterbar z-10 sticky top-0 cursor-move overflow-x-auto lg:overflow-hidden shadow-lg justify-start lg:justify-center col-span-full lg:col-start-1 lg:col-end-5 border bg-white p-4 space-x-4"
+      style="grid-template-columns: 10% 1fr 1fr 10%"
     >
-      <button
-        class="custom-button--filter text-sm md:text-lg border rounded px-2 md:px-6 py-1 md:py-2 my-1 md:my-2 text-white"
-        @click.prevent="category = 'all'"
-      >
-        ALL
-      </button>
-      <button
-        class="custom-button--filter text-sm md:text-lg border rounded px-2 md:px-6 py-1 md:py-2 my-1 md:my-2 text-white"
-        @click.prevent="category = 'package'"
-      >
-        Package
-      </button>
-      <button
-        class="custom-button--filter text-sm md:text-lg border rounded px-2 md:px-6 py-1 md:py-2 my-1 md:my-2 text-white"
-        @click.prevent="category = 'print'"
-      >
-        Print
-      </button>
-      <button
-        class="custom-button--filter text-sm md:text-lg border rounded px-2 md:px-6 py-1 md:py-2 my-1 md:my-2 text-white"
-        @click.prevent="category = 'illustration'"
-      >
-        Illustration
-      </button>
-      <button
-        class="custom-button--filter text-sm md:text-lg border rounded px-2 md:px-6 py-1 md:py-2 my-1 md:my-2 text-white"
-        @click.prevent="category = 'drawing'"
-      >
-        Drawing
-      </button>
-      <button
-        class="custom-button--filter text-sm md:text-lg border rounded px-2 md:px-6 py-1 md:py-2 my-1 md:my-2 text-white"
-        @click.prevent="category = 'photography'"
-      >
-        Photography
-      </button>
-      <button
-        class="custom-button--filter text-sm md:text-lg border rounded px-2 md:px-6 py-1 md:py-2 my-1 md:my-2 text-white"
-        @click.prevent="category = 'logo'"
-      >
-        Logo
-      </button>
+      <div class="col-span-auto"></div>
+      <div class="col-start-2 col-end-3">
+        <button
+          class="custom-button--filter text-sm md:text-lg border rounded px-2 md:px-6 py-1 md:py-2 my-1 md:my-2 text-white"
+          @click.prevent="category = 'all'"
+        >
+          ALL
+        </button>
+        <button
+          class="custom-button--filter text-sm md:text-lg border rounded px-2 md:px-6 py-1 md:py-2 my-1 md:my-2 text-white"
+          @click.prevent="category = 'package'"
+        >
+          Package
+        </button>
+        <button
+          class="custom-button--filter text-sm md:text-lg border rounded px-2 md:px-6 py-1 md:py-2 my-1 md:my-2 text-white"
+          @click.prevent="category = 'print'"
+        >
+          Print
+        </button>
+        <button
+          class="custom-button--filter text-sm md:text-lg border rounded px-2 md:px-6 py-1 md:py-2 my-1 md:my-2 text-white"
+          @click.prevent="category = 'illustration'"
+        >
+          Illustration
+        </button>
+        <button
+          class="custom-button--filter text-sm md:text-lg border rounded px-2 md:px-6 py-1 md:py-2 my-1 md:my-2 text-white"
+          @click.prevent="category = 'drawing'"
+        >
+          Drawing
+        </button>
+        <button
+          class="custom-button--filter text-sm md:text-lg border rounded px-2 md:px-6 py-1 md:py-2 my-1 md:my-2 text-white"
+          @click.prevent="category = 'photography'"
+        >
+          Photography
+        </button>
+        <button
+          class="custom-button--filter text-sm md:text-lg border rounded px-2 md:px-6 py-1 md:py-2 my-1 md:my-2 text-white"
+          @click.prevent="category = 'logo'"
+        >
+          Logo
+        </button>
 
-      <button
-        class="custom-button--filter text-sm md:text-lg border rounded px-2 md:px-6 py-1 md:py-2 my-1 md:my-2 text-white"
-        @click.prevent="category = 'others'"
-      >
-        Others
-      </button>
+        <button
+          class="custom-button--filter text-sm md:text-lg border rounded px-2 md:px-6 py-1 md:py-2 my-1 md:my-2 text-white"
+          @click.prevent="category = 'others'"
+        >
+          Others
+        </button>
+      </div>
+      <div class=""></div>
     </div>
 
     <div class="col-start-2 col-end-4">
@@ -909,6 +914,18 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.custom-filterbar {
+  overflow-x: scroll;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* Internet Explorer 10+ */
+  @apply mb-0 pb-0;
+}
+.custom-filterbar::-webkit-scrollbar {
+  overflow-x: scroll;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* Internet Explorer 10+ */
+}
+
 .custom-button--filter {
   @apply outline-none;
   color: $brand-black-color;

@@ -26,9 +26,11 @@
     <div class="anim-fade-y bg-transparent" style="height: 100vh"></div>
     <!-- Spacer end -->
     <section class="h-screen w-full bg-white">
+      <!-- small: 1 column, tablet: 12 columns -->
       <div
         class="h-screen grid grid-cols-1 md:grid-cols-12 grid-rows-12 md:grid-rows-6 grid-flow-col"
       >
+        <!-- small: 1 column, tablet: 5 columns inside 12 columns -->
         <div class="md:col-span-5">
           <button
             v-for="category in categoryInfos"
@@ -62,15 +64,13 @@
             </div>
           </button>
         </div>
-        <!-- <div
-          class="hidden md:grid md:col-span-1 md:row-start-1 md:row-end-7"
-        ></div> -->
+        <!-- small: 1 column, tablet: 7 columns inside 12 columns -->
         <div
-          class="col-span-7 row-span-full border-2 border-gray-900 overflow-hidden"
+          class="col-span-1 md:col-span-7 row-span-full border-2 border-gray-900 overflow-hidden"
         >
-          <div class="md:mx-12 md:mt-8 lg:mx-24 mt-12">
-            <div class="">
-              <div class="">
+          <div class="md:mt-8 md:ml-8 lg:ml-48 lg:mt-12">
+            <div class="grid h-screen row-span-full">
+              <div class="col-span-12 row-span-4">
                 <h3 class="anim-fade-y font-display text-4xl mb-4">
                   {{ currentObj.name }}
                 </h3>
@@ -111,10 +111,10 @@
                 </nuxt-link>
               </div>
 
-              <div class="relative anim-fade-y border-2 border-yellow-800">
-                <div class="img-preview absolute top-16 left-16">
+              <div class="col-span-12 row-span-8">
+                <div class="relative img-preview">
                   <img
-                    class="custom-category-img min-w"
+                    class="custom-category-img"
                     :src="require(`~/assets/img/${currentObj.img}`)"
                   />
                 </div>
@@ -181,7 +181,7 @@ export default {
               amet autem eius obcaecati illo, tempora quam natus architecto
               sequi qui earum facere cumque, excepturi totam ipsum voluptatem ex
               dicta est?`,
-          img: "img-index/preview-photo-1.png",
+          img: "img-index/preview-photo.png",
         },
         logo: {
           id: "logo",
@@ -423,5 +423,7 @@ export default {
 }
 
 .img-preview {
+  transform: translate(45%, 0%);
+  overflow: hidden;
 }
 </style>
