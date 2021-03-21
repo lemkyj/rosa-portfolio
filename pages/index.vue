@@ -128,6 +128,7 @@
                   <img
                     class="custom-category-img"
                     :src="require(`~/assets/img/${currentObj.img}`)"
+                    :alt="`the image of ${currentObj.id}`"
                   />
                 </div>
               </div>
@@ -397,7 +398,7 @@ export default {
 .active {
   background: $brand-green-color;
   color: $brand-black-color;
-  transition: all 0.15s cubic-bezier(0.47, 0, 0.745, 0.715);
+  transition: all 0.1s cubic-bezier(0.165, 0.84, 0.44, 1);
   transform: translateX(0%) !important;
   will-change: transform, opacity;
 }
