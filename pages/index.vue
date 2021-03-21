@@ -1,6 +1,6 @@
 <template>
   <main>
-    <section class="custom-section">
+    <section class="custom-section .panel">
       <div class="custom-hero">
         <div class="custom-hero-img w-full h-full">
           <div class="flex items-end h-full">
@@ -35,7 +35,7 @@
     ></div>
     <!-- Spacer end -->
     <section
-      class="w-full h-screen bg-white anim-scroll-trigger border-t-8 border-red-300"
+      class=".panel .panel-2 w-full h-screen bg-white anim-scroll-trigger border-t-8 border-red-300"
     >
       <!-- small: 1 column, tablet: 12 columns -->
       <div
@@ -304,6 +304,16 @@ export default {
     this.toggleActive(this.categoryInfos.package);
     this.checkActive(this.currentCategory);
 
+    gsap.to(window, {
+      xPercent: 300,
+      ease: "power2",
+      scrollTrigger: {
+        snap: 2,
+        // end: () =>
+        //   "+=" + document.querySelector(".anim-scroll-trigger").offsetWidth,
+      },
+    });
+
     ScrollTrigger.matchMedia({
       // Desktop Start
       "(min-width:800px)": function () {
@@ -316,7 +326,7 @@ export default {
             start: "center center", // 트리거에서 20px위 스크롤 시작, 스크롤러 viewport 젤 위에서 80% 밑으로
             // end: "0", // end after scrolling 500px beyond the start
             // scrub: 1, // smooth scrubbing, takes 1 second to "catch up" to the scrollbar,
-            snap: 1,
+
             markers: true,
           },
         });
@@ -332,8 +342,8 @@ export default {
               xPercent: -100,
             },
             {
-              duration: 0.8,
-              stagger: 0.5,
+              duration: 0.5,
+              stagger: 0.2,
               xPercent: 0,
               ease: "power2.out",
             },
@@ -348,7 +358,6 @@ export default {
             {
               duration: 0.8,
               opacity: 1,
-              stagger: 0.5,
               xPercent: 0,
               ease: "power2.out",
             }

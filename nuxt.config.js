@@ -41,6 +41,12 @@ export default {
         async: true,
         defer: true,
       },
+      {
+        src:
+          "https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.0/ScrollToPlugin.min.js",
+        async: true,
+        defer: true,
+      },
     ],
   },
   /*
