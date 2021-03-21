@@ -77,7 +77,7 @@
         <!-- small: 1 column, tablet: 7 columns inside 12 columns -->
         <div class="col-span-1 md:col-span-7 row-span-full overflow-hidden">
           <div class="md:mt-8 md:ml-8 lg:ml-48 lg:mt-12">
-            <div class="grid h-screen row-span-full">
+            <div class="anim-default grid h-screen row-span-full">
               <div class="col-span-12 row-span-4">
                 <h3 class="anim-fade-right font-display text-4xl mb-4">
                   {{ currentObj.name }}
@@ -326,7 +326,7 @@ export default {
             },
             {
               duration: 0.8,
-              stagger: 0.1,
+              stagger: 0.2,
               xPercent: 0,
               ease: "back.out",
             },
@@ -342,7 +342,7 @@ export default {
               duration: 1.2,
               opacity: 1,
               xPercent: 0,
-              ease: "elastic.out",
+              ease: "slowmo.out",
             }
           );
       },
@@ -434,17 +434,21 @@ export default {
 }
 
 .illustPos {
-  transform: translateX(-33%);
+  transform: translateX(-23%);
 }
 
 .photoPos {
-  transform: translateX(-40%);
+  transform: translateX(-32%);
 }
 .logoPos {
   transform: translateX(-21%);
 }
 .otherPos {
   transform: translateX(-18%);
+}
+
+.anim-default {
+  transition: all 0.15s cubic-bezier(0.785, 0.135, 0.15, 0.86);
 }
 
 // :class="[category.css, { active: checkActive(category.id) }]"
