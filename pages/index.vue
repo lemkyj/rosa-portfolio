@@ -100,7 +100,6 @@
                 </p>
                 <nuxt-link
                   :to="'/portfolio?category=' + currentCategory"
-                  :mouseover="buttonHover"
                   class="anim-fade-right custom-link-btn my-4 font-bold text-base md:text-lg text-brand-green flex items-center transform translate-x-2 hover:translate-x-4 duration-75 ease-out"
                   >VIEW PROJECTS
                   <svg
@@ -295,14 +294,6 @@ export default {
     },
     categoryActive() {
       console.log(this);
-    },
-    buttonHover() {
-      console.log(this);
-      gsap.to(".anim-svg", {
-        yoyo: true,
-        xPercent: 5,
-        ease: "power2.out",
-      });
     },
   },
   mounted() {
