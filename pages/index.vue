@@ -46,7 +46,7 @@
           <button
             v-for="category in categoryInfos"
             @click="categoryActive"
-            class="custom-category anim-fade-left row-span-1 w-full h-full text-right text-2xl sm:text-4xl md:text-6xl font-display"
+            class="opacity-0 custom-category anim-fade-left row-span-1 w-full h-full text-right text-2xl sm:text-4xl md:text-6xl font-display"
             :key="category.id"
           >
             <div
@@ -313,23 +313,22 @@ export default {
           },
         });
         // add animations and labels to the timeline
-        tl.set(".custom-category", {
-          opacity: 0,
-        })
-          .set(
-            ".custom-category--bg",
-            {
-              xPercent: -100,
-            },
-            "<"
-          )
-          .to("custom-category--bg", {
-            duration: 1,
-            xPercent: () => {
-              Math.random() * 100;
-            },
-            ease: "power2.out",
-          });
+        tl.to(".custom-category", {
+          duration: 1,
+          opacity: 1,
+          ease: "slowmo.out",
+        }).fromTo(
+          ".custom-category--bg",
+          {
+            xPercent: -100,
+          },
+          {
+            duration: 5.5,
+            stagger: 5,
+            xPercent: 0,
+            ease: "slowmo.out",
+          }
+        );
       },
       // ----- desktop end //
     });
