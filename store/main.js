@@ -1,4 +1,6 @@
 export const state = () => ({
+  navisOpen: false,
+  email: "lia8488@gmail.com",
   list: {
     package: {
       id: "package",
@@ -68,3 +70,15 @@ export const state = () => ({
     },
   },
 });
+
+export const mutations = {
+  navisOpen: (state, payload) => {
+    state.navisOpen = !state.navisOpen;
+  },
+};
+
+export const getters = {
+  getterValue: (state) => {
+    return state.value;
+  },
+};

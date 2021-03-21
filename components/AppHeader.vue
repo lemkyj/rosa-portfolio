@@ -56,14 +56,6 @@
         </svg>
       </button>
     </section>
-    <!-- <div
-      class="custom-nav--open absolute inset-0 w-full h-full bg-brand-lightgreen"
-    >
-    <div class=""></div>
-      <nuxt-link to="/">FACEBOOK</nuxt-link>
-      <nuxt-link to="/">TWITTER</nuxt-link>
-      <nuxt-link to="/">ELSE</nuxt-link>
-    </div> -->
   </header>
 </template>
 
@@ -75,21 +67,15 @@ export default {
     Logo,
   },
   data() {
-    return {
-      navisOpen: false,
-      email: "lia8488@gmail.com",
-    };
+    return {};
   },
   methods: {
-    openMenu() {
-      this.navisOpen = !this.navisOpen;
-    },
+    // openMenu() {
+    //   this.navisOpen = !this.navisOpen;
+    // },
   },
 };
 </script>
 
 <style lang="scss" scoped>
-#header {
-  z-index: 100;
-}
 </style>

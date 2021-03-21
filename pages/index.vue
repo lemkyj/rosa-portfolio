@@ -327,7 +327,7 @@ export default {
             },
             {
               duration: 0.8,
-              stagger: 0.2,
+              stagger: 0.1,
               xPercent: 0,
               ease: "back.out",
             },

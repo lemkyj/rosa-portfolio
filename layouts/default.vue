@@ -2,9 +2,6 @@
   <div>
     <app-header class="opacity-0 z-10" />
     <Nuxt />
-    <!-- <div
-      class="anim-slider fixed inset-0 w-full h-full bg-brand-pink z-10"
-    ></div> -->
     <div class="slider"></div>
     <div class="custom-scroll-top opacity-0 absolute z-10">
       <button
@@ -33,6 +30,10 @@
 </template>
 
 <style lang="scss">
+.custom-nav--open {
+  @apply absolute inset-0 bg-brand-pink w-full h-full z-20;
+}
+
 /* 
 NOTE Concentric CSS Approach
   - CSS Class Orders -
