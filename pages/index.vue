@@ -336,13 +336,13 @@ export default {
             ".anim-fade-right",
             {
               opacity: 0,
-              xPercent: 5,
+              xPercent: 2,
             },
             {
               duration: 1.2,
               opacity: 1,
               xPercent: 0,
-              ease: "slowmo.out",
+              ease: "slowMo.out",
             }
           );
       },

@@ -14,13 +14,17 @@
         <nuxt-link to="/portfolio" class="anim-nav px-10 py-3"
           >Portfolio</nuxt-link
         >
-        <nuxt-link
-          to="/contact"
+        <button
+          @click="openMenu"
+          aria-label="Menu"
+          aria-controls="navigation"
           class="anim-nav px-10 py-3 rounded-full bg-brand-pink text-lg font-bold"
-          >Contacts</nuxt-link
         >
+          Contacts
+        </button>
       </nav>
       <button
+        @click="openMenu"
         type="button"
         aria-label="Menu"
         aria-controls="navigation"
@@ -56,8 +60,9 @@
       </button>
     </section>
     <!-- <div
-      class="custom-burger-open absolute inset-0 w-full h-full bg-brand-lightgreen"
+      class="custom-nav--open absolute inset-0 w-full h-full bg-brand-lightgreen"
     >
+    <div class=""></div>
       <nuxt-link to="/">FACEBOOK</nuxt-link>
       <nuxt-link to="/">TWITTER</nuxt-link>
       <nuxt-link to="/">ELSE</nuxt-link>
@@ -66,13 +71,23 @@
 </template>
 
 <script>
-// import Logo from "@/components/Logo.vue";
+import Logo from "@/components/Logo.vue";
 
-// export default {
-//   components: {
-//     Logo,
-//   },
-// };
+export default {
+  components: {
+    Logo,
+  },
+  data() {
+    return {
+      navisOpen: false,
+    };
+  },
+  methods: {
+    openMenu() {
+      this.navisOpen = !this.navisOpen;
+    },
+  },
+};
 </script>
 
 <style lang="scss" scoped>
