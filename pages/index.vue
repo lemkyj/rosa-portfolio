@@ -3,18 +3,24 @@
     <section class="custom-section">
       <div class="custom-hero">
         <div class="custom-hero-img w-full h-full">
-          <div class="custom-wrapper-headline opacity-0">
-            <h1
-              class="custom-headline absolute p-4 py-2 sm:px-8 sm:py-4 font-display text-5xl sm:text-7xl md:text-8xl lg:text-10xl"
-            >
-              Rosa Lee
-            </h1>
-          </div>
-          <div class="custom-wrapper-subtitle opacity-0">
-            <div
-              class="custom-subtitle abosolute px-4 py-2 md:px-2 sm:px-8 sm:py-4 text-md sm:text-2xl md:text-4xl lg:text-6xl font-display"
-            >
-              DESIGN / ILLUSTRATION / PHOTOGRAPHY
+          <div class="flex items-end h-full">
+            <div class="flex-initial flex-col">
+              <div
+                class="flex-initial inline-flex custom-wrapper-headline opacity-0 max-w-sm lg:max-w-lg"
+              >
+                <h1
+                  class="custom-headline px-4 py-2 sm:px-8 sm:py-4 font-display text-6xl md:text-8xl lg:text-10xl"
+                >
+                  Rosa Lee
+                </h1>
+              </div>
+              <div class="flex-initial custom-wrapper-subtitle opacity-0">
+                <div
+                  class="custom-subtitle px-4 py-2 sm:px-8 sm:py-4 md:px-2 md:py-4 text-2xl md:text-4xl lg:text-6xl font-display"
+                >
+                  DESIGN / ILLUSTRATION / PHOTOGRAPHY
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -23,9 +29,14 @@
       <!-- <scroll-indicator /> -->
     </section>
     <!-- Spacer -->
-    <div class="anim-fade-y bg-transparent" style="height: 100vh"></div>
+    <div
+      class="bg-transparent border-2 border-yellow-300"
+      style="height: 10vh"
+    ></div>
     <!-- Spacer end -->
-    <section class="h-screen w-full bg-white">
+    <section
+      class="h-screen w-full bg-white anim-scroll-trigger border-t-8 border-red-300"
+    >
       <!-- small: 1 column, tablet: 12 columns -->
       <div
         class="h-screen grid grid-cols-1 md:grid-cols-12 grid-rows-12 md:grid-rows-6 grid-flow-col"
@@ -34,15 +45,16 @@
         <div class="md:col-span-5">
           <button
             v-for="category in categoryInfos"
-            class="custom-button--category row-span-1 anim-fade-y w-full h-full text-right text-2xl sm:text-4xl md:text-6xl font-display"
+            @click="categoryActive"
+            class="opacity-0 custom-category anim-fade-left row-span-1 w-full h-full text-right text-2xl sm:text-4xl md:text-6xl font-display"
             :key="category.id"
           >
             <div
-              class="flex justify-end items-center w-full h-full bg-brand-lightgreen"
+              class="custom-category--bg flex justify-end items-center w-full h-full bg-brand-lightgreen"
               :class="{ active: checkActive(category.id) }"
               @click="toggleActive(category)"
             >
-              <div class="anim-fade-y mx-4 flex justify-end items-center">
+              <div class="mx-4 flex justify-end items-center">
                 <h2 class="">{{ category.name }}</h2>
                 <svg
                   class="hidden sm:flex ml-3 lg:mx-8 h-8 w-8 md:h-12 md:w-12"
@@ -65,18 +77,16 @@
           </button>
         </div>
         <!-- small: 1 column, tablet: 7 columns inside 12 columns -->
-        <div
-          class="col-span-1 md:col-span-7 row-span-full border-2 border-gray-900 overflow-hidden"
-        >
+        <div class="col-span-1 md:col-span-7 row-span-full overflow-hidden">
           <div class="md:mt-8 md:ml-8 lg:ml-48 lg:mt-12">
             <div class="grid h-screen row-span-full">
               <div class="col-span-12 row-span-4">
-                <h3 class="anim-fade-y font-display text-4xl mb-4">
+                <h3 class="anim-fade-right font-display text-4xl mb-4">
                   {{ currentObj.name }}
                 </h3>
                 <ul class="inline-flex space-x-4 mb-4 font-bold">
                   <li
-                    class="anim-fade-y px-4 py-2 rounded-full bg-brand-lightgreen text-sm whitespace-nowrap"
+                    class="anim-fade-right px-4 py-2 rounded-full bg-brand-lightgreen text-sm whitespace-nowrap"
                     v-for="tag in currentObj.tag"
                     :key="tag"
                   >
@@ -84,13 +94,13 @@
                   </li>
                 </ul>
                 <p
-                  class="anim-fade-y line-clamp-4 md:line-clamp-none text-lg max-w-prose"
+                  class="anim-fade-right line-clamp-4 md:line-clamp-none text-lg max-w-prose"
                 >
                   {{ currentObj.contents }}
                 </p>
                 <nuxt-link
                   :to="'/portfolio?category=' + currentCategory"
-                  class="anim-fade-y my-4 font-bold text-base md:text-lg text-brand-green flex items-center transform translate-x-2 hover:translate-x-4 duration-75 ease-out"
+                  class="anim-fade-right my-4 font-bold text-base md:text-lg text-brand-green flex items-center transform translate-x-2 hover:translate-x-4 duration-75 ease-out"
                   >VIEW PROJECTS
                   <svg
                     class="ml-2 h-5 w-5"
@@ -112,7 +122,7 @@
               </div>
 
               <div class="col-span-12 row-span-8">
-                <div class="relative img-preview">
+                <div class="relative img-preview anim-fade-right">
                   <img
                     class="custom-category-img"
                     :src="require(`~/assets/img/${currentObj.img}`)"
@@ -142,68 +152,7 @@ export default {
         img: "img-index/preview-package.png",
       },
       isActive: false,
-      categoryInfos: {
-        package: {
-          id: "package",
-          name: "PACKAGE DESIGN",
-          tag: ["Icomoclast Coffee", "Cannibis Gummies", "Cateaurora Wine"],
-          contents: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam
-              amet autem eius obcaecati illo, tempora quam natus architecto
-              sequi qui earum facere cumque, excepturi totam ipsum voluptatem ex
-              dicta est?`,
-          img: "img-index/preview-package.png",
-        },
-        print: {
-          id: "print",
-          name: "PRINT DESIGN",
-          tag: ["1"],
-          contents: `prints Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam
-              amet autem eius obcaecati illo, tempora quam natus architecto
-              sequi qui earum facere cumque, excepturi totam ipsum voluptatem ex
-              dicta est?`,
-          img: "img-index/preview-print.png",
-        },
-        illustration: {
-          id: "illustration",
-          name: "ILLUSTRATION",
-          tag: [4, 5, 6],
-          contents: `illusts Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam
-              amet autem eius obcaecati illo, tempora quam natus architecto
-              sequi qui earum facere cumque, excepturi totam ipsum voluptatem ex
-              dicta est?`,
-          img: "img-index/preview-illust.png",
-        },
-        photography: {
-          id: "photography",
-          name: "PHOTOGRAPHY",
-          tag: [7, 8, 9, 10],
-          contents: `photos Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam
-              amet autem eius obcaecati illo, tempora quam natus architecto
-              sequi qui earum facere cumque, excepturi totam ipsum voluptatem ex
-              dicta est?`,
-          img: "img-index/preview-photo.png",
-        },
-        logo: {
-          id: "logo",
-          name: "LOGO DESIGN",
-          tag: [11, 12, 13, 14, 15],
-          contents: `logos Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam
-              amet autem eius obcaecati illo, tempora quam natus architecto
-              sequi qui earum facere cumque, excepturi totam ipsum voluptatem ex
-              dicta est?`,
-          img: "img-index/preview-logo.png",
-        },
-        others: {
-          id: "others",
-          name: "OTHERS",
-          tag: [16, 17, 18, 19, 20],
-          contents: `others Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam
-              amet autem eius obcaecati illo, tempora quam natus architecto
-              sequi qui earum facere cumque, excepturi totam ipsum voluptatem ex
-              dicta est?`,
-          img: "img-index/preview-others.png",
-        },
-      },
+      categoryInfos: this.$store.state.main.list, // store/main.js
     };
   },
   transition: {
@@ -266,37 +215,67 @@ export default {
     },
     leave(el, done) {
       const tl = gsap.timeline();
-      tl.to(".custom-headline, .custom-subtitle", {
+      tl.to(".anim-fade-left", {
+        duration: 0.8,
         stagger: 0.1,
-        duration: 0.3,
+        x: "-=10",
         opacity: 0,
         ease: "power4.in",
       })
         .to(
+          ".anim-fade-right",
+          {
+            duration: 0.8,
+            stagger: 0.1,
+            x: "+=10",
+            opacity: 0,
+            ease: "power4.in",
+          },
+          "<"
+        )
+        .to(
           ".custom-wrapper-headline, .custom-wrapper-subtitle",
           { duration: 0.5, x: -20, opacity: 0, ease: "power4.in" },
-          "-=0.5"
+          "<"
         )
-        .to(".custom-hero", { duration: 0.5, height: "0%", ease: "power4.in" })
-        .to("#header", {
-          opacity: 0,
-          duration: 0.5,
-          stagger: 0.05,
-          ease: "slowmo.out",
-          onComplete: () =>
-            setInterval(function () {
-              done();
-            }, 500),
-        });
-      // .to(
-      //   ".slider",
-      //   {
-      //     duration: 1,
-      //     y: "-100%",
-      //     ease: "power4.in",
-      //   },
-      //   1
-      // );
+        .to(
+          ".custom-headline, .custom-subtitle",
+          {
+            stagger: 0.1,
+            duration: 0.3,
+            opacity: 0,
+            ease: "power4.in",
+          },
+          "<"
+        )
+        .to(
+          ".custom-hero",
+          { duration: 0.5, height: "0%", ease: "power4.in" },
+          "-=0.7"
+        )
+        .to(
+          "#header",
+          {
+            opacity: 0,
+            duration: 0.5,
+            stagger: 0.05,
+            ease: "slowmo.out",
+          },
+          "-=0.3"
+        )
+        .to(
+          ".slider",
+          {
+            duration: 0.8,
+            x: "-100%",
+            ease: "power4.in",
+            onComplete: () =>
+              setInterval(function () {
+                done();
+              }, 500),
+          },
+          1
+        );
     },
   },
   methods: {
@@ -311,10 +290,48 @@ export default {
         return false;
       }
     },
+    categoryActive() {
+      console.log(this);
+    },
   },
   mounted() {
     this.toggleActive(this.categoryInfos.package);
     this.checkActive(this.currentCategory);
+
+    ScrollTrigger.matchMedia({
+      // Desktop Start
+      "(min-width:800px)": function () {
+        let tl = gsap.timeline({
+          // yes, we can add it to an entire timeline!
+          scrollTrigger: {
+            trigger: ".anim-scroll-trigger",
+            pin: true, // pin the trigger element while active
+            start: "bottom bottom", // when the top of the trigger hits the top of the viewport
+            end: "-=300", // end after scrolling 500px beyond the start
+            scrub: 1, // smooth scrubbing, takes 1 second to "catch up" to the scrollbar
+            markers: true,
+          },
+        });
+        // add animations and labels to the timeline
+        tl.to(".custom-category", {
+          duration: 1,
+          opacity: 1,
+          ease: "slowmo.out",
+        }).fromTo(
+          ".custom-category--bg",
+          {
+            xPercent: -100,
+          },
+          {
+            duration: 5.5,
+            stagger: 5,
+            xPercent: 0,
+            ease: "slowmo.out",
+          }
+        );
+      },
+      // ----- desktop end //
+    });
   },
 };
 </script>
@@ -342,44 +359,22 @@ export default {
       height: 80%;
       margin-top: -3rem;
     }
-    &:after {
-      content: "";
-      background: black;
-      width: 100%;
-      height: 100%;
-      position: absolute;
-      left: 0;
-      top: 0;
-      opacity: 0;
-    }
     .custom-hero-img {
       background: url("~@/assets/mountain.jpg");
       width: 100%;
       height: 100%;
       position: relative;
+      background-size: cover;
+      background-position: center;
       // background-position: left bottom;
       @screen sm {
-        background-size: cover;
-        background-position: center;
       }
 
       .custom-wrapper-headline {
-        bottom: 10vh;
-        left: 0%;
-        position: absolute;
         color: black;
         mix-blend-mode: screen;
         background-color: #fbe3e8;
-        @screen sm {
-          @apply px-2;
-        }
-        @screen md {
-          @apply px-2;
-        }
-        @screen lg {
-          left: 0%;
-          @apply px-8;
-        }
+
         .custom-headline {
           position: relative;
           bottom: 0%;
@@ -389,25 +384,9 @@ export default {
       .custom-wrapper-subtitle {
         bottom: 0%;
         left: 0%;
-        position: absolute;
         color: black;
         mix-blend-mode: screen;
         background-color: #fbe3e8;
-        @screen sm {
-          // bottom: 9.5%;
-        }
-        @screen md {
-          // bottom: 8%;
-        }
-        @screen lg {
-          bottom: 0%;
-          left: 0%;
-          @apply px-2;
-        }
-        .custom-subtitle {
-          position: relative;
-          bottom: 0%;
-        }
       }
     }
   }
