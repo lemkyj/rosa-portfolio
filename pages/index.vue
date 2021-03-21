@@ -42,7 +42,7 @@
             :aria-label="`${category.id} button`"
             v-for="category in categoryInfos"
             @click="toggleActive(category)"
-            class="opacity-0 custom-category relative anim-fade-left focus:outline-none border border-gray-100 row-span-1 w-full h-full text-right text-2xl sm:text-4xl md:text-6xl font-display"
+            class="opacity-0 custom-category relative anim-fade-left border border-gray-100 row-span-1 w-full h-full text-right text-2xl sm:text-4xl md:text-6xl font-display"
             :key="category.id"
           >
             <div class="flex justify-end items-center w-full h-full">
@@ -55,7 +55,7 @@
               >
                 <h2 class="">{{ category.name }}</h2>
                 <svg
-                  class="hidden sm:flex ml-3 lg:mx-8 h-8 w-8 md:h-12 md:w-12"
+                  class="hidden anim-svg sm:flex ml-3 lg:mx-8 h-8 w-8 md:h-12 md:w-12"
                   width="46"
                   height="46"
                   viewBox="0 0 46 46"
@@ -100,10 +100,11 @@
                 </p>
                 <nuxt-link
                   :to="'/portfolio?category=' + currentCategory"
+                  :mouseover="buttonHover"
                   class="anim-fade-right custom-link-btn my-4 font-bold text-base md:text-lg text-brand-green flex items-center transform translate-x-2 hover:translate-x-4 duration-75 ease-out"
                   >VIEW PROJECTS
                   <svg
-                    class="ml-2 h-5 w-5"
+                    class="ml-2 h-5 w-5 anim-svg"
                     width="46"
                     height="46"
                     viewBox="0 0 46 46"
@@ -274,6 +275,7 @@ export default {
         tag: [],
         contents: ``,
         img: "img-index/preview-package.png",
+        css: "packagePos",
       },
       isActive: false,
       categoryInfos: this.$store.state.main.list, // store/main.js
@@ -293,6 +295,14 @@ export default {
     },
     categoryActive() {
       console.log(this);
+    },
+    buttonHover() {
+      console.log(this);
+      gsap.to(".anim-svg", {
+        yoyo: true,
+        xPercent: 5,
+        ease: "power2.out",
+      });
     },
   },
   mounted() {
@@ -426,7 +436,7 @@ export default {
 }
 
 .packagePos {
-  transform: translateX(-35%);
+  transform: translateX(-10%);
 }
 
 .printPos {

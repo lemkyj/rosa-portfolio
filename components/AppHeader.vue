@@ -14,17 +14,14 @@
         <nuxt-link to="/portfolio" class="anim-nav px-10 py-3"
           >Portfolio</nuxt-link
         >
-        <button
-          @click="openMenu"
-          aria-label="Menu"
-          aria-controls="navigation"
+        <a
           class="anim-nav px-10 py-3 rounded-full bg-brand-pink text-lg font-bold"
+          :href="`mailto:${email}`"
+          >Contacts</a
         >
-          Contacts
-        </button>
       </nav>
       <button
-        @click="openMenu"
+        @click="email"
         type="button"
         aria-label="Menu"
         aria-controls="navigation"
@@ -80,6 +77,7 @@ export default {
   data() {
     return {
       navisOpen: false,
+      email: "lia8488@gmail.com",
     };
   },
   methods: {
