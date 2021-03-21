@@ -40,7 +40,7 @@
         <div class="md:col-span-5">
           <button
             v-for="category in categoryInfos"
-            class="custom-button--category anim-fadeout-left row-span-1 w-full h-full text-right text-2xl sm:text-4xl md:text-6xl font-display"
+            class="custom-button--category anim-fade-left row-span-1 w-full h-full text-right text-2xl sm:text-4xl md:text-6xl font-display"
             :key="category.id"
           >
             <div
@@ -75,12 +75,12 @@
           <div class="md:mt-8 md:ml-8 lg:ml-48 lg:mt-12">
             <div class="grid h-screen row-span-full">
               <div class="col-span-12 row-span-4">
-                <h3 class="anim-fadeout-right font-display text-4xl mb-4">
+                <h3 class="anim-fade-right font-display text-4xl mb-4">
                   {{ currentObj.name }}
                 </h3>
                 <ul class="inline-flex space-x-4 mb-4 font-bold">
                   <li
-                    class="anim-fadeout-right px-4 py-2 rounded-full bg-brand-lightgreen text-sm whitespace-nowrap"
+                    class="anim-fade-right px-4 py-2 rounded-full bg-brand-lightgreen text-sm whitespace-nowrap"
                     v-for="tag in currentObj.tag"
                     :key="tag"
                   >
@@ -88,13 +88,13 @@
                   </li>
                 </ul>
                 <p
-                  class="anim-fadeout-right line-clamp-4 md:line-clamp-none text-lg max-w-prose"
+                  class="anim-fade-right line-clamp-4 md:line-clamp-none text-lg max-w-prose"
                 >
                   {{ currentObj.contents }}
                 </p>
                 <nuxt-link
                   :to="'/portfolio?category=' + currentCategory"
-                  class="anim-fadeout-right my-4 font-bold text-base md:text-lg text-brand-green flex items-center transform translate-x-2 hover:translate-x-4 duration-75 ease-out"
+                  class="anim-fade-right my-4 font-bold text-base md:text-lg text-brand-green flex items-center transform translate-x-2 hover:translate-x-4 duration-75 ease-out"
                   >VIEW PROJECTS
                   <svg
                     class="ml-2 h-5 w-5"
@@ -116,7 +116,7 @@
               </div>
 
               <div class="col-span-12 row-span-8">
-                <div class="relative img-preview anim-fadeout-right">
+                <div class="relative img-preview anim-fade-right">
                   <img
                     class="custom-category-img"
                     :src="require(`~/assets/img/${currentObj.img}`)"
@@ -209,7 +209,7 @@ export default {
     },
     leave(el, done) {
       const tl = gsap.timeline();
-      tl.to(".anim-fadeout-left", {
+      tl.to(".anim-fade-left", {
         duration: 0.8,
         stagger: 0.1,
         x: "-=10",
@@ -217,7 +217,7 @@ export default {
         ease: "power4.in",
       })
         .to(
-          ".anim-fadeout-right",
+          ".anim-fade-right",
           {
             duration: 0.8,
             stagger: 0.1,
