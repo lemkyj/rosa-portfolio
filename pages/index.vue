@@ -45,16 +45,18 @@
         <div class="md:col-span-5">
           <button
             v-for="category in categoryInfos"
-            @click="categoryActive"
-            class="opacity-0 custom-category anim-fade-left row-span-1 w-full h-full text-right text-2xl sm:text-4xl md:text-6xl font-display"
+            @click="toggleActive(category)"
+            class="custom-category relative anim-fade-left row-span-1 w-full h-full text-right text-2xl sm:text-4xl md:text-6xl font-display"
             :key="category.id"
           >
-            <div
-              class="custom-category--bg flex justify-end items-center w-full h-full bg-brand-lightgreen"
-              :class="[category.css, { active: checkActive(category.id)}]"
-              @click="toggleActive(category)"
-            >
-              <div class="mx-4 flex justify-end items-center">
+            <div class="flex justify-end items-center w-full h-full">
+              <div
+                :class="category.css"
+                class="custom-category--bg absolute w-full h-full bg-brand-lightgreen"
+              ></div>
+              <div
+                class="custom-category--text z-10 mx-4 flex justify-end items-center"
+              >
                 <h2 class="">{{ category.name }}</h2>
                 <svg
                   class="hidden sm:flex ml-3 lg:mx-8 h-8 w-8 md:h-12 md:w-12"
@@ -141,20 +143,6 @@
 import ScrollIndicator from "../components/ScrollIndicator.vue";
 export default {
   components: { ScrollIndicator },
-  data() {
-    return {
-      currentCategory: "package",
-      currentObj: {
-        id: "",
-        name: "",
-        tag: [],
-        contents: ``,
-        img: "img-index/preview-package.png",
-      },
-      isActive: false,
-      categoryInfos: this.$store.state.main.list, // store/main.js
-    };
-  },
   transition: {
     mode: "out-in",
     css: false,
@@ -278,6 +266,20 @@ export default {
         );
     },
   },
+  data() {
+    return {
+      currentCategory: "package",
+      currentObj: {
+        id: "",
+        name: "",
+        tag: [],
+        contents: ``,
+        img: "img-index/preview-package.png",
+      },
+      isActive: false,
+      categoryInfos: this.$store.state.main.list, // store/main.js
+    };
+  },
   methods: {
     toggleActive(target) {
       this.currentCategory = target.id;
@@ -298,40 +300,40 @@ export default {
     this.toggleActive(this.categoryInfos.package);
     this.checkActive(this.currentCategory);
 
-    ScrollTrigger.matchMedia({
-      // Desktop Start
-      "(min-width:800px)": function () {
-        let tl = gsap.timeline({
-          // yes, we can add it to an entire timeline!
-          scrollTrigger: {
-            trigger: ".anim-scroll-trigger",
-            pin: true, // pin the trigger element while active
-            start: "bottom bottom", // when the top of the trigger hits the top of the viewport
-            end: "-=300", // end after scrolling 500px beyond the start
-            scrub: 1, // smooth scrubbing, takes 1 second to "catch up" to the scrollbar
-            markers: true,
-          },
-        });
-        // add animations and labels to the timeline
-        tl.to(".custom-category", {
-          duration: 1,
-          opacity: 1,
-          ease: "slowmo.out",
-        }).fromTo(
-          ".custom-category--bg",
-          {
-            xPercent: -100,
-          },
-          {
-            duration: 5.5,
-            stagger: 5,
-            xPercent: 0,
-            ease: "slowmo.out",
-          }
-        );
-      },
-      // ----- desktop end //
-    });
+    // ScrollTrigger.matchMedia({
+    //   // Desktop Start
+    //   "(min-width:800px)": function () {
+    //     let tl = gsap.timeline({
+    //       // yes, we can add it to an entire timeline!
+    //       scrollTrigger: {
+    //         trigger: ".anim-scroll-trigger",
+    //         pin: true, // pin the trigger element while active
+    //         start: "bottom bottom", // when the top of the trigger hits the top of the viewport
+    //         end: "-=300", // end after scrolling 500px beyond the start
+    //         scrub: 1, // smooth scrubbing, takes 1 second to "catch up" to the scrollbar
+    //         markers: true,
+    //       },
+    //     });
+    //     // add animations and labels to the timeline
+    //     tl.to(".custom-category", {
+    //       duration: 1,
+    //       opacity: 1,
+    //       ease: "slowmo.out",
+    //     }).fromTo(
+    //       ".custom-category--bg",
+    //       {
+    //         xPercent: -100,
+    //       },
+    //       {
+    //         duration: 5.5,
+    //         stagger: 5,
+    //         xPercent: 0,
+    //         ease: "slowmo.out",
+    //       }
+    //     );
+    //   },
+    //   // ----- desktop end //
+    // });
   },
 };
 </script>
@@ -404,5 +406,27 @@ export default {
 .img-preview {
   transform: translate(45%, 0%);
   overflow: hidden;
+}
+
+.packagePos {
+  transform: translateX(0%);
+}
+
+.printPos {
+  transform: translateX(-40%);
+}
+
+.illustPos {
+  transform: translateX(-53%);
+}
+
+.photoPos {
+  transform: translateX(-70%);
+}
+.logoPos {
+  transform: translateX(-61%);
+}
+.otherPos {
+  transform: translateX(-48%);
 }
 </style>
