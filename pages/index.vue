@@ -42,7 +42,7 @@
             :aria-label="`${category.id} button`"
             v-for="category in categoryInfos"
             @click="toggleActive(category)"
-            class="opacity-0 custom-category relative anim-fade-left focus:outline-none row-span-1 w-full h-full text-right text-2xl sm:text-4xl md:text-6xl font-display"
+            class="opacity-0 custom-category relative anim-fade-left focus:outline-none border border-gray-100 row-span-1 w-full h-full text-right text-2xl sm:text-4xl md:text-6xl font-display"
             :key="category.id"
           >
             <div class="flex justify-end items-center w-full h-full">
