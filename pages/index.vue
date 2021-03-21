@@ -51,7 +51,7 @@
           >
             <div
               class="custom-category--bg flex justify-end items-center w-full h-full bg-brand-lightgreen"
-              :class="{ active: checkActive(category.id) }"
+              :class="[category.css, { active: checkActive(category.id)}]"
               @click="toggleActive(category)"
             >
               <div class="mx-4 flex justify-end items-center">

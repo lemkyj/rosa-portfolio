@@ -9,6 +9,7 @@ export const state = () => ({
                 sequi qui earum facere cumque, excepturi totam ipsum voluptatem ex
                 dicta est?`,
       img: "img-index/preview-package.png",
+      css: "test1",
     },
     print: {
       id: "print",
@@ -19,6 +20,7 @@ export const state = () => ({
                 sequi qui earum facere cumque, excepturi totam ipsum voluptatem ex
                 dicta est?`,
       img: "img-index/preview-print.png",
+      css: "transform -translate-x-1/2"
     },
     illustration: {
       id: "illustration",
@@ -29,6 +31,7 @@ export const state = () => ({
                 sequi qui earum facere cumque, excepturi totam ipsum voluptatem ex
                 dicta est?`,
       img: "img-index/preview-illust.png",
+      css: "test3"
     },
     photography: {
       id: "photography",
@@ -39,6 +42,7 @@ export const state = () => ({
                 sequi qui earum facere cumque, excepturi totam ipsum voluptatem ex
                 dicta est?`,
       img: "img-index/preview-photo.png",
+      css: "test4"
     },
     logo: {
       id: "logo",
@@ -49,6 +53,7 @@ export const state = () => ({
                 sequi qui earum facere cumque, excepturi totam ipsum voluptatem ex
                 dicta est?`,
       img: "img-index/preview-logo.png",
+      css: "test5"
     },
     others: {
       id: "others",
@@ -59,6 +64,7 @@ export const state = () => ({
                 sequi qui earum facere cumque, excepturi totam ipsum voluptatem ex
                 dicta est?`,
       img: "img-index/preview-others.png",
+      css: "test6"
     },
   },
 });
