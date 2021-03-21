@@ -1,6 +1,6 @@
 <template>
   <div class="fixed inset-0 bg-brand-pink w-full h-full z-20">
-    <div class="flex justify-end mt-8 mr-8">
+    <div class="absolute right-16 top-16">
       <svg
         width="46"
         height="46"
