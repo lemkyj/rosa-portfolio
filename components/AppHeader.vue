@@ -21,7 +21,7 @@
         >
       </nav>
       <button
-        @click="email"
+        @click="openMenu"
         type="button"
         aria-label="Menu"
         aria-controls="navigation"
