@@ -29,9 +29,14 @@
       <!-- <scroll-indicator /> -->
     </section>
     <!-- Spacer -->
-    <div class="bg-transparent" style="height: 100vh"></div>
+    <div
+      class="bg-transparent border-2 border-yellow-300"
+      style="height: 10vh"
+    ></div>
     <!-- Spacer end -->
-    <section class="h-screen w-full bg-white">
+    <section
+      class="h-screen w-full bg-white anim-scroll-trigger border-t-8 border-red-300"
+    >
       <!-- small: 1 column, tablet: 12 columns -->
       <div
         class="h-screen grid grid-cols-1 md:grid-cols-12 grid-rows-12 md:grid-rows-6 grid-flow-col"
@@ -40,11 +45,12 @@
         <div class="md:col-span-5">
           <button
             v-for="category in categoryInfos"
-            class="custom-button--category anim-fade-left row-span-1 w-full h-full text-right text-2xl sm:text-4xl md:text-6xl font-display"
+            @click="categoryActive"
+            class="custom-category anim-fade-left row-span-1 w-full h-full text-right text-2xl sm:text-4xl md:text-6xl font-display"
             :key="category.id"
           >
             <div
-              class="flex justify-end items-center w-full h-full bg-brand-lightgreen"
+              class="custom-category--bg flex justify-end items-center w-full h-full bg-brand-lightgreen"
               :class="{ active: checkActive(category.id) }"
               @click="toggleActive(category)"
             >
@@ -284,10 +290,49 @@ export default {
         return false;
       }
     },
+    categoryActive() {
+      console.log(this);
+    },
   },
   mounted() {
     this.toggleActive(this.categoryInfos.package);
     this.checkActive(this.currentCategory);
+
+    ScrollTrigger.matchMedia({
+      // Desktop Start
+      "(min-width:800px)": function () {
+        let tl = gsap.timeline({
+          // yes, we can add it to an entire timeline!
+          scrollTrigger: {
+            trigger: ".anim-scroll-trigger",
+            pin: true, // pin the trigger element while active
+            start: "bottom bottom", // when the top of the trigger hits the top of the viewport
+            end: "-=300", // end after scrolling 500px beyond the start
+            scrub: 1, // smooth scrubbing, takes 1 second to "catch up" to the scrollbar
+            markers: true,
+          },
+        });
+        // add animations and labels to the timeline
+        tl.set(".custom-category", {
+          opacity: 0,
+        })
+          .set(
+            ".custom-category--bg",
+            {
+              xPercent: -100,
+            },
+            "<"
+          )
+          .to("custom-category--bg", {
+            duration: 1,
+            xPercent: () => {
+              Math.random() * 100;
+            },
+            ease: "power2.out",
+          });
+      },
+      // ----- desktop end //
+    });
   },
 };
 </script>

@@ -49,6 +49,7 @@ NOTE Concentric CSS Approach
 
 body {
   // overflow: hidden;
+  height: 100%;
 }
 
 /* ScrollBar */
