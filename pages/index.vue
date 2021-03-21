@@ -35,18 +35,19 @@
     ></div>
     <!-- Spacer end -->
     <section
-      class="h-screen w-full bg-white anim-scroll-trigger border-t-8 border-red-300"
+      class="w-full h-screen bg-white anim-scroll-trigger border-t-8 border-red-300"
     >
       <!-- small: 1 column, tablet: 12 columns -->
       <div
-        class="h-screen grid grid-cols-1 md:grid-cols-12 grid-rows-12 md:grid-rows-6 grid-flow-col"
+        class="grid h-screen grid-cols-1 md:grid-cols-12 grid-rows-12 md:grid-rows-6 grid-flow-col"
       >
         <!-- small: 1 column, tablet: 5 columns inside 12 columns -->
         <div class="md:col-span-5">
           <button
+            :aria-label="`${category.id} button`"
             v-for="category in categoryInfos"
             @click="toggleActive(category)"
-            class="custom-category relative anim-fade-left row-span-1 w-full h-full text-right text-2xl sm:text-4xl md:text-6xl font-display"
+            class="opacity-0 custom-category relative anim-fade-ldleft row-span-1 w-full h-full text-right text-2xl sm:text-4xl md:text-6xl font-display"
             :key="category.id"
           >
             <div class="flex justify-end items-center w-full h-full">
@@ -86,7 +87,9 @@
                 <h3 class="anim-fade-right font-display text-4xl mb-4">
                   {{ currentObj.name }}
                 </h3>
-                <ul class="inline-flex space-x-4 mb-4 font-bold">
+                <ul
+                  class="anim-fade-right inline-flex space-x-4 mb-4 font-bold"
+                >
                   <li
                     class="anim-fade-right px-4 py-2 rounded-full bg-brand-lightgreen text-sm whitespace-nowrap"
                     v-for="tag in currentObj.tag"
@@ -204,7 +207,7 @@ export default {
     },
     leave(el, done) {
       const tl = gsap.timeline();
-      tl.to(".anim-fade-left", {
+      tl.to(".anim-fade-left, .custom-category, .active", {
         duration: 0.8,
         stagger: 0.1,
         x: "-=10",
@@ -301,40 +304,58 @@ export default {
     this.toggleActive(this.categoryInfos.package);
     this.checkActive(this.currentCategory);
 
-    // ScrollTrigger.matchMedia({
-    //   // Desktop Start
-    //   "(min-width:800px)": function () {
-    //     let tl = gsap.timeline({
-    //       // yes, we can add it to an entire timeline!
-    //       scrollTrigger: {
-    //         trigger: ".anim-scroll-trigger",
-    //         pin: true, // pin the trigger element while active
-    //         start: "bottom bottom", // when the top of the trigger hits the top of the viewport
-    //         end: "-=300", // end after scrolling 500px beyond the start
-    //         scrub: 1, // smooth scrubbing, takes 1 second to "catch up" to the scrollbar
-    //         markers: true,
-    //       },
-    //     });
-    //     // add animations and labels to the timeline
-    //     tl.to(".custom-category", {
-    //       duration: 1,
-    //       opacity: 1,
-    //       ease: "slowmo.out",
-    //     }).fromTo(
-    //       ".custom-category--bg",
-    //       {
-    //         xPercent: -100,
-    //       },
-    //       {
-    //         duration: 5.5,
-    //         stagger: 5,
-    //         xPercent: 0,
-    //         ease: "slowmo.out",
-    //       }
-    //     );
-    //   },
-    //   // ----- desktop end //
-    // });
+    ScrollTrigger.matchMedia({
+      // Desktop Start
+      "(min-width:800px)": function () {
+        let tl = gsap.timeline({
+          // yes, we can add it to an entire timeline!
+          scrollTrigger: {
+            trigger: ".anim-scroll-trigger",
+            toggleActions: "play none none none",
+            pin: true, // pin the trigger element while active
+            start: "center center", // 트리거에서 20px위 스크롤 시작, 스크롤러 viewport 젤 위에서 80% 밑으로
+            // end: "0", // end after scrolling 500px beyond the start
+            // scrub: 1, // smooth scrubbing, takes 1 second to "catch up" to the scrollbar,
+            snap: 1,
+            markers: true,
+          },
+        });
+        // add animations and labels to the timeline
+        tl.to(".custom-category", {
+          duration: 0.8,
+          opacity: 1,
+          ease: "power2.out",
+        })
+          .fromTo(
+            ".custom-category--bg, .active",
+            {
+              xPercent: -100,
+            },
+            {
+              duration: 0.8,
+              stagger: 0.5,
+              xPercent: 0,
+              ease: "power2.out",
+            },
+            "<"
+          )
+          .fromTo(
+            ".anim-fade-right",
+            {
+              opacity: 0,
+              xPercent: 5,
+            },
+            {
+              duration: 0.8,
+              opacity: 1,
+              stagger: 0.5,
+              xPercent: 0,
+              ease: "power2.out",
+            }
+          );
+      },
+      // ----- desktop end //
+    });
   },
 };
 </script>
@@ -398,7 +419,7 @@ export default {
 .active {
   background: $brand-green-color;
   color: $brand-black-color;
-  transition: all 0.1s cubic-bezier(0.165, 0.84, 0.44, 1);
+  transition: all 0.2s cubic-bezier(0.77, 0, 0.175, 1);
   transform: translateX(0%) !important;
   will-change: transform, opacity;
 }
@@ -413,25 +434,25 @@ export default {
 }
 
 .packagePos {
-  transform: translateX(0%);
+  transform: translateX(-35%);
 }
 
 .printPos {
-  transform: translateX(-40%);
+  transform: translateX(-10%);
 }
 
 .illustPos {
-  transform: translateX(-53%);
+  transform: translateX(-33%);
 }
 
 .photoPos {
-  transform: translateX(-70%);
+  transform: translateX(-40%);
 }
 .logoPos {
-  transform: translateX(-61%);
+  transform: translateX(-21%);
 }
 .otherPos {
-  transform: translateX(-48%);
+  transform: translateX(-18%);
 }
 
 // :class="[category.css, { active: checkActive(category.id) }]"
