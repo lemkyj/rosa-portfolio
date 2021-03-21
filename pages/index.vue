@@ -42,7 +42,7 @@
             :aria-label="`${category.id} button`"
             v-for="category in categoryInfos"
             @click="toggleActive(category)"
-            class="opacity-0 custom-category relative anim-fade-ldleft row-span-1 w-full h-full text-right text-2xl sm:text-4xl md:text-6xl font-display"
+            class="opacity-0 custom-category relative anim-fade-left focus:outline-none row-span-1 w-full h-full text-right text-2xl sm:text-4xl md:text-6xl font-display"
             :key="category.id"
           >
             <div class="flex justify-end items-center w-full h-full">
@@ -100,7 +100,7 @@
                 </p>
                 <nuxt-link
                   :to="'/portfolio?category=' + currentCategory"
-                  class="anim-fade-right my-4 font-bold text-base md:text-lg text-brand-green flex items-center transform translate-x-2 hover:translate-x-4 duration-75 ease-out"
+                  class="anim-fade-right custom-link-btn my-4 font-bold text-base md:text-lg text-brand-green flex items-center transform translate-x-2 hover:translate-x-4 duration-75 ease-out"
                   >VIEW PROJECTS
                   <svg
                     class="ml-2 h-5 w-5"
@@ -430,7 +430,7 @@ export default {
 }
 
 .printPos {
-  transform: translateX(-10%);
+  transform: translateX(-16%);
 }
 
 .illustPos {
@@ -446,11 +446,5 @@ export default {
 .otherPos {
   transform: translateX(-18%);
 }
-
-.anim-default {
-  transition: all 0.15s cubic-bezier(0.785, 0.135, 0.15, 0.86);
-}
-
-// :class="[category.css, { active: checkActive(category.id) }]"
 </style>
 
