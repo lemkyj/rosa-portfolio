@@ -51,7 +51,7 @@
           >
             <div class="flex justify-end items-center w-full h-full">
               <div
-                :class="category.css"
+                :class="[category.css, { active: checkActive(category.id) }]"
                 class="custom-category--bg absolute w-full h-full bg-brand-lightgreen"
               ></div>
               <div
@@ -397,6 +397,8 @@ export default {
 .active {
   background: $brand-green-color;
   color: $brand-black-color;
+  transition: all 0.15s cubic-bezier(0.47, 0, 0.745, 0.715);
+  transform: translateX(0%) !important;
 }
 
 .custom-button--category {
@@ -429,4 +431,7 @@ export default {
 .otherPos {
   transform: translateX(-48%);
 }
+
+// :class="[category.css, { active: checkActive(category.id) }]"
 </style>
+
