@@ -1,67 +1,72 @@
 <template>
-  <div class="grid w-full" style="grid-template-columns: 10% 1fr 1fr 10%">
-    <div
-      class="anim-fade-y custom-filterbar z-10 sticky top-0 cursor-move overflow-x-auto lg:overflow-hidden shadow-lg justify-start lg:justify-center col-span-full lg:col-start-1 lg:col-end-5 border bg-white p-4 space-x-4"
-      style="grid-template-columns: 10% 1fr 1fr 10%"
-    >
-      <div class="col-span-auto"></div>
-      <div class="col-start-2 col-end-3">
-        <button
-          class="custom-button--filter text-sm md:text-lg border rounded px-2 md:px-6 py-1 md:py-2 my-1 md:my-2 text-white"
-          @click.prevent="category = 'all'"
+  <div
+    class="grid w-full bg-white"
+    style="grid-template-columns: 10% 1fr 1fr 10%"
+  >
+    <div class="col-span-full z-10 sticky top-0">
+      <div
+        style="grid-template-columns: 10% 1fr 1fr 10%"
+        class="grid anim-fade-y shadow-lg bg-white"
+      >
+        <div
+          class="col-start-2 col-end-4 lg:col-start-1 py-2 overflow-x-auto lg:overflow-hidden flex justify-start items-center lg:justify-center space-x-4"
         >
-          ALL
-        </button>
-        <button
-          class="custom-button--filter text-sm md:text-lg border rounded px-2 md:px-6 py-1 md:py-2 my-1 md:my-2 text-white"
-          @click.prevent="category = 'package'"
-        >
-          Package
-        </button>
-        <button
-          class="custom-button--filter text-sm md:text-lg border rounded px-2 md:px-6 py-1 md:py-2 my-1 md:my-2 text-white"
-          @click.prevent="category = 'print'"
-        >
-          Print
-        </button>
-        <button
-          class="custom-button--filter text-sm md:text-lg border rounded px-2 md:px-6 py-1 md:py-2 my-1 md:my-2 text-white"
-          @click.prevent="category = 'illustration'"
-        >
-          Illustration
-        </button>
-        <button
-          class="custom-button--filter text-sm md:text-lg border rounded px-2 md:px-6 py-1 md:py-2 my-1 md:my-2 text-white"
-          @click.prevent="category = 'drawing'"
-        >
-          Drawing
-        </button>
-        <button
-          class="custom-button--filter text-sm md:text-lg border rounded px-2 md:px-6 py-1 md:py-2 my-1 md:my-2 text-white"
-          @click.prevent="category = 'photography'"
-        >
-          Photography
-        </button>
-        <button
-          class="custom-button--filter text-sm md:text-lg border rounded px-2 md:px-6 py-1 md:py-2 my-1 md:my-2 text-white"
-          @click.prevent="category = 'logo'"
-        >
-          Logo
-        </button>
+          <button
+            class="custom-button--filter text-sm md:text-lg border rounded px-2 md:px-6 py-1 md:py-2 my-1 md:my-2 text-white"
+            @click.prevent="category = 'all'"
+          >
+            ALL
+          </button>
+          <button
+            class="custom-button--filter text-sm md:text-lg border rounded px-2 md:px-6 py-1 md:py-2 my-1 md:my-2 text-white"
+            @click.prevent="category = 'package'"
+          >
+            Package
+          </button>
+          <button
+            class="custom-button--filter text-sm md:text-lg border rounded px-2 md:px-6 py-1 md:py-2 my-1 md:my-2 text-white"
+            @click.prevent="category = 'print'"
+          >
+            Print
+          </button>
+          <button
+            class="custom-button--filter text-sm md:text-lg border rounded px-2 md:px-6 py-1 md:py-2 my-1 md:my-2 text-white"
+            @click.prevent="category = 'illustration'"
+          >
+            Illustration
+          </button>
+          <button
+            class="custom-button--filter text-sm md:text-lg border rounded px-2 md:px-6 py-1 md:py-2 my-1 md:my-2 text-white"
+            @click.prevent="category = 'drawing'"
+          >
+            Drawing
+          </button>
+          <button
+            class="custom-button--filter text-sm md:text-lg border rounded px-2 md:px-6 py-1 md:py-2 my-1 md:my-2 text-white"
+            @click.prevent="category = 'photography'"
+          >
+            Photography
+          </button>
+          <button
+            class="custom-button--filter text-sm md:text-lg border rounded px-2 md:px-6 py-1 md:py-2 my-1 md:my-2 text-white"
+            @click.prevent="category = 'logo'"
+          >
+            Logo
+          </button>
 
-        <button
-          class="custom-button--filter text-sm md:text-lg border rounded px-2 md:px-6 py-1 md:py-2 my-1 md:my-2 text-white"
-          @click.prevent="category = 'others'"
-        >
-          Others
-        </button>
+          <button
+            class="custom-button--filter text-sm md:text-lg border rounded px-2 md:px-6 py-1 md:py-2 my-1 md:my-2 text-white"
+            @click.prevent="category = 'others'"
+          >
+            Others
+          </button>
+        </div>
       </div>
-      <div class=""></div>
     </div>
 
     <div class="col-start-2 col-end-4">
       <div
-        class="anim-fade-y grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 my-12 auto-rows-auto gap-4 place-content-center"
+        class="anim-fade-y grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 my-12 gap-4 place-content-center"
         style=""
         v-if="filteredLists.length"
       >
@@ -94,59 +99,31 @@ export default {
     css: false,
     enter(el, done) {
       const tl = gsap.timeline();
-      tl.to(".slider", {
-        duration: 0.3,
-        yPercent: 100,
-        delay: 1,
-        ease: "power2.out",
-      })
-        .to(
-          ".slider",
-          {
-            duration: 0.3,
-            yPercent: 100,
-            delay: 0.5,
-            ease: "power2.out",
-          },
-          "-=0.2"
-        )
-        // .to()
-        // tl.fromTo(
-        //   ".slider",
-        //   { yPercent: 0 },
-        //   {
-        //     duration: 1,
-        //     yPercent: 201,
-        //     ease: "power4.out",
-        //   },
-        //   1
-        // )
-        .fromTo(
-          "#header, .anim-nav",
-          { opacity: 0, x: -10 },
-          {
-            duration: 1,
-            stagger: 0.2,
-            x: 0,
-            opacity: 1,
-            ease: "power2.out",
-          }
-        )
-        .fromTo(
-          ".anim-fade-y",
-          {
-            opacity: 0,
-            y: -5,
-          },
-          {
-            duration: 1.2,
-            stagger: 0.5,
-            y: 0,
-            opacity: 1,
-            ease: "slowmo.out",
-          },
-          "-=1"
-        );
+      tl.fromTo(
+        "#header, .anim-nav",
+        { opacity: 0, y: -10 },
+        {
+          duration: 1,
+          stagger: 0.2,
+          y: 0,
+          opacity: 1,
+          ease: "power2.out",
+        }
+      ).fromTo(
+        ".anim-fade-y",
+        {
+          opacity: 0,
+          y: -5,
+        },
+        {
+          duration: 1.2,
+          stagger: 0.5,
+          y: 0,
+          opacity: 1,
+          ease: "slowmo.out",
+        },
+        "-=1"
+      );
     },
   },
   data() {
@@ -198,18 +175,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.custom-filterbar {
-  overflow-x: scroll;
-  scrollbar-width: none; /* Firefox */
-  -ms-overflow-style: none; /* Internet Explorer 10+ */
-  @apply mb-0 pb-0;
-}
-.custom-filterbar::-webkit-scrollbar {
-  overflow-x: scroll;
-  scrollbar-width: none; /* Firefox */
-  -ms-overflow-style: none; /* Internet Explorer 10+ */
-}
-
 .custom-button--filter {
   @apply outline-none;
   color: $brand-black-color;
@@ -219,6 +184,7 @@ export default {
   &:active {
     background: $brand-lightgreen-color;
     color: $brand-green-textcolor;
+    border-color: $brand-green-color;
   }
 }
 .slider {
