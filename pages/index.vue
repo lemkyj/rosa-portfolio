@@ -399,6 +399,7 @@ export default {
   color: $brand-black-color;
   transition: all 0.15s cubic-bezier(0.47, 0, 0.745, 0.715);
   transform: translateX(0%) !important;
+  will-change: transform, opacity;
 }
 
 .custom-button--category {
