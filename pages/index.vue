@@ -1,6 +1,6 @@
 <template>
   <main>
-    <section class="custom-section .panel">
+    <section class="custom-section">
       <div class="custom-hero">
         <div class="custom-hero-img w-full h-full">
           <div class="flex items-end h-full">
@@ -29,14 +29,9 @@
       <!-- <scroll-indicator /> -->
     </section>
     <!-- Spacer -->
-    <div
-      class="bg-transparent border-2 border-yellow-300"
-      style="height: 10vh"
-    ></div>
+    <div class="bg-transparent" style="height: 0vh"></div>
     <!-- Spacer end -->
-    <section
-      class=".panel .panel-2 w-full h-screen bg-white anim-scroll-trigger border-t-8 border-red-300"
-    >
+    <section class="w-full h-screen bg-white anim-scroll-trigger">
       <!-- small: 1 column, tablet: 12 columns -->
       <div
         class="grid h-screen grid-cols-1 md:grid-cols-12 grid-rows-12 md:grid-rows-6 grid-flow-col"
@@ -304,16 +299,6 @@ export default {
     this.toggleActive(this.categoryInfos.package);
     this.checkActive(this.currentCategory);
 
-    gsap.to(window, {
-      xPercent: 300,
-      ease: "power2",
-      scrollTrigger: {
-        snap: 2,
-        // end: () =>
-        //   "+=" + document.querySelector(".anim-scroll-trigger").offsetWidth,
-      },
-    });
-
     ScrollTrigger.matchMedia({
       // Desktop Start
       "(min-width:800px)": function () {
@@ -322,17 +307,15 @@ export default {
           scrollTrigger: {
             trigger: ".anim-scroll-trigger",
             toggleActions: "play none none none",
-            pin: true, // pin the trigger element while active
-            start: "center center", // 트리거에서 20px위 스크롤 시작, 스크롤러 viewport 젤 위에서 80% 밑으로
+            // pin: true, // pin the trigger element while active
+            start: "top center", // 트리거에서 20px위 스크롤 시작, 스크롤러 viewport 젤 위에서 80% 밑으로
             // end: "0", // end after scrolling 500px beyond the start
             // scrub: 1, // smooth scrubbing, takes 1 second to "catch up" to the scrollbar,
-
-            markers: true,
           },
         });
         // add animations and labels to the timeline
         tl.to(".custom-category", {
-          duration: 0.8,
+          duration: 1.5,
           opacity: 1,
           ease: "power2.out",
         })
@@ -342,10 +325,10 @@ export default {
               xPercent: -100,
             },
             {
-              duration: 0.5,
-              stagger: 0.2,
+              duration: 0.8,
+              stagger: 0.1,
               xPercent: 0,
-              ease: "power2.out",
+              ease: "back.out",
             },
             "<"
           )
@@ -356,10 +339,10 @@ export default {
               xPercent: 5,
             },
             {
-              duration: 0.8,
+              duration: 1.2,
               opacity: 1,
               xPercent: 0,
-              ease: "power2.out",
+              ease: "elastic.out",
             }
           );
       },
