@@ -16,12 +16,12 @@
         >
         <a
           class="anim-nav px-10 py-3 rounded-full bg-brand-pink text-lg font-bold"
-          :href="`mailto:${email}`"
+          :href="`mailto:${$store.state.main.email}`"
           >Contacts</a
         >
       </nav>
       <button
-        @click="openMenu"
+        @click="$store.commit('main/navisOpen')"
         type="button"
         aria-label="Menu"
         aria-controls="navigation"

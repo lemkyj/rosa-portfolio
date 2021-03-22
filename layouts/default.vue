@@ -1,7 +1,7 @@
 <template>
   <div>
     <app-header class="opacity-0 z-10" />
-    <hamburger-list />
+    <hamburger-list v-show="$store.state.main.navisOpen" />
     <Nuxt />
 
     <div class="slider"></div>
