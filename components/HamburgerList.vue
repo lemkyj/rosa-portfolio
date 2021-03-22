@@ -1,6 +1,9 @@
 <template>
   <div class="fixed inset-0 bg-brand-pink w-full h-full z-20">
-    <div class="absolute right-16 top-16" @click="$store.commit('main/navisOpen')">
+    <div
+      class="absolute right-16 top-16"
+      @click="$store.commit('main/navisOpen')"
+    >
       <svg
         width="46"
         height="46"
@@ -44,11 +47,15 @@
       class="flex flex-col w-full h-full justify-center items-center space-y-14"
       @click="$store.commit('main/navisOpen')"
     >
-      <nuxt-link exact to="/" class="text-5xl font-bold">Home</nuxt-link>
-      <nuxt-link to="/portfolio" class="text-5xl font-bold"
+      <nuxt-link exact to="/" class="md:hidden text-5xl font-bold"
+        >Home</nuxt-link
+      >
+      <nuxt-link to="/portfolio" class="md:hidden text-5xl font-bold"
         >Portfolio</nuxt-link
       >
-      <a :href="`mailto:${$store.state.main.email}`" class="text-5xl font-bold">Email</a>
+      <a :href="`mailto:${$store.state.main.email}`" class="text-5xl font-bold"
+        >Email</a
+      >
     </div>
   </div>
 </template>

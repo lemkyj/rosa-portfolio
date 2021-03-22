@@ -34,15 +34,15 @@
     <section class="w-full h-screen bg-white anim-scroll-trigger">
       <!-- small: 1 column, tablet: 12 columns -->
       <div
-        class="grid h-screen grid-cols-1 md:grid-cols-12 grid-rows-12 md:grid-rows-6 grid-flow-col"
+        class="grid h-screen grid-cols-1 sm:grid-cols-12 grid-rows-12 sm:grid-rows-6 grid-flow-col"
       >
         <!-- small: 1 column, tablet: 5 columns inside 12 columns -->
-        <div class="md:col-span-5">
+        <div class="sm:col-span-5">
           <button
             :aria-label="`${category.id} button`"
             v-for="category in categoryInfos"
             @click="toggleActive(category)"
-            class="opacity-0 custom-category relative anim-fade-left border border-gray-100 row-span-1 w-full h-full text-right text-2xl sm:text-4xl md:text-6xl font-display"
+            class="custom-category relative anim-fade-left border border-gray-100 row-span-1 w-full h-full text-right text-2xl sm:text-4xl md:text-6xl font-display"
             :key="category.id"
           >
             <div class="flex justify-end items-center w-full h-full">
@@ -75,10 +75,10 @@
           </button>
         </div>
         <!-- small: 1 column, tablet: 7 columns inside 12 columns -->
-        <div class="col-span-1 md:col-span-7 row-span-full overflow-hidden">
+        <div class="col-span-1 sm:col-span-7 row-span-full overflow-hidden">
           <div class="md:mt-8 md:ml-8 lg:ml-48 lg:mt-12">
             <div class="anim-default grid h-screen row-span-full">
-              <div class="col-span-12 row-span-4">
+              <div class="col-span-full row-span-4">
                 <h3 class="anim-fade-right font-display text-4xl mb-4">
                   {{ currentObj.name }}
                 </h3>
@@ -121,7 +121,7 @@
                 </nuxt-link>
               </div>
 
-              <div class="col-span-12 row-span-8">
+              <div class="col-span-full row-span-8">
                 <div class="relative img-preview anim-fade-right">
                   <img
                     class="custom-category-img"
@@ -297,12 +297,9 @@ export default {
     },
   },
   mounted() {
-    this.toggleActive(this.categoryInfos.package);
-    this.checkActive(this.currentCategory);
-
     ScrollTrigger.matchMedia({
-      // Desktop Start
-      "(min-width:800px)": function () {
+      // Mobile Start
+      "(max-width:639px)": function () {
         let tl = gsap.timeline({
           // yes, we can add it to an entire timeline!
           scrollTrigger: {
@@ -315,6 +312,58 @@ export default {
           },
         });
         // add animations and labels to the timeline
+        tl.set(".anim-fade-right, .custom-category", {
+          opacity: 0,
+        });
+        tl.to(".custom-category", {
+          duration: 1.5,
+          opacity: 1,
+          ease: "power2.out",
+        })
+          .fromTo(
+            ".custom-category--bg, .active",
+            {
+              xPercent: -100,
+            },
+            {
+              duration: 0.8,
+              stagger: 0.1,
+              xPercent: 0,
+              ease: "back.out",
+            },
+            "<"
+          )
+          .fromTo(
+            ".anim-fade-right",
+            {
+              opacity: 0,
+              xPercent: 2,
+            },
+            {
+              duration: 1.2,
+              opacity: 1,
+              xPercent: 0,
+              ease: "slowMo.out",
+            }
+          );
+      },
+      // Desktop Start
+      "(min-width:640px)": function () {
+        let tl = gsap.timeline({
+          // yes, we can add it to an entire timeline!
+          scrollTrigger: {
+            trigger: ".anim-scroll-trigger",
+            toggleActions: "play none none none",
+            // pin: true, // pin the trigger element while active
+            start: "top center", // 트리거에서 20px위 스크롤 시작, 스크롤러 viewport 젤 위에서 80% 밑으로
+            // end: "0", // end after scrolling 500px beyond the start
+            // scrub: 1, // smooth scrubbing, takes 1 second to "catch up" to the scrollbar,
+          },
+        });
+        // add animations and labels to the timeline
+        tl.set(".anim-fade-right, .custom-category", {
+          opacity: 0,
+        });
         tl.to(".custom-category", {
           duration: 1.5,
           opacity: 1,
@@ -349,6 +398,9 @@ export default {
       },
       // ----- desktop end //
     });
+
+    this.toggleActive(this.categoryInfos.package);
+    this.checkActive(this.currentCategory);
   },
 };
 </script>
