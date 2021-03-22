@@ -7,6 +7,7 @@
     <div class="slider"></div>
     <div class="custom-scroll-top opacity-0 absolute z-10">
       <button
+        aria-label="scroll to top"
         @click="scrollTop()"
         class="rounded-full bg-brand-green fixed bottom-16 right-10 p-3"
       >
