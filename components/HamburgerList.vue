@@ -2,7 +2,7 @@
   <div class="fixed inset-0 bg-brand-pink w-full h-full z-50">
     <button
       aria-label="Close"
-      class="absolute right-16 top-16 cursor-pointer"
+      class="absolute right-8 sm:right-16 top-8 sm:top-16 cursor-pointer"
       @click="$store.commit('main/navisOpen')"
     >
       <svg
@@ -72,21 +72,21 @@
           rel="noreferrer"
           :href="$store.state.main.twitter"
           target="_blank"
-          class="custom-hover cursor-pointer text-base sm:text-2xl font-bold mx-8 uppercase m-4"
+          class="custom-hover cursor-pointer text-base sm:text-2xl font-bold mx-3 sm:mx-8 uppercase m-4"
           >Twitter</a
         >
         <a
           rel="noreferrer"
           :href="$store.state.main.facebook"
           target="_blank"
-          class="custom-hover cursor-pointer text-base sm:text-2xl font-bold mx-8 uppercase m-4"
+          class="custom-hover cursor-pointer text-base sm:text-2xl font-bold mx-3 sm:mx-8 uppercase m-4"
           >Facebook</a
         >
         <a
           rel="noreferrer"
           :href="$store.state.main.instagram"
           target="_blank"
-          class="custom-hover cursor-pointer text-base sm:text-2xl font-bold mx-8 uppercase m-4"
+          class="custom-hover cursor-pointer text-base sm:text-2xl font-bold mx-3 sm:mx-8 uppercase m-4"
           >Instagram</a
         >
       </div>
