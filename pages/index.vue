@@ -28,11 +28,8 @@
       <!-- 스크롤다운 인디케이터 -->
       <!-- <scroll-indicator /> -->
     </section>
-    <!-- Spacer -->
-    <div class="bg-transparent" style="height: 0vh"></div>
-    <!-- Spacer end -->
     <!-- mobile only -->
-    <section class="h-full">
+    <section class="sm:hidden h-full">
       <mobile-main-list class="anim-mobile-trigger" />
     </section>
     <!-- Mobile only ends -->
