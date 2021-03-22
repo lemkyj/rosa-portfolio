@@ -15,7 +15,7 @@
           >Portfolio</nuxt-link
         >
         <button
-          role="Navigation Button"
+          aria-label="Navigation"
           class="anim-nav px-10 py-3 rounded-full bg-brand-pink text-lg font-bold"
           @click="$store.commit('main/navisOpen')"
         >
