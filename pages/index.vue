@@ -197,12 +197,12 @@ export default {
             ".anim-fade-right",
             {
               opacity: 0,
-              xPercent: 30,
+              xPercent: 5,
             },
             {
               duration: 1.2,
               opacity: 1,
-              xPercent: 20,
+              xPercent: 0,
               ease: "slowMo.out",
             },
             0.6
