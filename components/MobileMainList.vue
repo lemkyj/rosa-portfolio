@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-brand-lightgreen border-t-2">
+  <div class="bg-brand-lightgreen border-t-2 overflow-x-hidden">
     <div
       v-for="category in $store.state.main.list"
       :key="category.id"
@@ -12,9 +12,9 @@
           class="bg-brand-green z-0 absolute w-8 sm:w-10 h-full -left-3 -top-1"
         ></span>
       </h3>
-      <ul class="inline-flex space-x-4 mb-4 font-bold truncate">
+      <ul class="inline-flex space-x-4 mb-4 font-bold overflow-x-scroll">
         <li
-          class="px-4 py-2 rounded-full bg-brand-lightgreen text-sm whitespace-nowrap"
+          class="px-4 py-2 rounded-full bg-brand-lightgreen text-sm"
           v-for="tag in category.tag"
           :key="tag"
         >
