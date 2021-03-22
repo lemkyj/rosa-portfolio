@@ -74,12 +74,12 @@ export default {
     HamburgerList,
   },
   mounted() {
-    this.animInit();
     this.$nextTick(() => {
       this.$nuxt.$loading.start();
       setTimeout(() => {
+        this.animInit();
         this.$nuxt.$loading.finish();
-      }, 500);
+      }, 1000);
     });
   },
   methods: {

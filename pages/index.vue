@@ -75,12 +75,70 @@
           </button>
         </div>
         <!-- small: 1 column, tablet: 7 columns inside 12 columns -->
-        <div class="col-span-1 sm:col-span-7 row-span-full overflow-hidden">
-          <div class="md:mt-8 md:ml-8 lg:ml-48 lg:mt-12">
+        <div class="col-span-1 sm:col-span-7 row-span-full sm:overflow-hidden">
+          <!-- mobile only -->
+          <div
+            v-for="category in categoryInfos"
+            :key="category.id"
+            class="sm:hidden mx-4 my-12 p-8 shadow-lg rounded-3xl"
+          >
+            <h3 class="relative anim-fade-right font-display text-4xl mb-4">
+              <span class="relative z-20">{{ category.name }}</span>
+              <span
+                aria-hidden="true"
+                class="bg-brand-green z-0 absolute w-8 sm:w-10 h-full -left-3 -top-1"
+              ></span>
+            </h3>
+            <ul class="anim-fade-right inline-flex space-x-4 mb-4 font-bold">
+              <li
+                class="anim-fade-right px-4 py-2 rounded-full bg-brand-lightgreen text-sm whitespace-nowrap"
+                v-for="tag in category.tag"
+                :key="tag"
+              >
+                {{ "# " + tag }}
+              </li>
+            </ul>
+            <p
+              class="anim-fade-right line-clamp-2 md:line-clamp-none text-lg max-w-prose"
+            >
+              {{ category.contents }}
+            </p>
+            <nuxt-link
+              :to="'/portfolio?category=' + currentCategory"
+              class="anim-fade-right custom-link-btn my-4 font-bold text-base md:text-lg text-brand-green flex items-center transform translate-x-2 hover:translate-x-4 duration-75 ease-out"
+              >VIEW PROJECTS
+              <svg
+                class="ml-2 h-5 w-5 anim-svg"
+                width="46"
+                height="46"
+                viewBox="0 0 46 46"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M32.5833 15.3334L40.25 23M40.25 23L32.5833 30.6667M40.25 23H5.75"
+                  stroke="#1f423e"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </nuxt-link>
+          </div>
+          <!-- Mobile only ends -->
+
+          <!-- tablet/desktop only -->
+          <div
+            class="hidden sm:flex md:mt-8 mx-4 md:mx-8 lg:ml-48 mt-4 lg:mt-12"
+          >
             <div class="anim-default grid h-screen row-span-full">
               <div class="col-span-full row-span-4">
-                <h3 class="anim-fade-right font-display text-4xl mb-4">
-                  {{ currentObj.name }}
+                <h3 class="relative anim-fade-right font-display text-4xl mb-4">
+                  <span class="relative z-20">{{ currentObj.name }}</span>
+                  <span
+                    aria-hidden="true"
+                    class="bg-brand-green z-0 absolute w-8 sm:w-10 h-full -left-3 -top-1"
+                  ></span>
                 </h3>
                 <ul
                   class="anim-fade-right inline-flex space-x-4 mb-4 font-bold"
@@ -133,6 +191,7 @@
             </div>
           </div>
         </div>
+        <!-- tablet/desktop end -->
       </div>
     </section>
   </main>
@@ -142,6 +201,90 @@
 import ScrollIndicator from "../components/ScrollIndicator.vue";
 export default {
   components: { ScrollIndicator },
+  mounted() {
+    gsap.set(".anim-fade-right, .custom-category", {
+      opacity: 0,
+    });
+    ScrollTrigger.matchMedia({
+      "(max-width:639px)": function () {
+        let tl = gsap.timeline({
+          // yes, we can add it to an entire timeline!
+          scrollTrigger: {
+            trigger: ".anim-scroll-trigger",
+            toggleActions: "restart none none none",
+            // pin: true, // pin the trigger element while active
+            start: "top center", // 트리거에서 20px위 스크롤 시작, 스크롤러 viewport 젤 위에서 80% 밑으로
+            // end: "0", // end after scrolling 500px beyond the start
+            // scrub: 1, // smooth scrubbing, takes 1 second to "catch up" to the scrollbar,
+          },
+        });
+        tl.fromTo(
+          ".anim-fade-right",
+          {
+            opacity: 0,
+            xPercent: 2,
+          },
+          {
+            duration: 1.2,
+            opacity: 1,
+            xPercent: 0,
+            ease: "slowMo.out",
+          }
+        );
+      },
+      // Desktop Start
+      "(min-width:640px)": function () {
+        let tl = gsap.timeline({
+          // yes, we can add it to an entire timeline!
+          scrollTrigger: {
+            trigger: ".anim-scroll-trigger",
+            toggleActions: "play none none none",
+            // pin: true, // pin the trigger element while active
+            start: "top center", // 트리거에서 20px위 스크롤 시작, 스크롤러 viewport 젤 위에서 80% 밑으로
+            // end: "0", // end after scrolling 500px beyond the start
+            // scrub: 1, // smooth scrubbing, takes 1 second to "catch up" to the scrollbar,
+          },
+        });
+        // add animations and labels to the timeline
+        tl.to(".custom-category", {
+          duration: 1.5,
+          opacity: 1,
+          ease: "power2.out",
+        })
+          .fromTo(
+            ".custom-category--bg, .active",
+            {
+              xPercent: -100,
+            },
+            {
+              duration: 0.9,
+              stagger: 0.1,
+              xPercent: 0,
+              ease: "back.out",
+            },
+            "<"
+          )
+          .fromTo(
+            ".anim-fade-right",
+            {
+              opacity: 0,
+              xPercent: 2,
+            },
+            {
+              duration: 1.2,
+              opacity: 1,
+              xPercent: 0,
+              ease: "slowMo.out",
+            },
+            0.6
+          );
+      },
+      // ----- desktop end //
+    });
+
+    this.toggleActive(this.categoryInfos.package);
+    this.checkActive(this.currentCategory);
+  },
   transition: {
     mode: "out-in",
     css: false,
@@ -295,112 +438,6 @@ export default {
     categoryActive() {
       console.log(this);
     },
-  },
-  mounted() {
-    ScrollTrigger.matchMedia({
-      // Mobile Start
-      "(max-width:639px)": function () {
-        let tl = gsap.timeline({
-          // yes, we can add it to an entire timeline!
-          scrollTrigger: {
-            trigger: ".anim-scroll-trigger",
-            toggleActions: "play none none none",
-            // pin: true, // pin the trigger element while active
-            start: "top center", // 트리거에서 20px위 스크롤 시작, 스크롤러 viewport 젤 위에서 80% 밑으로
-            // end: "0", // end after scrolling 500px beyond the start
-            // scrub: 1, // smooth scrubbing, takes 1 second to "catch up" to the scrollbar,
-          },
-        });
-        // add animations and labels to the timeline
-        tl.set(".anim-fade-right, .custom-category", {
-          opacity: 0,
-        });
-        tl.to(".custom-category", {
-          duration: 1.5,
-          opacity: 1,
-          ease: "power2.out",
-        })
-          .fromTo(
-            ".custom-category--bg, .active",
-            {
-              xPercent: -100,
-            },
-            {
-              duration: 0.8,
-              stagger: 0.1,
-              xPercent: 0,
-              ease: "back.out",
-            },
-            "<"
-          )
-          .fromTo(
-            ".anim-fade-right",
-            {
-              opacity: 0,
-              xPercent: 2,
-            },
-            {
-              duration: 1.2,
-              opacity: 1,
-              xPercent: 0,
-              ease: "slowMo.out",
-            }
-          );
-      },
-      // Desktop Start
-      "(min-width:640px)": function () {
-        let tl = gsap.timeline({
-          // yes, we can add it to an entire timeline!
-          scrollTrigger: {
-            trigger: ".anim-scroll-trigger",
-            toggleActions: "play none none none",
-            // pin: true, // pin the trigger element while active
-            start: "top center", // 트리거에서 20px위 스크롤 시작, 스크롤러 viewport 젤 위에서 80% 밑으로
-            // end: "0", // end after scrolling 500px beyond the start
-            // scrub: 1, // smooth scrubbing, takes 1 second to "catch up" to the scrollbar,
-          },
-        });
-        // add animations and labels to the timeline
-        tl.set(".anim-fade-right, .custom-category", {
-          opacity: 0,
-        });
-        tl.to(".custom-category", {
-          duration: 1.5,
-          opacity: 1,
-          ease: "power2.out",
-        })
-          .fromTo(
-            ".custom-category--bg, .active",
-            {
-              xPercent: -100,
-            },
-            {
-              duration: 0.8,
-              stagger: 0.1,
-              xPercent: 0,
-              ease: "back.out",
-            },
-            "<"
-          )
-          .fromTo(
-            ".anim-fade-right",
-            {
-              opacity: 0,
-              xPercent: 2,
-            },
-            {
-              duration: 1.2,
-              opacity: 1,
-              xPercent: 0,
-              ease: "slowMo.out",
-            }
-          );
-      },
-      // ----- desktop end //
-    });
-
-    this.toggleActive(this.categoryInfos.package);
-    this.checkActive(this.currentCategory);
   },
 };
 </script>
