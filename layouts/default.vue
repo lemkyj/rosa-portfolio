@@ -1,6 +1,6 @@
 <template>
   <div>
-    <app-header class="opacity-0 z-10" />
+    <app-header class="opacity-0 z-50" />
     <hamburger-list v-show="$store.state.main.navisOpen" />
     <Nuxt />
 
@@ -53,6 +53,7 @@ NOTE Concentric CSS Approach
 body {
   // overflow: hidden;
   height: 100%;
+  overflow-y: hidden;
 }
 
 /* ScrollBar */

@@ -6,7 +6,7 @@
       class="sm:hidden mx-4 my-12 p-8 shadow-lg rounded-3xl bg-white"
     >
       <h3 class="relative font-display text-4xl mb-4">
-        <span class="relative z-20">{{ category.name }}</span>
+        <span class="relative z-10">{{ category.name }}</span>
         <span
           aria-hidden="true"
           class="bg-brand-green z-0 absolute w-8 sm:w-10 h-full -left-3 -top-1"

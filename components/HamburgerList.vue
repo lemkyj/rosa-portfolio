@@ -1,5 +1,5 @@
 <template>
-  <div class="fixed inset-0 bg-brand-pink w-full h-full z-20">
+  <div class="fixed inset-0 bg-brand-pink w-full h-full z-50">
     <div
       class="absolute right-16 top-16 cursor-pointer"
       @click="$store.commit('main/navisOpen')"
