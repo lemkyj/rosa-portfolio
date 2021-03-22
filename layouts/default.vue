@@ -77,13 +77,11 @@ export default {
     this.$nextTick(() => {
       this.$nuxt.$loading.start();
       setTimeout(() => {
-        this.animInit();
         this.$nuxt.$loading.finish();
       }, 1000);
     });
   },
   methods: {
-    animInit() {},
     scrollTop() {
       window.scrollTo({
         top: 0,
