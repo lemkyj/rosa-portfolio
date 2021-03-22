@@ -14,11 +14,13 @@
         <nuxt-link to="/portfolio" class="anim-nav px-10 py-3"
           >Portfolio</nuxt-link
         >
-        <a
+        <button
+          role="Navigation Button"
           class="anim-nav px-10 py-3 rounded-full bg-brand-pink text-lg font-bold"
-          :href="`mailto:${$store.state.main.email}`"
-          >Contacts</a
+          @click="$store.commit('main/navisOpen')"
         >
+          Contacts
+        </button>
       </nav>
       <button
         @click="$store.commit('main/navisOpen')"

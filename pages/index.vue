@@ -200,12 +200,12 @@ export default {
             ".anim-fade-right",
             {
               opacity: 0,
-              xPercent: 2,
+              xPercent: 30,
             },
             {
               duration: 1.2,
               opacity: 1,
-              xPercent: 0,
+              xPercent: 20,
               ease: "slowMo.out",
             },
             0.6
@@ -443,7 +443,7 @@ export default {
 }
 
 .img-preview {
-  transform: translate(45%, 0%);
+  transform: translate(55%, 0%);
   overflow: hidden;
 }
 

@@ -1,6 +1,9 @@
 export const state = () => ({
   navisOpen: false,
   email: "lia8488@gmail.com",
+  facebook: "https://www.facebook.com/rosa8488",
+  instagram: "https://www.instagram.com/rosalee8488/",
+  twitter: "https://twitter.com/lia8488",
   list: {
     package: {
       id: "package",

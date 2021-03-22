@@ -47,15 +47,39 @@
       class="flex flex-col w-full h-full justify-center items-center space-y-14"
       @click="$store.commit('main/navisOpen')"
     >
-      <nuxt-link exact to="/" class="lg:hidden text-5xl font-bold"
+      <nuxt-link exact to="/" class="custom-hover lg:hidden text-5xl font-bold"
         >Home</nuxt-link
       >
-      <nuxt-link to="/portfolio" class="lg:hidden text-5xl font-bold"
+      <nuxt-link
+        to="/portfolio"
+        class="custom-hover lg:hidden text-5xl font-bold"
         >Portfolio</nuxt-link
       >
-      <a :href="`mailto:${$store.state.main.email}`" class="text-5xl font-bold"
-        >Email</a
+      <a
+        :href="`mailto:${$store.state.main.email}`"
+        class="custom-hover text-5xl font-bold"
+        >{{ $store.state.main.email }}</a
       >
+      <div class="flex">
+        <a
+          :href="$store.state.main.twitter"
+          target="_blank"
+          class="custom-hover cursor-pointer text-2xl font-bold mx-8 uppercase m-4"
+          >Twitter</a
+        >
+        <a
+          :href="$store.state.main.facebook"
+          target="_blank"
+          class="custom-hover cursor-pointer text-2xl font-bold mx-8 uppercase m-4"
+          >Facebook</a
+        >
+        <a
+          :href="$store.state.main.instagram"
+          target="_blank"
+          class="custom-hover cursor-pointer text-2xl font-bold mx-8 uppercase m-4"
+          >Instagram</a
+        >
+      </div>
     </div>
   </div>
 </template>
@@ -65,4 +89,11 @@ export default {};
 </script>
 
 <style lang="scss" scoped>
+.custom-hover {
+  transition: all 0.3s cubic-bezier(0.19, 1, 0.22, 1);
+  &:hover,
+  &:focus {
+    color: $brand-green-color;
+  }
+}
 </style>
