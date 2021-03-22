@@ -12,9 +12,9 @@
           class="bg-brand-green z-0 absolute w-8 sm:w-10 h-full -left-3 -top-1"
         ></span>
       </h3>
-      <ul class="inline-flex space-x-4 mb-4 font-bold overflow-x-scroll">
+      <ul class="inline-flex space-x-4 mb-4 font-bold w-full">
         <li
-          class="px-4 py-2 rounded-full bg-brand-lightgreen text-sm"
+          class="px-4 py-2 rounded-full bg-brand-lightgreen text-sm truncate"
           v-for="tag in category.tag"
           :key="tag"
         >
