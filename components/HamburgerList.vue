@@ -57,8 +57,13 @@
       >
       <a
         :href="`mailto:${$store.state.main.email}`"
-        class="custom-hover text-5xl font-bold"
+        class="hidden lg:block custom-hover text-5xl font-bold"
         >{{ $store.state.main.email }}</a
+      >
+      <a
+        :href="`mailto:${$store.state.main.email}`"
+        class="lg:hidden custom-hover text-5xl font-bold"
+        >Email</a
       >
       <div class="flex">
         <a
