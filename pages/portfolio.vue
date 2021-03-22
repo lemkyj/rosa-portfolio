@@ -9,7 +9,7 @@
         class="grid anim-fade-y shadow-lg bg-white"
       >
         <div
-          class="col-start-2 col-end-4 lg:col-start-1 py-2 overflow-x-auto lg:overflow-hidden flex justify-start items-center lg:justify-center space-x-4"
+          class="col-start-2 col-end-4 py-2 overflow-x-auto lg:overflow-hidden flex justify-start items-center lg:justify-center space-x-4"
         >
           <button
             class="custom-button--filter text-sm md:text-lg border rounded px-2 md:px-6 py-1 md:py-2 my-1 md:my-2 text-white"
