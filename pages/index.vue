@@ -104,7 +104,7 @@
               {{ category.contents }}
             </p>
             <nuxt-link
-              :to="'/portfolio?category=' + currentCategory"
+              :to="'/portfolio?category=' + category.id"
               class="anim-fade-right custom-link-btn my-4 font-bold text-base md:text-lg text-brand-green flex items-center transform translate-x-2 hover:translate-x-4 duration-75 ease-out"
               >VIEW PROJECTS
               <svg
@@ -157,7 +157,7 @@
                   {{ currentObj.contents }}
                 </p>
                 <nuxt-link
-                  :to="'/portfolio?category=' + currentCategory"
+                  :to="'/portfolio?category=' + currentObj.id"
                   class="anim-fade-right custom-link-btn my-4 font-bold text-base md:text-lg text-brand-green flex items-center transform translate-x-2 hover:translate-x-4 duration-75 ease-out"
                   >VIEW PROJECTS
                   <svg
