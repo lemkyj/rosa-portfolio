@@ -69,20 +69,21 @@
       >
       <div class="flex">
         <a
-          rel="noopener"
+          rel="noreferrer"
           :href="$store.state.main.twitter"
           target="_blank"
           class="custom-hover cursor-pointer text-2xl font-bold mx-8 uppercase m-4"
           >Twitter</a
         >
         <a
-          rel="noopener"
+          rel="noreferrer"
           :href="$store.state.main.facebook"
           target="_blank"
           class="custom-hover cursor-pointer text-2xl font-bold mx-8 uppercase m-4"
           >Facebook</a
         >
         <a
+          rel="noreferrer"
           :href="$store.state.main.instagram"
           target="_blank"
           class="custom-hover cursor-pointer text-2xl font-bold mx-8 uppercase m-4"
