@@ -1,6 +1,7 @@
 <template>
   <div class="fixed inset-0 bg-brand-pink w-full h-full z-50">
-    <div
+    <button
+      aria-label="Close"
       class="absolute right-16 top-16 cursor-pointer"
       @click="$store.commit('main/navisOpen')"
     >
@@ -42,7 +43,7 @@
           />
         </g>
       </svg>
-    </div>
+    </button>
     <div
       class="flex flex-col w-full h-full justify-center items-center space-y-14"
       @click="$store.commit('main/navisOpen')"
