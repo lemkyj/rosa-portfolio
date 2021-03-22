@@ -45,6 +45,7 @@
       </svg>
     </button>
     <div
+      aria-label="Close"
       class="flex flex-col w-full h-full justify-center items-center space-y-14"
       @click="$store.commit('main/navisOpen')"
     >
@@ -82,7 +83,6 @@
           >Facebook</a
         >
         <a
-          rel="noopener"
           :href="$store.state.main.instagram"
           target="_blank"
           class="custom-hover cursor-pointer text-2xl font-bold mx-8 uppercase m-4"
