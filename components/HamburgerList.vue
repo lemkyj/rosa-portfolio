@@ -47,10 +47,10 @@
       class="flex flex-col w-full h-full justify-center items-center space-y-14"
       @click="$store.commit('main/navisOpen')"
     >
-      <nuxt-link exact to="/" class="md:hidden text-5xl font-bold"
+      <nuxt-link exact to="/" class="lg:hidden text-5xl font-bold"
         >Home</nuxt-link
       >
-      <nuxt-link to="/portfolio" class="md:hidden text-5xl font-bold"
+      <nuxt-link to="/portfolio" class="lg:hidden text-5xl font-bold"
         >Portfolio</nuxt-link
       >
       <a :href="`mailto:${$store.state.main.email}`" class="text-5xl font-bold"
